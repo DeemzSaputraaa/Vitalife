@@ -27,6 +27,12 @@ Route::get('/spesialis', function () {
     return view('fitur.spesialis');
 })->middleware(['auth', 'verified'])->name('spesialis');
 
+//yoga
+
+Route::get('/yoga', function () {
+    return view('fitur.yoga');
+})->middleware(['auth', 'verified'])->name('yoga');
+
 //Features
 // Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 // Route::get('/features', 'FeaturesController@index')->name('features');

@@ -10,7 +10,7 @@
         <div class="pt-1">
             <div class="container flex flex-wrap items-center">
                 <div class="flex flex-row items-center">
-                    <div class="w-full md:w-2/5 justify-center items-start text-center md:text-left ml-12">
+                    <div class="w-full md:w-2/5 justify-start items-start text-left md:text-left ml-12">
                         <p class="uppercase tracking-loose">Skip the Travel! Take Online</p>
                         <h1 class="text-5xl font-bold leading-tight">Welcome <span class="text-blue-300">Vitalife</span>
                         </h1>
@@ -18,11 +18,11 @@
                             health specialists...</p>
                         <button
                             class="bg-blue-500 text-white font-bold rounded-full py-4 px-8 shadow-lg hover:scale-105 transition duration-300 ease-in-out"
-                            onclick="window.location.href='#specialisation'">Consult Now</button>
+                            href='#specialisation'>Consult Now</button>
                     </div>
                     <div class="w-full md:w-3/5 py-6 text-center">
                         <div class="rounded-lg overflow-hidden">
-                            <img class="w-full h-auto" src="../image/bgdash.png" />
+                            <img class="w-full h-auto lg:w-4/5 xl:w-3/4" src="../image/bgdash.png" />
                         </div>
                     </div>
                 </div>
