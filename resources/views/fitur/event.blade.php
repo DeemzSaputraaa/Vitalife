@@ -5,7 +5,6 @@
     </div>
 
     <div class="flex justify-center items-start mt-8 mx-auto px-48">
-
         <div class="bg-white rounded-lg shadow-2xl p-8 flex-1">
             <div class="flex items-center mb-6">
                 <div class="w-16 h-16 rounded-full bg-gray-200 mr-6">
