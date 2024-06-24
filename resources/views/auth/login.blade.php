@@ -69,19 +69,21 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="flex flex-col justify-center mb-12 lg:mb-16">
-        <div class="bg-white w-64 h-12 flex justify-center rounded-xl p-4 shadow-md">
-            <a href="{{ route('login') }}" class="sign-in-btn w-1/2 h-full bg-gray-100 text-black rounded-md mr-2 py-3">
+    <div class="flex flex-col justify-center">
+        <div class="bg-white flex justify-center rounded-md p-4 shadow-md h-24">
+            <a href="{{ route('login') }}" class="">
                 <button class="w-full h-full">Sign In</button>
             </a>
-            <span class="px-3 py-2 text-gray-600">|</span>
-            <a href="{{ route('register') }}" class="sign-up-btn w-1/2 h-full opacity-60 py-3">
+            <span class="px-3 text-gray-600">|</span>
+            <a href="{{ route('register') }}" class="">
                 <button class="w-full h-full">Sign Up</button>
             </a>
         </div>
-        <h2 class="text-center dark:text-dark text-3xl font-bold mt-4">
-            Welcome to Vitalife
-        </h2>
+        <div class="mt-4 text-center">
+            <h2 class="dark:text-dark text-3xl font-bold">
+                Welcome to Vitalife
+            </h2>
+        </div>
     </div>
     <form method="POST" action="{{ route('login') }}">
         @csrf

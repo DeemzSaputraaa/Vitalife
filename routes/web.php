@@ -27,6 +27,12 @@ Route::get('/spesialis', function () {
     return view('fitur.spesialis');
 })->middleware(['auth', 'verified'])->name('spesialis');
 
+//Features
+// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+// Route::get('/features', 'FeaturesController@index')->name('features');
+// Route::get('/specialisation', 'SpecialisationController@index')->name('specialisation');
+// Route::get('/voucher', 'VoucherController@index')->name('voucher');
+
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
