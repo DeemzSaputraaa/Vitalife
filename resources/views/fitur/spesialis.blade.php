@@ -1,6 +1,6 @@
 <x-app-layout>
     @include('layouts.pencarian')
-    <div class="flex items-center pl-32 pt-8">
+    <div class="flex items-center pl-48 pt-8">
         <h3 class="text-3xl font-bold text-gray-800">Spesialist</h3>
     </div>
 

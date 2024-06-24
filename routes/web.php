@@ -33,6 +33,12 @@ Route::get('/yoga', function () {
     return view('fitur.yoga');
 })->middleware(['auth', 'verified'])->name('yoga');
 
+//event
+
+Route::get('/event', function () {
+    return view('fitur.event');
+})->middleware(['auth', 'verified'])->name('event');
+
 //Features
 // Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 // Route::get('/features', 'FeaturesController@index')->name('features');
