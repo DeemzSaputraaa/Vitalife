@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class spa extends Model
 {
-    protected $table = 'spa';
+    protected $table = 'spas';
     protected $fillable = [
         'nama',
         'harga',
         'alamat',
         'noHP',
+        'waktuBuka',
     ];
     use HasFactory;
 }

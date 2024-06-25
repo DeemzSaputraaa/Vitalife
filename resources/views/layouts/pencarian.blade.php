@@ -2,11 +2,13 @@
     <div class="bg-gray-100 rounded-2xl shadow-lg w-full max-w-4xl p-8">
         <!-- div1 -->
         <div class="flex justify-start border-gray-500 items-center mb-6 w-full">
-            <div class="border-none rounded-md py-2 px-4 text-sm">
-                <input type="text" name="location" id="location"
-                    class="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset"
-                    placeholder="Set your location" style="width: 317px" />
-            </div>
+            <form class="d-flex align-items-center" action="{{ route('spaFilter') }}" method="GET">
+                <div class="border-none rounded-md py-2 px-4 text-sm">
+                    <input type="text" name="location" id="location"
+                        class="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset"
+                        placeholder="Set your location" style="width: 317px" />
+                </div>
+            </form>
             <div class="bg-gray-100 border-none rounded-md py-2 px-4 text-sm">
                 <input type="text"
                     class="block w-full rounded-md border-0 py-1.5 pl-3 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset"

@@ -1,8 +1,14 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SpaController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
+    Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
+});
 //welcome
 
 Route::get('/', function () {
@@ -17,9 +23,9 @@ Route::get('/dashboard', function () {
 
 //spa
 
-Route::get('/spa', function () {
-    return view('fitur.spa');
-})->middleware(['auth', 'verified'])->name('spa');
+// Route::get('/spa', function () {
+//     return view('fitur.spa');
+// })->middleware(['auth', 'verified'])->name('spa');
 
 // spesialis
 

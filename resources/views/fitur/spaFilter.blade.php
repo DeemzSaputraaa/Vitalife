@@ -1,6 +1,5 @@
 <x-app-layout>
     @include('layouts.pencarian')
-
     {{-- slide 2 --}}
     <div class="flex justify-center items-center">
         <div class="font-sans">
@@ -33,7 +32,7 @@
                             <a href="#" class="text-blue-500 hover:text-blue-700 text-lg">more</a>
                         </div>
                         <div class="mt-6">
-                            <p class="text-gray-500 text-lg">Rp.{{ $spa->harga }}</p>
+                            <p class="text-gray-500 text-lg">Rp.{{ number_format($spa->harga, 0, ',', '.') }}</p>
                         </div>
                         <div class="mt-6">
                             <p class="text-gray-500 text-lg">{{ $spa->noHP }}</p>

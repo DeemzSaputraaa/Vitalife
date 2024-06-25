@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('alamat');
             $table->string('noHP');
+            $table->string('waktuBuka');
             $table->timestamps();
         });
     }

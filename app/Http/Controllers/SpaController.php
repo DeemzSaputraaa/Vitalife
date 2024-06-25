@@ -10,10 +10,19 @@ class SpaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function spa() {
-        $spaTotal = spa::all();
-        return view('spa', ['spaTotal' => $spaTotal]);
-        
+    public function showSpas()
+    {
+        $spaTotal = Spa::all(); // Fetch all spa data
+
+        return view('fitur.spa', compact('spaTotal'));
+    }
+
+    public function spaFilter(Request $request)
+    {
+        $spa = $request->input('location');
+        $spaTotal = Spa::where('alamat', 'like', "%$spa%")->get();
+
+        return view('fitur.spaFilter', compact('spaTotal'));
     }
     public function index()
     {
