@@ -69,15 +69,23 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="flex flex-col justify-center">
-        <div class="bg-white flex justify-center rounded-md p-4 shadow-md h-24">
-            <a href="{{ route('login') }}" class="">
-                <button class="w-full h-full">Sign In</button>
-            </a>
-            <span class="px-3 text-gray-600">|</span>
-            <a href="{{ route('register') }}" class="">
-                <button class="w-full h-full">Sign Up</button>
-            </a>
+    <!-- Sign in Sign up -->
+    <div class="flex flex-col justify-center mb-6">
+        <div class="bg-white flex justify-center rounded-md p-2 shadow-md h-12 w-96 mx-auto relative">
+            <div class="flex justify-between items-center w-full px-2">
+                <a href="{{ route('login') }}" id="signInBtn"
+                    class="w-[45%] h-[34px] rounded-md transition-all duration-300 z-10 text-sm font-medium focus:outline-none">
+                    <span class="px-2 py-1 rounded">Sign In</span>
+                </a>
+                <div class="h-8 w-px bg-gray-300 mx-2 px-4">|</div>
+                <a href="{{ route('register') }}" id="signUpBtn"
+                    class="w-[45%] h-[34px] rounded-md transition-all duration-300 z-10 text-sm font-medium focus:outline-none">
+                    <span class="px-2 py-1 rounded">Sign Up</span>
+                </a>
+                <div id="slider"
+                    class="absolute top-[5px] left-[9px] w-[45%] h-[34px] bg-blue-500 rounded-md transition-all duration-300">
+                </div>
+            </div>
         </div>
         <div class="mt-4 text-center">
             <h2 class="dark:text-dark text-3xl font-bold">
@@ -85,7 +93,9 @@
             </h2>
         </div>
     </div>
-    <form method="POST" action="{{ route('login') }}">
+
+    <!-- Login Form -->
+    <form id="loginForm" method="POST" action="{{ route('login') }}" class="pb-20">
         @csrf
         <!-- Email Address -->
         <div>
@@ -115,17 +125,51 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
+        <div class="mt-4 flex flex-col items-center">
             @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-black rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
-                    href="{{ route('password.request') }}">
+                <a class="text-sm text-gray-600 hover:text-gray-900 mb-4" href="{{ route('password.request') }}">
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
+            <div class="w-full">
+                <button type="submit"
+                    class="w-full bg-blue-300 text-black py-2 px-4 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-500"
+                    onclick="animateButton(this)">
+                    {{ __('Log in') }}
+                </button>
+            </div>
         </div>
     </form>
+
+    <script>
+        const signInBtn = document.getElementById('signInBtn');
+        const signUpBtn = document.getElementById('signUpBtn');
+        const slider = document.getElementById('slider');
+
+        function setActiveButton(activeBtn, inactiveBtn) {
+            activeBtn.querySelector('span').classList.add('border', 'border-gray-400', 'bg-gray-100');
+            inactiveBtn.querySelector('span').classList.remove('border', 'border-gray-400', 'bg-gray-100');
+        }
+
+        function animateButton(button) {
+            button.classList.add('animate-pulse', 'scale-90');
+            setTimeout(() => {
+                button.classList.remove('animate-pulse', 'scale-90');
+            }, 300);
+        }
+
+        signInBtn.addEventListener('click', () => {
+            slider.style.left = '9px';
+            setActiveButton(signInBtn, signUpBtn);
+        });
+
+        signUpBtn.addEventListener('click', () => {
+            slider.style.left = 'calc(50% + 5px)';
+            setActiveButton(signUpBtn, signInBtn);
+        });
+
+        // Set initial active state
+        setActiveButton(signInBtn, signUpBtn);
+    </script>
 </x-guest-layout>
