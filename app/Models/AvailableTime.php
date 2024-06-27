@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class yoga extends Model
+class AvailableTime extends Model
 {
     protected $fillable = [
-        'name',
-        'description',
-        'experience',
-        'address',
-        'location',
+        'spa_id',
+        'time_slot',
+        'available',
     ];
     use HasFactory;
 }

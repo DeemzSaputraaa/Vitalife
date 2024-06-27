@@ -1,3 +1,5 @@
+<!-- spa.blade.php -->
+
 <x-app-layout>
     @include('layouts.pencarian')
 
@@ -11,9 +13,9 @@
                         <div class="flex items-center border-b border-gray-500 pb-2">
                             <div class="w-16 h-16 rounded-full bg-gray-200 mr-6"></div>
                             <div>
-                                <h2 class="text-2xl font-bold">MANSION SPA JOGJA</h2>
-                                <p class="text-gray-500 text-lg">Relaxation</p>
-                                <p class="text-gray-500 text-lg">16 years experience overall</p>
+                                <h2 class="text-2xl font-bold">{{ $yoga->name }}</h2>
+                                <p class="text-gray-500 text-lg">{{ $yoga->description }}</p>
+                                <p class="text-gray-500 text-lg">{{ $yoga->experience }} years experience overall</p>
                             </div>
                         </div>
                     </div>
@@ -27,7 +29,7 @@
                         <span class="text-green-500 font-medium text-lg">99% 93 Patient Stories</span>
                     </div>
                     <div class="mt-6">
-                        <p class="text-gray-500 text-lg">Kec. Gamping, Kabupaten Sleman, DIY</p>
+                        <p class="text-gray-500 text-lg">{{ $yoga->address }}</p>
                         <p class="text-gray-500 text-lg">The most famous relaxation spa</p>
                         <a href="#" class="text-blue-500 hover:text-blue-700 text-lg">more</a>
                     </div>
@@ -46,25 +48,11 @@
                     <div class="mt-10">
                         <h3 class="text-xl font-bold">Available Today</h3>
                         <div class="grid grid-cols-3 gap-6 mt-6">
-                            <div>
-                                <p class="text-gray-500 text-lg">Morning</p>
-                                <p class="font-medium text-lg">11:30 AM</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-lg">Afternoon</p>
-                                <p class="font-medium text-lg">12:00 PM</p>
-                                <p class="font-medium text-lg">12:30 PM</p>
-                                <p class="font-medium text-lg">01:30 PM</p>
-                                <p class="font-medium text-lg">02:00 PM</p>
-                                <p class="font-medium text-lg">02:30 PM</p>
-                            </div>
-                            <div>
-                                <p class="text-gray-500 text-lg">Evening</p>
-                                <p class="font-medium text-lg">06:00 PM</p>
-                                <p class="font-medium text-lg">06:30 PM</p>
-                                <p class="font-medium text-lg">07:00 PM</p>
-                                <p class="font-medium text-lg">07:30 PM</p>
-                            </div>
+                            @foreach ($availableTimes as $time)
+                                <div>
+                                    <p class="text-gray-500 text-lg">{{ $time->time_slot }}</p>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

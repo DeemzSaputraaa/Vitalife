@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\yoga;
 use Illuminate\Http\Request;
+use App\Models\AvailableTime;
+
 
 class YogaController extends Controller
 {
@@ -12,7 +14,9 @@ class YogaController extends Controller
      */
     public function index()
     {
-        //
+        $yoga = Yoga::find(1); // assuming there is only one spa
+        $availableTimes = AvailableTime::where('id', $yoga->id)->get();
+        return view('yoga', compact('yoga', 'availableTimes'));
     }
 
     /**
