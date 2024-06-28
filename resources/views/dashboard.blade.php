@@ -173,22 +173,68 @@
         </div>
     </section>
 
-    <section class="bg-white dark:bg-gray-900">
-        <div class="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-            <dl class="grid max-w-screen-md gap-8 mx-auto text-gray-900 sm:grid-cols-3 dark:text-white">
-                <div class="flex flex-col items-center justify-center">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">73M+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">developers</dd>
+    <section class="bg-blue-50 p-16">
+        <div class="max-w-screen-xl mx-auto px-4">
+            <div class="flex md:flex-row justify-between items-start">
+                <div class="flex-1 md:w-1/2 mb-8 md:mb-0">
+                    <p class="text-blue-500 uppercase text-sm font-semibold mb-2">CARING FOR THE HEALTH OF YOU AND YOUR
+                        FAMILY.</p>
+                    <h2 class="text-3xl font-bold text-navy-800 mb-4">Our Families</h2>
+                    <p class="text-gray-600 mb-4">
+                        We will work with you to develop individualised care plans, including management of chronic
+                        diseases. If we cannot assist, we can provide referrals or advice about the type of practitioner
+                        you require. We treat all enquiries sensitively and in the strictest confidence.
+                    </p>
                 </div>
-                <div class="flex flex-col items-center justify-center">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">1B+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">contributors</dd>
+                <div class=" flex-col md:w-1/2 grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col items-center">
+                        <div class="bg-blue-100 p-3 rounded-full mb-4">
+                            <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-navy-800 mb-2">5000+</h3>
+                        <p class="text-gray-500">Happy Patients</p>
+                    </div>
+                    <div class="bg-white p-6 mt-12 rounded-lg shadow-sm flex flex-col items-center">
+                        <div class="bg-red-100 p-3 rounded-full mb-4">
+                            <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-navy-800 mb-2">200+</h3>
+                        <p class="text-gray-500">Hospitals</p>
+                    </div>
+                    <div class="bg-white p-6 mb-12 rounded-lg shadow-sm flex flex-col items-center">
+                        <div class="bg-yellow-100 p-3 rounded-full mb-4">
+                            <svg class="w-6 h-6 text-yellow-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-navy-800 mb-2">1000+</h3>
+                        <p class="text-gray-500">Laboratories</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col items-center">
+                        <div class="bg-green-100 p-3 rounded-full mb-4">
+                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-navy-800 mb-2">700+</h3>
+                        <p class="text-gray-500">Expert Doctors</p>
+                    </div>
                 </div>
-                <div class="flex flex-col items-center justify-center">
-                    <dt class="mb-2 text-3xl md:text-4xl font-extrabold">4M+</dt>
-                    <dd class="font-light text-gray-500 dark:text-gray-400">organizations</dd>
-                </div>
-            </dl>
+            </div>
         </div>
     </section>
     @include('layouts.footer')

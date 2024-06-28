@@ -1,51 +1,73 @@
 <footer>
-    <section class="py-14 justify-center md:py-8 bg-biru dark:text-[#0b1727]">
-        <div class="container px-4 flex flex-col md:flex-row items-center gap-4 mb-12 justify-center">
-            <div class="col-span-12 lg:col-span-4 relative">
-                <img src="https://cdn.easyfrontend.com/pictures/about/about9.jpg" alt=""
-                    class="max-w-full h-auto rounded-2xl" style="width: 40%; margin-right: 20px;" />
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8">
+                <p class="text-blue-500 text-sm font-medium mb-2">Get Your Answer</p>
+                <h2 class="text-3xl font-bold text-[#1e3a8a]">Frequently Asked Questions</h2>
             </div>
-            <div class="col-span-12 lg:col-span-8 ml-4 justify-center">
-                <h6 class="font-medium opacity-70 mb-2">Hello Buleeee,</h6>
-                <h1 class="text-3xl leading-none font-bold uppercase tracking-wider mb-2">Welcome to Vitalife</h1>
-                <hr class="bg-blue-600 h-1 rounded-[3px] w-12 opacity-100 my-6" />
-                <p class="opacity-70 mb-2">Since our inception set out in 2012, TalEx has set out to disrupt inception
-                    the HR & Talent/Staffing Management industry. Purposefully designed by our founders (Amrita Grewal
-                    and Julie Dacar) to connect great companies and great talent.</p>
-                <ul class="flex flex-col mt-5">
-                    <li>
-                        <FontAwesomeIcon icon={faCheck} class="text-blue-600 mr-2 mb-4 text-sm" />
-                        <span class="opacity-75 text-sm">Beautiful and easy to understand UI.</span>
-                    </li>
-                    <hr class="w-11/12 my-2" />
-                    <li>
-                        <FontAwesomeIcon icon={faCheck} class="text-blue-600 mr-2 mb-4 text-sm" />
-                        <span class="opacity-75 text-sm">Theme advantages are pixel perfect design & clear code</span>
-                    </li>
-                    <hr class="w-11/12 my-2" />
-                    <li>
-                        <FontAwesomeIcon icon={faCheck} class="text-blue-600 mr-2 mb-4 text-sm" />
-                        <span class="opacity-75 text-sm">Present your services with flexible</span>
-                    </li>
-                    <hr class="w-11/12 my-2" />
-                    <li>
-                        <FontAwesomeIcon icon={faCheck} class="text-blue-600 mr-2 mb-4 text-sm" />
-                        <span class="opacity-75 text-sm">Find more creative ideas for your projects</span>
-                    </li>
-                    <hr class="w-11/12 my-2" />
-                    <li>
-                        <FontAwesomeIcon icon={faCheck} class="text-blue-600 mr-2 text-sm" />
-                        <span class="opacity-75 text-sm">Faucibus porta lacus fringilla vel</span>
-                    </li>
-                </ul>
-                <div class="mt-12">
-                    <button
-                        class="bg-gray-900 text-white dark:bg-biru2 dark:text-white hover:bg-opacity-90 rounded-md px-5 py-2 transition">Learn
-                        More</button>
+            <div class="flex justify-center md:flex-row items-start gap-8">
+
+                {{-- image --}}
+                <div class="flex-1 w-full md:w-1/3 relative ml-40">
+                    <img src="../image/bgdash.png" alt="Doctor with patient" class="w-lg h-auto rounded-lg max-w-md" />
+                    <div class="absolute bottom-4 left-4 flex items-center bg-white rounded-full px-3 py-1 shadow-md">
+                        <span class="text-2xl mr-2">😊</span>
+                        <p class="font-semibold text-sm">84k+ <span class="font-normal text-gray-600">Happy
+                                Patients</span></p>
+                    </div>
+                </div>
+
+                {{-- konten --}}
+                <div class="flex flex-col md:w-2/3  mr-32 flex-1 pt-20 max-w-xl">
+                    <div class="space-y-4">
+                        <div class="border-b pb-4">
+                            <button class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">Why choose our medical for your family?</span>
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="border-b pb-4">
+                            <button class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">Why we are different from others?</span>
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="border-b pb-4">
+                            <button class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">Trusted & experience senior care & love</span>
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="border-b pb-4">
+                            <button class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">How to get appointment for emergency
+                                    cases?</span>
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     <div class="bg-gray-800 text-white flex items-center justify-center p-10">
         <div class="container mx-auto px-8 py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
