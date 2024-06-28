@@ -116,25 +116,24 @@
         </div>
 
         <!-- Remember Me -->
-        <div class="block mt-4">
+        <div class="flex justify-between items-center mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox"
                     class="rounded dark:bg-white border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800"
                     name="remember">
                 <span class="ms-2 text-sm text-gray-900 dark:text-gray-600">{{ __('Remember me') }}</span>
             </label>
-        </div>
-
-        <div class="mt-4 flex flex-col items-center">
             @if (Route::has('password.request'))
-                <a class="text-sm text-gray-600 hover:text-gray-900 mb-4" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                    {{ __('Forgot password?') }}
                 </a>
             @endif
+        </div>
 
+        <div class="mt-4 flex flex-col items-center bg-gray-500 rounded-md">
             <div class="w-full">
                 <button type="submit"
-                    class="w-full bg-blue-300 text-black py-2 px-4 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-500"
+                    class="w-full bg-blue-300 text-white py-2 px-4 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-500"
                     onclick="animateButton(this)">
                     {{ __('Log in') }}
                 </button>
