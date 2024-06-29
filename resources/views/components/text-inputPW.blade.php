@@ -3,7 +3,7 @@
 <div x-data="{ showPassword: false }" class="relative">
     <input {{ $disabled ? 'disabled' : '' }} :type="showPassword ? 'text' : 'password'" {!! $attributes->merge([
         'class' =>
-            'border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm pr-10 w-full',
+            'border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm pr-10 w-full',
     ]) !!}>
     <button type="button" @click="showPassword = !showPassword"
         class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600">

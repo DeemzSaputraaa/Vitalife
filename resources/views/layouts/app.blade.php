@@ -19,7 +19,7 @@
 </head>
 
 <body class="font-sans antialiased">
-    <div class="min-h-screen bg-[#E7F0FF]"> <!--ganti warna-->
+    <div class="min-h-screen bg-[#A2D2FF]"> <!--ganti warna-->
         @include('layouts.navigation')
 
         <!-- Page Heading -->

@@ -209,8 +209,8 @@
         <div class="relative flex flex-col justify-center items-center px-6 text-white min-h-screen bg-cover bg-center rounded-l-lg"
             style="background-image: url('../image/login.jpg');">
             <div class="absolute inset-0 bg-gradient-to-l from-blue-700 to-transparent opacity-70"></div>
-            <div class="absolute top-4 left-4 z-20 px-3">
-                <img src="../image/LOGO_1.png" alt="Logo" class="w-24 h-auto">
+            <div class="absolute top-4 left-4 z-20 px-4 py-36">
+                <img src="../image/LOGO_1.png" alt="Logo" class="w-32 h-auto">
             </div>
             <div class="relative z-10 text-start px-3">
                 <h2 class="text-4xl font-bold mb-4">Hello, Welcome</h2>

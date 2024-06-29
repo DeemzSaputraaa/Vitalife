@@ -43,7 +43,7 @@
                                 <x-dropdown-link :href="route('yoga')">
                                     {{ __('Yoga') }}
                                 </x-dropdown-link>
-                                <x-dropdown-link :href="route('spesialis')">
+                                <x-dropdown-link :href="route('event')">
                                     {{ __('Event') }}
                                 </x-dropdown-link>
                             </x-slot>
