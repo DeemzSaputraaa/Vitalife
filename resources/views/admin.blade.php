@@ -18,7 +18,7 @@
 </head>
 
 <body class="flex flex-col h-screen">
-    <header class="antialiased bg-white border-b border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
+    {{-- <header class="antialiased bg-white border-b border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
         <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
             <div class="flex flex-wrap justify-between items-center">
                 <div class="flex justify-start items-center">
@@ -445,10 +445,10 @@
                 </div>
             </div>
         </nav>
-    </header>
+    </header> --}}
 
     {{-- Sidenav --}}
-    <div class="flex-grow p-6 max-w-4xl mx-auto">
+    {{-- <div class="flex-grow p-6 max-w-4xl mx-auto">
         <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar"
             aria-controls="default-sidebar" type="button"
             class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -808,6 +808,243 @@
             </aside>
         </div>
 
+    </div> --}}
+
+    <div class="flex h-screen bg-gray-100">
+        <!-- Sidebar -->
+        <aside class="w-16 bg-black">
+            <div class="flex flex-col items-center py-4">
+                <div class="bg-white p-2 rounded-lg mb-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                        </path>
+                    </svg>
+                </div>
+                <!-- Add more sidebar icons here -->
+                <div class="p-2 rounded-lg mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 10h16M4 14h16M4 18h16"></path>
+                    </svg>
+                </div>
+
+                <div class="p-2 rounded-lg mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>
+                    </svg>
+                </div>
+                <div class="p-2 rounded-lg mb-4">
+                    <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="flex-1 p-8">
+            <header class="flex justify-start items-center mb-8">
+                <button>
+                    <svg class="w-6 h-6 text-gray-800 dark:text-black" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
+                            d="M5 7h14M5 12h14M5 17h10" />
+                    </svg>
+                </button>
+                <h1 class="text-2xl font-bold ml-2">Dashboard</h1>
+                <div class="flex items-center">
+                    <!-- Add header icons here -->
+                </div>
+            </header>
+
+            <!-- Stat cards -->
+            {{-- <div class="grid grid-cols-4 gap-4 mb-8">
+                <div class="bg-black text-white p-4 rounded-lg">
+                    <h3 class="font-bold">120</h3>
+                    <p class="text-sm">Total Mews</p>
+                    <!-- Add progress bar here -->
+                </div> --}}
+            <div class="flex space-x-4 mb-4">
+                <!-- Total Mews Card -->
+                <div class="bg-black text-white rounded-lg p-4 flex-1 w-full">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold">120</h2>
+                            <p class="text-sm text-gray-400">Total Mews</p>
+                        </div>
+                        <div class="bg-gray-700 p-2 rounded-md">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-800 rounded-full h-4">
+                        <div class="bg-white h-4 rounded-full" style="width: 45%"></div>
+                    </div>
+                </div>
+
+                <!-- Total Orders Today Card -->
+                <div class="bg-white rounded-lg p-4 flex-1 shadow">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold">180</h2>
+                            <p class="text-sm text-gray-500">Total Orders Today</p>
+                        </div>
+                        <div class="bg-blue-100 p-2 rounded-md">
+                            <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path>
+                                <path fill-rule="evenodd"
+                                    d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-200 rounded-full h-2">
+                        <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
+                    </div>
+                </div>
+
+                <!-- Total Clients Today Card -->
+                <div class="bg-white rounded-lg p-4 flex-1 shadow">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold">240</h2>
+                            <p class="text-sm text-gray-500">Total Clients Today</p>
+                        </div>
+                        <div class="bg-green-100 p-2 rounded-md">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 50%"></div>
+                    </div>
+                </div>
+
+                <!-- Revenue Card -->
+                <div class="bg-white rounded-lg p-4 flex-1 shadow">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h2 class="text-2xl font-bold">140</h2>
+                            <p class="text-sm text-gray-500">Revenue per Day (BDT)</p>
+                        </div>
+                        <div class="bg-red-100 p-2 rounded-md">
+                            <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-gray-200 rounded-full h-2">
+                        <div class="bg-red-500 h-2 rounded-full" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+            {{-- </div> --}}
+
+            <!-- Charts section -->
+            <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold mb-4">Revenue</h3>
+                    <div class="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-bold">Revenue</h2>
+                            <div class="flex space-x-2">
+                                <button class="px-3 py-1 bg-gray-800 text-white rounded-md">Monthly</button>
+                                <button class="px-3 py-1 text-gray-600">Weekly</button>
+                                <button class="px-3 py-1 text-gray-600">Daily</button>
+                            </div>
+                        </div>
+
+                        <div class="relative h-64">
+                            <!-- Chart lines would go here -->
+                            <div class="absolute bottom-0 left-0 w-full h-px bg-gray-200"></div>
+                            <div class="absolute top-0 left-0 h-full w-px bg-gray-200"></div>
+
+                            <!-- Example of a line -->
+                            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-blue-500 opacity-20 rounded-tr-full">
+                            </div>
+
+                            <!-- Data points -->
+                            <div class="absolute bottom-1/2 right-0 w-2 h-2 bg-blue-500 rounded-full"></div>
+                            <div class="absolute bottom-1/4 right-1/4 w-2 h-2 bg-red-500 rounded-full"></div>
+                        </div>
+
+                        <div class="flex justify-between mt-2 text-sm text-gray-600">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                        </div>
+
+                        <div class="flex items-center mt-4 space-x-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
+                                <span>Income: 18%</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                <span>Expenses: 11%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow">
+                    <h3 class="font-bold mb-4">Orders Summary</h3>
+                    <!-- Add bar chart here -->
+                </div>
+            </div>
+
+            <!-- Order list -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <h3 class="font-bold mb-4">Order List</h3>
+                <table class="w-full">
+                    <thead>
+                        <tr class="text-left">
+                            <th>No.</th>
+                            <th>Date</th>
+                            <th>Customer Name</th>
+                            <th>Location</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Add table rows here -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
 
 </body>

@@ -34,12 +34,14 @@
             <!-- Check box -->
             <div class="bg-white border rounded-lg p-4 flex-1">
                 <div class="space-y-4">
-                    <div class="flex items-center justify-between">
+                    <div class="flex items-center justify-start">
                         <label class="flex items-center space-x-2 cursor-pointer">
                             <input type="radio" name="event-type" value="all-event" class="form-radio text-blue-500"
                                 checked>
                             <span class="text-gray-900 font-medium">All event</span>
                         </label>
+                    </div>
+                    <div class="flex items-center justify-start">
                         <label class="flex items-center space-x-2 cursor-pointer">
                             <input type="radio" name="event-type" value="about-checkout"
                                 class="form-radio text-blue-500">
