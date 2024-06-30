@@ -4,7 +4,7 @@
         <h3 class="text-3xl font-bold text-gray-800">Event</h3>
     </div>
 
-    <div class="flex justify-center items-start mt-8 mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-center items-start mt-8 mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <!-- Content -->
         <div class="bg-white border rounded-lg p-4 mr-4 flex-1 max-w-xl">
             <div class="flex items-start space-x-4">

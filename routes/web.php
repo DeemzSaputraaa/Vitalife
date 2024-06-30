@@ -19,6 +19,10 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+Route::get('/spaadmin', function () {
+    return view('spaadmin');
+});
+
 Route::get('/detailEvent', function () {
     return view('fitur.detailEvent');
 });
