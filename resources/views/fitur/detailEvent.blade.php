@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="bg-blue-50 rounded-lg p-6 max-w-5xl mx-auto flex mt-5">
+    <div class="bg-blue-50 rounded-lg p-6 max-w-5xl mx-auto flex mt-5 reveal">
         <div class="flex-shrink-0 mr-6">
             <img src="../image/bgrun.jpg" alt="Marathon runners" class="w-64 h-48 object-cover rounded-lg">
         </div>
@@ -30,7 +30,7 @@
         </div>
     </div>
 
-    <div class="bg-blue-50 p-6 rounded-lg max-w-5xl mx-auto mt-3">
+    <div class="bg-blue-50 p-6 rounded-lg max-w-5xl mx-auto mt-3 reveal">
         <div class="mb-6">
             <h2 class="text-xl font-bold mb-2">About the event</h2>
             <p class="text-gray-600 mb-2">

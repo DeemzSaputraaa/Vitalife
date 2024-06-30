@@ -1,4 +1,4 @@
-<div class=" flex justify-center items-center">
+<div class=" flex justify-center items-center pt-24">
     <div class="bg-gray-100 rounded-2xl shadow-lg w-full max-w-4xl p-8">
         <!-- div1 -->
         <div class="flex justify-start border-gray-500 items-center mb-6 w-full">

@@ -2,7 +2,7 @@
     @include('layouts.pencarian')
 
     {{-- slide 2 --}}
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center reveal pb-4">
         <div class="font-sans">
             @foreach ($spaTotal as $spa)
                 <div class="container mx-auto py-4 grid grid-cols-2 gap-5">
@@ -85,7 +85,6 @@
                     </div>
             @endforeach
         </div>
-    </div>
     </div>
 
     @include('layouts.footer')

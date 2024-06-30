@@ -4,7 +4,7 @@
         <h3 class="text-3xl font-bold text-gray-800">Spesialist</h3>
     </div>
 
-    <div class="flex justify-center items-start mt-8 mx-auto px-48">
+    <div class="flex justify-center items-start mt-8 mx-auto px-48 mb-10">
         <div class="bg-white border rounded-lg p-8 mr-8">
             <h2 class="font-bold mb-4">Location</h2>
             <hr class="w-full border-gray-300 mb-4" />

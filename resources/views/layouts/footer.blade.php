@@ -1,5 +1,5 @@
 <footer>
-    <section class="py-8 bg-white">
+    <section class="py-8 bg-white reveal">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
                 <p class="text-blue-500 text-sm font-medium mb-2">Get Your Answer</p>
@@ -68,7 +68,7 @@
     </section>
 
 
-    <div class="bg-gray-800 text-white flex items-center justify-center p-10">
+    <div class="bg-gray-800 text-white flex items-center justify-center p-10 reveal">
         <div class="container mx-auto px-8 py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
