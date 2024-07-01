@@ -23,6 +23,10 @@ Route::get('/spaadmin', function () {
     return view('spaadmin');
 });
 
+Route::get('/contact', function () {
+    return view('fitur.contact');
+});
+
 Route::get('/detailEvent', function () {
     return view('fitur.detailEvent');
 });

@@ -12,7 +12,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-4 sm:-my-px sm:mx-10 sm:flex sm:ml-96 justify-between">
+                <div class="hidden space-x-7 sm:-my-px sm:mx-10 sm:flex sm:ml-56 justify-between">
                     {{-- dashboard --}}
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -20,7 +20,7 @@
 
                     {{-- features --}}
                     {{-- <x-nav-link :href="route('spa')" :active="request()->routeIs('spa')"> --}}
-                    <div class="hidden sm:flex sm:items-center sm:ms-6">
+                    {{-- <div class="hidden sm:flex sm:items-center sm:ms-6">
                         <x-dropdown align="right" width="48">
                             <x-slot name="trigger">
                                 <button
@@ -49,18 +49,29 @@
                                 </x-dropdown-link>
                             </x-slot>
                         </x-dropdown>
-                    </div>
+                    </div> --}}
                     {{-- </x-nav-link> --}}
 
+                    <x-nav-link :href="route('spa')" :active="request()->routeIs('spa')">
+                        {{ __('Find SPA') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('yoga')" :active="request()->routeIs('yoga')">
+                        {{ __('Find Yoga') }}
+                    </x-nav-link>
+
+                    <x-nav-link :href="route('event')" :active="request()->routeIs('event')">
+                        {{ __('Find Event') }}
+                    </x-nav-link>
                     {{-- spesialis --}}
                     <x-nav-link :href="route('spesialis')" :active="request()->routeIs('spesialis')">
                         {{ __('Spesialisation') }}
                     </x-nav-link>
 
                     {{-- voucher --}}
-                    {{-- <x-nav-link :href="route('voucher')" :active="request()->routeIs('voucher')">
+                    <x-nav-link :href="route('spesialis')" :active="request()->routeIs('voucher')">
                         {{ __('Voucher') }}
-                    </x-nav-link> --}}
+                    </x-nav-link>
                 </div>
             </div>
 

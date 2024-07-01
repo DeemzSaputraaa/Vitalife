@@ -1,5 +1,5 @@
 <footer>
-    <section class="py-8 bg-white reveal">
+    <section class="py-8 reveal">
         <div class="container mx-auto px-4">
             <div class="text-center mb-8">
                 <p class="text-blue-500 text-sm font-medium mb-2">Get Your Answer</p>
@@ -67,8 +67,8 @@
         </div>
     </section>
 
-
-    <div class="bg-gray-800 text-white flex items-center justify-center p-10 reveal">
+    {{-- footer 1 --}}
+    {{-- <div class="bg-gray-800 text-white flex items-center justify-center p-10 reveal">
         <div class="container mx-auto px-8 py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -144,6 +144,77 @@
             <div class="mt-8 text-gray-400">
                 <p>&copy; 2024 Vitalife. All rights reserved.</p>
             </div>
+        </div>
+    </div> --}}
+
+    {{-- footer 2 --}}
+
+    {{-- <section class="ezy__copyright10 light py-12 bg-gray-800 dark:bg-gray-900 text-white dark:text-white">
+        <div class="container px-4">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 md:col-span-8 md:col-start-3">
+                    <div class="flex flex-col justify-center items-center text-center">
+                        <div class="flex items-center justify-center mb-6">
+                            <div>
+                                <img src="../image/LOGO_1.png" alt="" class="max-w-full h-auto w-24 h-24">
+                            </div>
+                            <div>
+                                <p class="ml-3">&copy; Copyright {{ date('Y') }}</p>
+                            </div>
+                        </div>
+                        <p class="opacity-50 mb-6">Isheaven male their dry doesn't without him set saw two him man
+                            itself second fifth light over fish over which creepeth void don't. Image darkness
+                            gathering. All hath don't it, abundantly darkness can't forth appear, in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> --}}
+
+
+    {{-- footer 3 --}}
+
+    <div class="relative bg-gray-800 h-80 reveal">
+        <!-- kotak1 -->
+        <div
+            class="absolute inset-0 top-0 left-0 w-full h-5/6 bg-gray-200 text-black rounded-br-full flex justify-end items-end">
+            <div class="p-6 mr-36 mb-24 flex flex-col items-center">
+                <h2 class="font-bold mb-4 text-center">Pages</h2>
+                <div class="flex">
+                    <div class="mr-8">
+                        <ul>
+                            <li><a href="#" class="hover:underline">Home</a></li>
+                            <li><a href="#" class="hover:underline">Brands</a></li>
+                            <li><a href="#" class="hover:underline">About Us</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul>
+                            <li><a href="#" class="hover:underline">Career</a></li>
+                            <li><a href="#" class="hover:underline">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- kotak2 -->
+        <div class="absolute top-0 left-0 w-2/3 h-1/2 bg-gray-400 rounded-br-full"></div>
+
+        <!-- kotak3 -->
+        <div class="absolute top-0 left-0 w-1/2 h-3/4 bg-gray-800 rounded-br-full">
+            <!-- Logo and text -->
+            <div class="p-8">
+                <img src="../image/LOGO_1.png" alt="AKIJ VENTURE" class="h-12 mb-4">
+                <p class="text-white mt-4 max-w-md">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem quos corporis atque tempora vitae,
+                    dolorum voluptates eius? Accusantium, natus.
+                </p>
+            </div>
+        </div>
+
+        {{-- copyright --}}
+        <div class="absolute bottom-0 left-0 p-4 text-gray-400">
+            <p>&copy; 2024 Vitalife. All rights reserved.</p>
         </div>
     </div>
 </footer>
