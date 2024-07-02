@@ -137,10 +137,10 @@
         <div class="relative flex flex-col justify-center items-center px-6 text-white min-h-screen bg-cover bg-center rounded-l-lg"
             style="background-image: url('../image/login.jpg');">
             <div class="absolute inset-0 bg-gradient-to-l from-blue-700 to-transparent opacity-70"></div>
-            <div class="absolute top-4 left-4 z-20 px-4 py-40">
+            <div class="absolute top-4 left-4 z-20 px-4 py-48">
                 <img src="../image/LOGO_1.png" alt="Logo" class="w-32 h-auto">
             </div>
-            <div class="relative z-10 text-start px-3">
+            <div class="relative z-20 text-start px-3">
                 <h2 class="text-4xl font-bold mb-4">Welcome, Friend!</h2>
                 <p class="mb-8">To keep connected with us please login with your personal info</p>
                 <a href="{{ route('login') }}"
@@ -151,28 +151,24 @@
         </div>
 
         <!-- Right Column - Create Account -->
-        <div class="flex flex-col justify-center items-center px-6 bg-white">
+        <div class="flex flex-col justify-center items-center p-6 bg-white">
             <div class="w-full max-w-md">
                 <h2 class="text-3xl font-bold mb-8 text-emerald-500">Create Account</h2>
 
                 <!-- Social Media Links -->
                 <div class="flex space-x-4 mb-6">
-                    <a href="#" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <a href="{{ url('auth/google') }}" class="text-gray-400 hover:text-red-500"
+                        title="Login with Google">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M20 10.06c0-5.52-4.48-10-10-10s-10 4.48-10 10 4.48 10 10 10 10-4.48 10-10zm-10 5.84c-3.23 0-5.84-2.61-5.84-5.84s2.61-5.84 5.84-5.84 5.84 2.61 5.84 5.84-2.61 5.84-5.84 5.84z" />
+                                d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
                         </svg>
                     </a>
-                    <a href="#" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                    <a href="{{ url('auth/facebook') }}" class="text-gray-400 hover:text-blue-600"
+                        title="Login with Facebook">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path
-                                d="M10 0C4.477 0 0 4.477 0 10c0 4.411 2.865 8.138 6.839 9.465.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.891 1.529 2.341 1.087 2.91.831.092-.646.349-1.086.635-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.135 20 14.41 20 10c0-5.523-4.477-10-10-10z" />
-                        </svg>
-                    </a>
-                    <a href="#" class="text-gray-400 hover:text-gray-600">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M10 0C4.477 0 0 4.477 0 10c0 4.411 2.865 8.138 6.839 9.465.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.891 1.529 2.341 1.087 2.91.831.092-.646.349-1.086.635-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C17.137 18.135 20 14.41 20 10c0-5.523-4.477-10-10-10z" />
+                                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                         </svg>
                     </a>
                 </div>
@@ -203,7 +199,7 @@
                     <div class="mt-4">
                         <x-input-label :value="__('Register as')" class="block mt-1 w-full" />
                         <select id="role" name="role"
-                            class="w-full border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm">
+                            class="w-full mt-1 border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm">
                             <option value="user">Regular User</option>
                             <option value="admin">Admin</option>
                         </select>
@@ -233,10 +229,10 @@
                         </a>
                     </div>
 
-                    <div class="mt-4 flex flex-col items-center bg-gray-500 rounded-md">
+                    <div class="mt-4 flex flex-col items-center">
                         <div class="w-full">
                             <button type="submit"
-                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-700"
+                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-700"
                                 onclick="animateButton(this)">
                                 {{ __('Register') }}
                             </button>

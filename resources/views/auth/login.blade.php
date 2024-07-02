@@ -209,7 +209,7 @@
         <div class="relative flex flex-col justify-center items-center px-6 text-white min-h-screen bg-cover bg-center rounded-l-lg"
             style="background-image: url('../image/login.jpg');">
             <div class="absolute inset-0 bg-gradient-to-l from-blue-700 to-transparent opacity-70"></div>
-            <div class="absolute top-4 left-4 z-20 px-4 py-36">
+            <div class="absolute top-4 left-4 z-20 px-4 py-28">
                 <img src="../image/LOGO_1.png" alt="Logo" class="w-32 h-auto">
             </div>
             <div class="relative z-10 text-start px-3">
@@ -286,10 +286,10 @@
                         @endif
                     </div>
 
-                    <div class="mt-4 flex flex-col items-center bg-gray-500 rounded-md">
+                    <div class="mt-4 flex flex-col items-center">
                         <div class="w-full">
                             <button type="submit"
-                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-700"
+                                class="w-full bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2 transition duration-150 ease-in-out uppercase font-semibold transform active:scale-90 active:bg-blue-700"
                                 onclick="animateButton(this)">
                                 {{ __('Log in') }}
                             </button>
