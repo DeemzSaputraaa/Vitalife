@@ -2,11 +2,11 @@
     <div class="bg-gray-100 rounded-2xl shadow-lg w-full max-w-5xl p-8">
         <form action="#" method="GET">
             <div class="flex justify-between items-center mb-6 w-full">
-                <!-- Wellness Tourism Event Search -->
+                <!-- Yoga Place Search -->
                 <div class="flex-grow mr-4">
-                    <input type="text" name="event_name" id="event_name"
+                    <input type="text" name="yoga_place" id="yoga_place"
                         class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                        placeholder="Search for wellness tourism events" />
+                        placeholder="Search for yoga places" />
                 </div>
 
                 <!-- Search Button -->
@@ -39,25 +39,15 @@
                     </select>
                 </div>
 
-                <!-- Date Filter -->
+                <!-- Price Range Filter -->
                 <div class="w-64">
-                    <input type="date" name="event_date" id="event_date"
-                        class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                        placeholder="Select Date" />
-                </div>
-
-                <!-- Wellness Event Type Filter -->
-                <div class="w-64">
-                    <select name="wellness_event_type" id="wellness_event_type"
+                    <select name="price_range" id="price_range"
                         class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600">
-                        <option value="">Wellness Event Type</option>
-                        <option value="yoga_retreat">Yoga Retreat</option>
-                        <option value="meditation_workshop">Meditation Workshop</option>
-                        <option value="spa_day">Spa Day</option>
-                        <option value="fitness_bootcamp">Fitness Bootcamp</option>
-                        <option value="nutrition_seminar">Nutrition Seminar</option>
-                        <option value="holistic_healing">Holistic Healing Session</option>
-                        <option value="wellness_festival">Wellness Festival</option>
+                        <option value="">Price Range</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="51-100">$51 - $100</option>
+                        <option value="101-200">$101 - $200</option>
+                        <option value="201+">$201+</option>
                     </select>
                 </div>
             </div>

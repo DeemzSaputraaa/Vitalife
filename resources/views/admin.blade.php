@@ -42,7 +42,7 @@
 
             <div class="flex space-x-4 mb-4">
                 <!-- Total Mews Card -->
-                <button href="{{ route('spaadmin') }}" class="bg-white text-black rounded-lg p-4 flex-1 w-full">
+                <button href="" class="bg-white text-black rounded-lg p-4 flex-1 w-full">
                     <div class="flex justify-between items-start">
                         <div>
                             <h2 class="text-2xl font-bold">120</h2>

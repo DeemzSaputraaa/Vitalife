@@ -31,6 +31,10 @@ Route::get('/contact', function () {
     return view('fitur.contact');
 });
 
+Route::get('/service', function () {
+    return view('fitur.service');
+});
+
 Route::get('/detailEvent', function () {
     return view('fitur.detailEvent');
 });

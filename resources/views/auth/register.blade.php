@@ -156,7 +156,7 @@
                 <h2 class="text-3xl font-bold mb-8 text-emerald-500">Create Account</h2>
 
                 <!-- Social Media Links -->
-                <div class="flex space-x-4 mb-6">
+                <div class="flex space-x-6 mb-6">
                     <a href="{{ url('auth/google') }}" class="text-gray-400 hover:text-red-500"
                         title="Login with Google">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

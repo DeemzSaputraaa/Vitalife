@@ -1,11 +1,11 @@
 <x-app-layout>
-    @include('layouts.pencarian')
+    @include('layouts.cariyoga')
 
     {{-- slide 2 --}}
     <div class="flex justify-center items-center">
-        <div class="font-sans">
-            <div class="container mx-auto py-4 grid grid-cols-2 gap-5">
-                <div class="bg-white rounded-lg shadow-2xl p-12">
+        <div class="font-sans w-full max-w-5xl">
+            <div class="container mx-auto py-6 grid grid-cols-7 gap-6">
+                <div class="col-span-5 bg-white rounded-lg shadow-2xl p-14">
                     <!-- yoga1 -->
                     <div class="flex">
                         <div class="flex items-center border-b border-gray-500 pb-2">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div>
+                <div class="col-span-2">
                     <h2 class="text-2xl font-bold mb-6">Maps Location</h2>
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15813.61369824441!2d110.33927410840992!3d-7.746962888130327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a58f2f0a9180d%3A0x65615dadf02a4713!2sAnjani%20Spa!5e0!3m2!1sen!2sid!4v1717088008917!5m2!1sen!2sid"

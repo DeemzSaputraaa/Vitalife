@@ -2,11 +2,11 @@
     <div class="bg-gray-100 rounded-2xl shadow-lg w-full max-w-5xl p-8">
         <form action="#" method="GET">
             <div class="flex justify-between items-center mb-6 w-full">
-                <!-- Wellness Tourism Event Search -->
+                <!-- Spa Place Search -->
                 <div class="flex-grow mr-4">
-                    <input type="text" name="event_name" id="event_name"
+                    <input type="text" name="spa_place" id="spa_place"
                         class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                        placeholder="Search for wellness tourism events" />
+                        placeholder="Search for spa places" />
                 </div>
 
                 <!-- Search Button -->
@@ -39,25 +39,28 @@
                     </select>
                 </div>
 
-                <!-- Date Filter -->
+                <!-- Price Range Filter -->
                 <div class="w-64">
-                    <input type="date" name="event_date" id="event_date"
-                        class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600"
-                        placeholder="Select Date" />
+                    <select name="price_range" id="price_range"
+                        class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600">
+                        <option value="">Price Range</option>
+                        <option value="0-100000">Rp 0 - Rp 100,000</option>
+                        <option value="100001-250000">Rp 100,001 - Rp 250,000</option>
+                        <option value="250001-500000">Rp 250,001 - Rp 500,000</option>
+                        <option value="500001+">Rp 500,001+</option>
+                    </select>
                 </div>
 
-                <!-- Wellness Event Type Filter -->
+                <!-- Spa Type Filter -->
                 <div class="w-64">
-                    <select name="wellness_event_type" id="wellness_event_type"
+                    <select name="spa_type" id="spa_type"
                         class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600">
-                        <option value="">Wellness Event Type</option>
-                        <option value="yoga_retreat">Yoga Retreat</option>
-                        <option value="meditation_workshop">Meditation Workshop</option>
-                        <option value="spa_day">Spa Day</option>
-                        <option value="fitness_bootcamp">Fitness Bootcamp</option>
-                        <option value="nutrition_seminar">Nutrition Seminar</option>
-                        <option value="holistic_healing">Holistic Healing Session</option>
-                        <option value="wellness_festival">Wellness Festival</option>
+                        <option value="">Spa Type</option>
+                        <option value="massage">Massage</option>
+                        <option value="facial">Facial</option>
+                        <option value="body_treatment">Body Treatment</option>
+                        <option value="aromatherapy">Aromatherapy</option>
+                        <option value="hot_stone">Hot Stone Therapy</option>
                     </select>
                 </div>
             </div>
