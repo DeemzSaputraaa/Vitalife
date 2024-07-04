@@ -225,7 +225,7 @@
         <!-- Right Column - Create Account -->
         <div class="flex flex-col justify-center items-center px-6 bg-white">
             <div class="w-full max-w-md">
-                <h2 class="text-3xl font-bold mb-8 text-emerald-500">Sign in to Diprella</h2>
+                <h2 class="text-3xl font-bold mb-8 text-emerald-500">Sign in to Vitalife</h2>
 
                 <!-- Social Media Links -->
                 <div class="flex space-x-6 mb-6">
