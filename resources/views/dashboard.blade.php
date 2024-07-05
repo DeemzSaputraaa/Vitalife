@@ -44,7 +44,7 @@
     </div>
 
     {{-- halaman 2 --}}
-    <div class="bg-white rounded-full mx-12 shadow-xl p-5 text-center flex flex-col items-center reveal">
+    <div id="features" class="bg-white rounded-full mx-12 shadow-xl p-5 text-center flex flex-col items-center reveal">
         <h2 class="text-3xl font-bold mb-8">Wellness Support</h2>
         <div class="flex justify-center space-x-28">
             <a href="/spa" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
