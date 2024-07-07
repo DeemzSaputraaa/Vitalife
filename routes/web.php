@@ -19,9 +19,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', function () {
+Route::get('/admin/dashboard', function () {
     return view('admin.dashboard');
-});
+})->middleware(['auth', 'admin'])->name('admin.dashboard');
+
+Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
+Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
+
+// Route::get('/admin', function () {
+//     return view('admin.dashboard');
+// });
 
 Route::get('/spaadmin', function () {
     return view('spaadmin');

@@ -131,7 +131,6 @@
                 </div>
             </a>
         </div>
-        <button class="bg-blue-500 text-white px-6 py-3 rounded-md mt-8 hover:bg-gray-700">View All</button>
     </div>
 
     {{-- halaman 4 --}}

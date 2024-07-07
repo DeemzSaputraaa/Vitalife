@@ -1,8 +1,20 @@
 @extends('layouts.admin')
 
-@section('judul-halaman', 'Dashboard Admin')
-
 @section('content')
+    <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
+        <div>
+            <h2 class="text-2xl font-bold mb-2">Hello, {{ Auth::user()->name }}!</h2>
+            <p class="text-gray-700">Outdoor temperature: 22°C</p>
+            <p class="text-gray-700">Sunny weather</p>
+        </div>
+        <div class="w-24 h-24">
+            <!-- Replace with an appropriate SVG or image for the avatar -->
+            <svg class="w-full h-full text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+            </svg>
+        </div>
+    </div>
+
     <div class="flex space-x-4 mb-4">
         <!-- Total Mews Card -->
         <button href="" class="bg-white text-black rounded-lg p-4 flex-1 w-full">

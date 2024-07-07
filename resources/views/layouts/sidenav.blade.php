@@ -20,7 +20,7 @@
 
 <body>
     <aside class="aside bg-black w-auto min-w-48 max-w-full px-4 fixed h-full flex flex-col justify-between">
-        <div class="flex flex-col items-center py-4">
+        <div class="flex flex-col py-4">
             <div class="bg-white p-2 rounded-lg mb-4 flex items-center">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
@@ -30,30 +30,50 @@
                 </svg>
                 <span>Dashboard</span>
             </div>
-            <!-- Add more sidebar icons here -->
-            <div class="p-2 rounded-lg mb-4">
-                <i class="fa-solid fa-spa w-6 h-6 text-white"></i>
-                <span class="ml-2 text-white">SPA</span>
-            </div>
-
-            <div class="p-2 rounded-lg mb-4 flex items-start">
+            <a href="{{ route('admin.formspa') }}"
+                class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.formspa') ? 'bg-white text-black' : 'text-white' }}">
+                <i class="fa-solid fa-spa w-6 h-6"></i>
+                <span class="ml-2">SPA</span>
+            </a>
+            <div class="p-2 rounded-lg mb-4 flex items-center">
                 <i class="fa-solid fa-person-walking text-white w-6 h-6"></i>
                 <span class="ml-2 text-white">Yoga</span>
             </div>
-            <div class="p-2 rounded-lg mb-4 flex items-start">
+            <div class="p-2 rounded-lg mb-4 flex items-center">
                 <i class="fa-duotone fa-person-running-fast text-white w-6 h-6"></i>
                 <span class="ml-2 text-gray-700">Running</span>
             </div>
-            <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                </path>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-            </svg>
+            <div class="p-2 rounded-lg mb-4 flex items-center">
+                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                    </path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                <span class="ml-2 text-gray-400">Settings</span>
+            </div>
+        </div>
+
+        <!-- Tombol Logout -->
+        <div class="mb-4">
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit"
+                    class="w-full p-2 rounded-lg flex items-center text-gray-400 hover:text-white hover:bg-gray-700 transition-colors duration-200"
+                    onclick="event.preventDefault(); this.closest('form').submit();">
+                    <svg class="w-6 h-6 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
+                    </svg>
+                    <span>Logout</span>
+                </button>
+            </form>
         </div>
     </aside>
+
 </body>
 
 </html>

@@ -2,18 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\spa;
+use App\Models\Spa;
 use Illuminate\Http\Request;
 
 class SpaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function showSpas()
     {
         $spaTotal = Spa::all(); // Fetch all spa data
-
         return view('fitur.spa', compact('spaTotal'));
     }
 
@@ -21,59 +17,63 @@ class SpaController extends Controller
     {
         $spa = $request->input('location');
         $spaTotal = Spa::where('alamat', 'like', "%$spa%")->get();
-
         return view('fitur.spaFilter', compact('spaTotal'));
     }
+
     public function index()
     {
-        //
+        $spaTotal = Spa::all();
+        return view('admin.spaIndex', compact('spaTotal'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.formspa');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|numeric',
+            'alamat' => 'required',
+            'noHP' => 'required',
+            'waktuBuka' => 'required'
+        ]);
+
+        Spa::create($validatedData);
+
+        return redirect()->route('admin.formspa')->with('success', 'Data SPA berhasil disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(spa $spa)
+    public function show(Spa $spa)
     {
-        //
+        return view('admin.spaShow', compact('spa'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(spa $spa)
+    public function edit(Spa $spa)
     {
-        //
+        return view('admin.spaEdit', compact('spa'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, spa $spa)
+    public function update(Request $request, Spa $spa)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|numeric',
+            'alamat' => 'required',
+            'noHP' => 'required',
+            'waktuBuka' => 'required'
+        ]);
+
+        $spa->update($validatedData);
+
+        return redirect()->route('admin.spaIndex')->with('success', 'Data SPA berhasil diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(spa $spa)
+    public function destroy(Spa $spa)
     {
-        //
+        $spa->delete();
+        return redirect()->route('admin.formspa')->with('success', 'Data SPA berhasil dihapus');
     }
 }
