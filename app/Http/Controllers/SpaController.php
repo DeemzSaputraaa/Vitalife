@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class SpaController extends Controller
 {
+    public function dashboard()
+    {
+        $spaCount = Spa::count();
+        return view('admin.dashboard', compact('spaCount'));
+    }
+
     public function showSpas()
     {
         $spaTotal = Spa::all(); // Fetch all spa data

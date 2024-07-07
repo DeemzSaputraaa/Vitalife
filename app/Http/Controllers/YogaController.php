@@ -2,68 +2,76 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\yoga;
+use App\Models\Yoga;
 use Illuminate\Http\Request;
-use App\Models\AvailableTime;
-
 
 class YogaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function showYogas()
+    {
+        $yogaTotal = Yoga::all(); // Fetch all yoga data
+        return view('fitur.yoga', compact('yogaTotal'));
+    }
+
+    public function yogaFilter(Request $request)
+    {
+        $yoga = $request->input('location');
+        $yogaTotal = Yoga::where('alamat', 'like', "%$yoga%")->get();
+        return view('fitur.yogaFilter', compact('yogaTotal'));
+    }
+
     public function index()
     {
-        $yoga = Yoga::find(1); // assuming there is only one spa
-        $availableTimes = AvailableTime::where('id', $yoga->id)->get();
-        return view('yoga', compact('yoga', 'availableTimes'));
+        $yogaTotal = Yoga::all();
+        return view('admin.yogaIndex', compact('yogaTotal'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.formyoga');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|integer',
+            'alamat' => 'required',
+            'noHP' => 'required'
+        ]);
+
+        Yoga::create($validatedData);
+
+        return redirect()->route('admin.formyoga')->with('success', 'Data Yoga berhasil disimpan');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(yoga $yoga)
+    public function show(Yoga $yoga)
     {
-        //
+        return view('admin.yogaShow', compact('yoga'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(yoga $yoga)
+    public function edit(Yoga $yoga)
     {
-        //
+        return view('admin.yogaEdit', compact('yoga'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, yoga $yoga)
+    public function update(Request $request, Yoga $yoga)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|max:255',
+            'harga' => 'required|integer',
+            'alamat' => 'required',
+            'noHP' => 'required'
+        ]);
+
+        $yoga->update($validatedData);
+
+        return redirect()->route('admin.yogaIndex')->with('success', 'Data Yoga berhasil diperbarui');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(yoga $yoga)
+    public function destroy(Yoga $yoga)
     {
-        //
+        $yoga->delete();
+        return redirect()->route('admin.formyoga')->with('success', 'Data Yoga berhasil dihapus');
     }
 }

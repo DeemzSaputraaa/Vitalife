@@ -8,11 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class yoga extends Model
 {
     protected $fillable = [
-        'name',
-        'description',
-        'experience',
-        'address',
-        'location',
+        'nama',
+        'harga',
+        'alamat',
+        'noHP'
     ];
     use HasFactory;
 }

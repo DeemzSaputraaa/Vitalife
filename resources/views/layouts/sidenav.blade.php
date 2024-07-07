@@ -21,7 +21,8 @@
 <body>
     <aside class="aside bg-black w-auto min-w-48 max-w-full px-4 fixed h-full flex flex-col justify-between">
         <div class="flex flex-col py-4">
-            <div class="bg-white p-2 rounded-lg mb-4 flex items-center">
+            <a href="{{ route('admin.dashboard') }}"
+                class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.dashboard') ? 'bg-white text-black' : 'text-white' }}">
                 <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -29,19 +30,20 @@
                     </path>
                 </svg>
                 <span>Dashboard</span>
-            </div>
+            </a>
             <a href="{{ route('admin.formspa') }}"
                 class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.formspa') ? 'bg-white text-black' : 'text-white' }}">
                 <i class="fa-solid fa-spa w-6 h-6"></i>
                 <span class="ml-2">SPA</span>
             </a>
-            <div class="p-2 rounded-lg mb-4 flex items-center">
-                <i class="fa-solid fa-person-walking text-white w-6 h-6"></i>
-                <span class="ml-2 text-white">Yoga</span>
-            </div>
+            <a href="{{ route('admin.formyoga') }}"
+                class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.formyoga') ? 'bg-white text-black' : 'text-white' }}">
+                <i class="fa-solid fa-person-walking w-6 h-6"></i>
+                <span class="ml-2">Yoga</span>
+            </a>
             <div class="p-2 rounded-lg mb-4 flex items-center">
                 <i class="fa-duotone fa-person-running-fast text-white w-6 h-6"></i>
-                <span class="ml-2 text-gray-700">Running</span>
+                <span class="ml-2 text-gray-400">Running</span>
             </div>
             <div class="p-2 rounded-lg mb-4 flex items-center">
                 <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"

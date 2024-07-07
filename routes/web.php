@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SpaController;
+use App\Http\Controllers\YogaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialiteController;
 
@@ -26,6 +27,9 @@ Route::get('/admin/dashboard', function () {
 Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
 Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
 
+
+Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
+Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
 // Route::get('/admin', function () {
 //     return view('admin.dashboard');
 // });
