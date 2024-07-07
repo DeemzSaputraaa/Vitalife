@@ -3,41 +3,29 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SpaController;
 use App\Http\Controllers\YogaController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\AccountUserController;
+use Illuminate\Support\Facades\Route;
 
-// Social media
-Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
-Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
-    Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
-});
-//welcome
-
+// Welcome
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'admin'])->name('admin.dashboard');
+// Authentication
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 
-Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
-Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
+// Social Media Authentication
+Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
+Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
 
-
-Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
-Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
-// Route::get('/admin', function () {
-//     return view('admin.dashboard');
-// });
-
-Route::get('/spaadmin', function () {
-    return view('spaadmin');
+// Account User
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
 });
 
+// Public Routes
 Route::get('/contact', function () {
     return view('fitur.contact');
 });
@@ -50,49 +38,49 @@ Route::get('/detailEvent', function () {
     return view('fitur.detailEvent');
 });
 
-//Dashboard
+// Authenticated Routes
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
+    Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
 
-//spa
+    Route::get('/spesialis', function () {
+        return view('fitur.spesialis');
+    })->name('spesialis');
 
-// Route::get('/spa', function () {
-//     return view('fitur.spa');
-// })->middleware(['auth', 'verified'])->name('spa');
+    Route::get('/yoga', function () {
+        return view('fitur.yoga');
+    })->name('yoga');
 
-// spesialis
+    Route::get('/event', function () {
+        return view('fitur.event');
+    })->name('event');
 
-Route::get('/spesialis', function () {
-    return view('fitur.spesialis');
-})->middleware(['auth', 'verified'])->name('spesialis');
-
-//yoga
-
-Route::get('/yoga', function () {
-    return view('fitur.yoga');
-})->middleware(['auth', 'verified'])->name('yoga');
-
-//event
-
-Route::get('/event', function () {
-    return view('fitur.event');
-})->middleware(['auth', 'verified'])->name('event');
-
-//Features
-// Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
-// Route::get('/features', 'FeaturesController@index')->name('features');
-// Route::get('/specialisation', 'SpecialisationController@index')->name('specialisation');
-// Route::get('/voucher', 'VoucherController@index')->name('voucher');
-
-Route::middleware('auth')->group(function () {
+    // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('register');
+// Admin Routes
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard');
+
+    Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
+    Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
+
+    Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
+    Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
+});
+
+// Other Routes
+Route::get('/spaadmin', function () {
+    return view('spaadmin');
+});
 
 require __DIR__ . '/auth.php';

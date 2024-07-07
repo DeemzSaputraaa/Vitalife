@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('judul-halaman', 'Form Yoga')
+
 @section('content')
     <div class="max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg">
         <h2 class="text-2xl font-semibold mb-4">Input Data Yoga</h2>

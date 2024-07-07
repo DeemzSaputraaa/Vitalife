@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 
+@section('judul-halaman', 'Dashboard')
+
 @section('content')
     <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
         <div>
