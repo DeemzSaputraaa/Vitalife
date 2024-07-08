@@ -22,8 +22,8 @@
         <button href="" class="bg-white text-black rounded-lg p-4 flex-1 w-full">
             <div class="flex justify-between items-start">
                 <div>
-                    <h2 class="text-2xl font-bold">120</h2>
-                    <p class="text-sm text-gray-500">Total Mews</p>
+                    <h2 class="text-2xl font-bold">{{$spacount}}</h2>
+                    <p class="text-sm text-gray-500">Total Spa</p>
                 </div>
                 <div class="bg-gray-200 p-2 rounded-md">
                     <svg class="w-5 h-5 text-gray-800" fill="currentColor" viewBox="0 0 20 20"
