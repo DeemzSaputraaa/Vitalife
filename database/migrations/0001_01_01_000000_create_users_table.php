@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('role')->default('user'); // Menambahkan kolom 'role'
+            $table->enum('role', ['admin', 'user'])->default('user');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -38,9 +38,12 @@ return new class extends Migration
         });
 
         // BARU
-        Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['admin', 'user'])->default('user');
-        });
+        // Dimatiin, karena sudah ada di schema::create('users')
+
+        // Schema::table('users', function (Blueprint $table) {
+        //     $table->enum('role', ['admin', 'user'])->default('user');
+        // });
+
     }
 
     /**
