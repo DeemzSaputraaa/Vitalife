@@ -7,10 +7,16 @@ use App\Http\Controllers\YogaController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AccountUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NotificationController;
 
 // Welcome
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/notifications', [NotificationController::class, 'getNotifications']);
+    Route::post('/notifications/mark-as-read', [NotificationController::class, 'markAsRead']);
 });
 
 // Authentication
@@ -51,7 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
     Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
-    
+
     Route::get('/yoga', function () {
         return view('fitur.yoga');
     })->name('yoga');

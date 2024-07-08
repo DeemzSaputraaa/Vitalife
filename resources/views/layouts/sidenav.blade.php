@@ -44,10 +44,14 @@
                 <i class="fa-solid fa-person-walking w-6 h-6"></i>
                 <span class="ml-2">Yoga</span>
             </a>
-            <div class="p-2 rounded-lg mb-4 flex items-center">
-                <i class="fa-duotone fa-person-running-fast  w-6 h-6"></i>
-                <span class="ml-2 text-gray-400">Running</span>
-            </div>
+            <a href="" class="p-2 rounded-lg mb-4 flex items-center text-white">
+                <i class="fa-solid fa-user-doctor"></i>
+                <span class="ml-4">Spesialis</span>
+            </a>
+            <a href="" class="p-2 rounded-lg mb-4 flex items-center text-white">
+                <i class="fa-solid fa-person-running"></i>
+                <span class="ml-4">Running</span>
+            </a>
             <a href="{{ route('admin.accountuser') }}"
                 class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.accountuser') ? 'bg-white text-black' : 'text-white' }}">
                 <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
@@ -56,10 +60,10 @@
                         d="M12 6a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm-1.5 8a4 4 0 0 0-4 4 2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-3Zm6.82-3.096a5.51 5.51 0 0 0-2.797-6.293 3.5 3.5 0 1 1 2.796 6.292ZM19.5 18h.5a2 2 0 0 0 2-2 4 4 0 0 0-4-4h-1.1a5.503 5.503 0 0 1-.471.762A5.998 5.998 0 0 1 19.5 18ZM4 7.5a3.5 3.5 0 0 1 5.477-2.889 5.5 5.5 0 0 0-2.796 6.293A3.501 3.501 0 0 1 4 7.5ZM7.1 12H6a4 4 0 0 0-4 4 2 2 0 0 0 2 2h.5a5.998 5.998 0 0 1 3.071-5.238A5.505 5.505 0 0 1 7.1 12Z"
                         clip-rule="evenodd" />
                 </svg>
-                <span class="ml-2 text-gray-400">Account User</span>
+                <span class="ml-2">Account User</span>
             </a>
-            <div class="p-2 rounded-lg mb-4 flex items-center">
-                <svg class="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            {{-- <div class="p-2 rounded-lg mb-4 flex items-center text-white">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
@@ -67,8 +71,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
-                <span class="ml-2 text-gray-400">Settings</span>
-            </div>
+                <span class="ml-2">Settings</span>
+            </div> --}}
         </div>
 
         <!-- Tombol Logout -->
