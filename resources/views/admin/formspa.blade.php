@@ -5,7 +5,7 @@
 @section('content')
     <div class="max-w-5xl mx-auto p-4 bg-white shadow-md rounded-lg">
         <h2 class="text-2xl font-semibold mb-4">Input Data Spa</h2>
-        <form action="{{ route('spa.store') }}" method="POST">
+        <form action="{{ route('spa.store') }}" method="POST" enctype="multipart/form-data"> 
             @csrf
             <div class="space-y-4">
                 <div>
@@ -38,6 +38,12 @@
                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 </div>
 
+                {{-- <div>
+                    <label for="gambar" class="block text-sm font-medium text-gray-700">Gambar</label>
+                    <input type="file" name="image" id="image" 
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                </div> --}}
+
                 <div>
                     <button type="submit"
                         class="inline-flex items-center px-4 py-2 bg-blue-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-700 active:bg-blue-800 focus:outline-none focus:border-blue-800 focus:ring focus:ring-blue-300 disabled:opacity-25 transition">
@@ -46,5 +52,7 @@
                 </div>
             </div>
         </form>
+        <ul>
+        </ul>
     </div>
 @endsection

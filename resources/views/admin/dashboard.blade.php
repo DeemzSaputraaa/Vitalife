@@ -6,7 +6,7 @@
     <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
         <div>
             <h2 class="text-2xl font-bold mb-2">Hello, {{ Auth::user()->name }}!</h2>
-            <p class="text-gray-700">Outdoor temperature: 22°C</p>
+            <p class="text-gray-700"></p>
             <p class="text-gray-700">Sunny weather</p>
         </div>
         <div class="w-24 h-24">
@@ -43,8 +43,8 @@
         <div class="bg-white rounded-lg p-4 flex-1 shadow">
             <div class="flex justify-between items-start">
                 <div>
-                    <h2 class="text-2xl font-bold">180</h2>
-                    <p class="text-sm text-gray-500">Total Orders Today</p>
+                    <h2 class="text-2xl font-bold">{{$yogacount}}</h2>
+                    <p class="text-sm text-gray-500">Total Yoga</p>
                 </div>
                 <div class="bg-blue-100 p-2 rounded-md">
                     <svg class="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20"
@@ -66,7 +66,7 @@
             <div class="bg-white rounded-lg p-4 shadow mb-6">
                 <div class="flex justify-between items-start">
                     <div>
-                        {{-- <h2 class="text-2xl font-bold">{{ $spaCount }}</h2> --}}
+                        <h2 class="text-2xl font-bold">{{ $spacount }}</h2>
                         <p class="text-sm text-gray-500">Total SPA</p>
                     </div>
                     <div class="bg-green-100 p-2 rounded-md">
@@ -89,8 +89,8 @@
         <div class="bg-white rounded-lg p-4 flex-1 shadow">
             <div class="flex justify-between items-start">
                 <div>
-                    <h2 class="text-2xl font-bold">140</h2>
-                    <p class="text-sm text-gray-500">Revenue per Day (BDT)</p>
+                    <h2 class="text-2xl font-bold">{{$spescount}}</h2>
+                    <p class="text-sm text-gray-500">Total Spesialis</p>
                 </div>
                 <div class="bg-red-100 p-2 rounded-md">
                     <svg class="w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20"

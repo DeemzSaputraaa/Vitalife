@@ -14,6 +14,8 @@ class AdminController extends Controller
     public function Adminhomepage()
     {
         $spacount = Spa::count();
-        return view('admin.dashboard', compact('spacount'));
+        $yogacount = Yoga::count();
+        $spescount = Spesialis::count();
+        return view('admin.dashboard', compact('spacount','yogacount','spescount'));
     }
 }

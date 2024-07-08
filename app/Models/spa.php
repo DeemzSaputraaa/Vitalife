@@ -14,6 +14,7 @@ class spa extends Model
         'alamat',
         'noHP',
         'waktuBuka',
+        'image'
     ];
     use HasFactory;
 }
