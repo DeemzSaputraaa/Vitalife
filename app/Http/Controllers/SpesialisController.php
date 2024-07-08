@@ -15,8 +15,8 @@ class SpesialisController extends Controller
     }
 
     public function spesFilter(Request $request){
-        $spes = $request->input('location');
-        $spesFilter = spesialis::where('alamat', 'like', "%$spes%")->get();
+        $spes = $request->input('spesialisasi');
+        $spesFilter = spesialis::where('spesialisasi', 'like', "%$spes%")->get();
         return view('fitur.spesialisFilter', compact('spesFilter'));
     }
     /**

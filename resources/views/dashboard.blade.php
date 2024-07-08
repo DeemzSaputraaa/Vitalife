@@ -71,59 +71,59 @@
     </div>
 
     {{-- halaman 3 --}}
-    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal">
+    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal" name="specialization">
         <h2 class="text-3xl font-bold mb-8">Specialisation</h2>
         <div class="grid grid-cols-4 gap-20">
-            <a href="{{ route('spesialisFilter') }}"
+            <a href="{{ route('spesialisFilter') }}" id="anatomy" name="anatomy"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/anatomy.png" alt="Anatomy" class="h-24 mb-3" />
                     <p class="text-base font-bold">Anatomy</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="primaryCare" name="primaryCare"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/care.png" alt="Primary Care" class="h-24 mb-3" />
                     <p class="text-base font-bold">Primary Care</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="cardiology" name="cardiology"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/cardiology.png" alt="Cardiology" class="h-24 mb-3" />
                     <p class="text-base font-bold">Cardiology</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="skinGenitals" name="skinGenitals"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/skin.png" alt="Skin & Genitals" class="h-24 mb-3" />
                     <p class="text-base font-bold">Skin & Genitals</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="humanSenses" name="humanSenses"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/human.png" alt="Human Senses" class="h-24 mb-3" />
                     <p class="text-base font-bold">Human Senses</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="piscologist" name="piscologist"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/psico.png" alt="Piscologist" class="h-24 mb-3" />
                     <p class="text-base font-bold">Piscologist</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="fisioterapy" name="fisioterapy"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/fisio.png" alt="Fisioterapy" class="h-24 mb-3" />
                     <p class="text-base font-bold">Fisioterapy</p>
                 </div>
             </a>
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}" id="pregnancy" name="pregnancy"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/preg.png" alt="Pregnancy" class="h-24 mb-3" />
