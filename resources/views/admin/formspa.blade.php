@@ -11,31 +11,36 @@
                 <div>
                     <label for="nama" class="block text-sm font-medium text-gray-700">Nama Spa</label>
                     <input type="text" name="nama" id="nama"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        required>
                 </div>
 
                 <div>
                     <label for="harga" class="block text-sm font-medium text-gray-700">Harga</label>
                     <input type="number" name="harga" id="harga"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        required>
                 </div>
 
                 <div>
                     <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
                     <textarea name="alamat" id="alamat" rows="3"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        required></textarea>
                 </div>
 
                 <div>
                     <label for="noHP" class="block text-sm font-medium text-gray-700">Nomor HP</label>
                     <input type="tel" name="noHP" id="noHP"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        required>
                 </div>
 
                 <div>
                     <label for="waktuBuka" class="block text-sm font-medium text-gray-700">Waktu Buka</label>
                     <input type="time" name="waktuBuka" id="waktuBuka"
-                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        required>
                 </div>
 
                 <div>
