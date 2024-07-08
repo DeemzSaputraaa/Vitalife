@@ -34,7 +34,7 @@
         </div>
         <div class="bg-white rounded-lg shadow-2xl p-8 flex-1">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">  
-                @foreach ($spesLihat as $spesialis)
+                @foreach ($spesFilter as $spesialis)
                 <div class="flex items-center border rounded-lg p-5">
                     <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
                         <img src="https://picsum.photos/id/237/200/200" alt="Profile Picture" class="w-full h-full object-cover">

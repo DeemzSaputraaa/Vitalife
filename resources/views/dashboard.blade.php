@@ -71,10 +71,10 @@
     </div>
 
     {{-- halaman 3 --}}
-    <div id="specialisation" class="p-10 text-center flex flex-col items-center reveal">
+    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal">
         <h2 class="text-3xl font-bold mb-8">Specialisation</h2>
         <div class="grid grid-cols-4 gap-20">
-            <a href="#event"
+            <a href="{{ route('spesialisFilter') }}"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/anatomy.png" alt="Anatomy" class="h-24 mb-3" />

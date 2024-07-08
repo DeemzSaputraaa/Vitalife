@@ -50,8 +50,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
-    Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialis');
-
+    Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
+    
     Route::get('/yoga', function () {
         return view('fitur.yoga');
     })->name('yoga');
