@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 
 class SpesialisController extends Controller
 {
+
+    public function showSpes()
+    {
+        $spesLihat = spesialis::all();
+        return view('fitur.spesialis', compact('spesLihat'));
+    }
+
+    public function spesFilter(Request $request){
+        $spes = $request->input('location');
+        $spesLihat = spesialis::where('alamat', 'like', "%$spes%")->get();
+        return view('fitur.spesFilter', compact('spesLihat'));
+    }
     /**
      * Display a listing of the resource.
      */

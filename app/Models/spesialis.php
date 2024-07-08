@@ -7,5 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class spesialis extends Model
 {
+    protected $table = 'spesialis';
+    protected $fillable = [
+        'nama',
+        'harga',
+        'alamat',
+        'noHP',
+    ];
     use HasFactory;
 }

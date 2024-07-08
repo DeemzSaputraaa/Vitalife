@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SpaController;
+use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\YogaController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AccountUserController;
@@ -44,12 +45,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
+    //spa
     Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
     Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
-
-    Route::get('/spesialis', function () {
-        return view('fitur.spesialis');
-    })->name('spesialis');
+    //spesiyalis
+    Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
+    Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialis');
 
     Route::get('/yoga', function () {
         return view('fitur.yoga');
