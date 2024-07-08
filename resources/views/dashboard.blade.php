@@ -71,7 +71,7 @@
     </div>
 
     {{-- halaman 3 --}}
-    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal" name="specialization">
+    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal">
         <h2 class="text-3xl font-bold mb-8">Specialisation</h2>
         <div class="grid grid-cols-4 gap-20">
             <a href="{{ route('spesialisFilter') }}" id="anatomy" name="anatomy"
@@ -81,7 +81,7 @@
                     <p class="text-base font-bold">Anatomy</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="primaryCare" name="primaryCare"
+            <a href="{{ route('spesialisFilter') }}" id="primaryCare" name="specializatio"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/care.png" alt="Primary Care" class="h-24 mb-3" />
@@ -95,35 +95,35 @@
                     <p class="text-base font-bold">Cardiology</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="skinGenitals" name="skinGenitals"
+            <a href="{{ route('spesialisFilter') }}" id="skinGenitals" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/skin.png" alt="Skin & Genitals" class="h-24 mb-3" />
                     <p class="text-base font-bold">Skin & Genitals</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="humanSenses" name="humanSenses"
+            <a href="{{ route('spesialisFilter') }}" id="humanSenses" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/human.png" alt="Human Senses" class="h-24 mb-3" />
                     <p class="text-base font-bold">Human Senses</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="piscologist" name="piscologist"
+            <a href="{{ route('spesialisFilter') }}" id="piscologist" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/psico.png" alt="Piscologist" class="h-24 mb-3" />
                     <p class="text-base font-bold">Piscologist</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="fisioterapy" name="fisioterapy"
+            <a href="{{ route('spesialisFilter') }}" id="fisioterapy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/fisio.png" alt="Fisioterapy" class="h-24 mb-3" />
                     <p class="text-base font-bold">Fisioterapy</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}" id="pregnancy" name="pregnancy"
+            <a href="{{ route('spesialisFilter') }}" id="pregnancy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/preg.png" alt="Pregnancy" class="h-24 mb-3" />
