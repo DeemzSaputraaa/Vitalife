@@ -18,18 +18,34 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    <x-nav-link href="#features" :active="request()->routeIs('spa') || request()->routeIs('yoga') || request()->routeIs('event')">
-                        {{ __('Features') }}
-                    </x-nav-link>
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <button
+                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:border-gray-300 dark:hover:border-gray-700 focus:outline-none focus:text-gray-700 dark:focus:text-gray-300 focus:border-gray-300 dark:focus:border-gray-700 transition duration-150 ease-in-out {{ request()->routeIs('spa') || request()->routeIs('yoga') || request()->routeIs('event') ? 'border-indigo-400 dark:border-indigo-600' : '' }}"
+                                style="height: 64px; display: flex; align-items: center;">
+                                {{ __('Features') }}
+                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                    fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </x-slot>
 
-                    {{-- <x-nav-link :href="route('yoga')" :active="request()->routeIs('yoga')">
-                        {{ __('Find Yoga') }}
-                    </x-nav-link>
+                        <x-slot name="content">
+                            <x-dropdown-link :href="route('spa')" :active="request()->routeIs('spa')">
+                                {{ __('SPA') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('yoga')" :active="request()->routeIs('yoga')">
+                                {{ __('Yoga') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link :href="route('event')" :active="request()->routeIs('event')">
+                                {{ __('Event') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
 
-                    <x-nav-link :href="route('event')" :active="request()->routeIs('event')">
-                        {{ __('Find Event') }}
-                    </x-nav-link> --}}
-                    {{-- spesialis --}}
                     <x-nav-link :href="route('spesialis')" :active="request()->routeIs('spesialis')">
                         {{ __('Spesialisation') }}
                     </x-nav-link>
@@ -96,7 +112,7 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
+    {{-- <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
@@ -142,5 +158,5 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> --}}
 </nav>
