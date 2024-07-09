@@ -1,10 +1,10 @@
 <x-app-layout>
     {{-- halaman 1 --}}
-    <div class="max-w-7xl mx-auto px-10 lg:px-1 reveal mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal mt-8">
         <div class="pt-1">
-            <div class="container flex flex-wrap items-center">
-                <div class="flex flex-row items-center">
-                    <div class="w-full md:w-2/5 justify-start items-start text-left pl-4 md:text-left ml-12">
+            <div class="container flex flex-wrap items-center justify-center">
+                <div class="flex flex-col md:flex-row items-center justify-between w-full">
+                    <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 pl-6 md:pl-8">
                         <p class="uppercase tracking-loose">Skip the Travel! Take Online</p>
                         <h1 class="text-5xl font-bold leading-tight">Welcome <span class="text-blue-300">Vitalife</span>
                         </h1>
@@ -15,9 +15,9 @@
                         <a href="#specialisation" class="inline-block group">
                             <button
                                 class="bg-blue-500 text-white font-bold rounded-full py-4 px-8 shadow-lg 
-                                        transform transition duration-300 ease-in-out
-                                        group-hover:scale-105 group-hover:bg-blue-600 group-hover:shadow-xl
-                                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                    transform transition duration-300 ease-in-out
+                                    group-hover:scale-105 group-hover:bg-blue-600 group-hover:shadow-xl
+                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                 <span
                                     class="inline-block transform group-hover:translate-x-1 transition-transform duration-200">
                                     Consult Now
@@ -31,11 +31,10 @@
                                 </svg>
                             </button>
                         </a>
-
                     </div>
-                    <div class="w-full h-auto lg:w-full xl:w-full">
+                    <div class="w-full md:w-1/2 flex justify-end">
                         <div class="rounded-lg overflow-hidden">
-                            <img class="w-full h-auto lg:w-4/5 xl:w-3/4" src="../image/bgdash.png" />
+                            <img class="w-full h-auto" src="../image/bgdash.png" alt="Dashboard Background" />
                         </div>
                     </div>
                 </div>
@@ -44,7 +43,35 @@
     </div>
 
     {{-- halaman 2 --}}
-    <div id="features" class="bg-white rounded-full mx-12 shadow-xl p-5 text-center flex flex-col items-center reveal">
+
+    <div id="features"
+        class="bg-white rounded-full mx-4 sm:mx-8 md:mx-12 shadow-xl p-3 sm:p-4 md:p-5 text-center flex flex-col items-center reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 md:mb-8">Wellness Support</h2>
+        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-28">
+            <a href="/spa" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
+                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/spa.png" alt="spa" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
+                    <p class="text-sm sm:text-base font-bold">SPA</p>
+                </div>
+            </a>
+
+            <a href="/yoga" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
+                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/meditation.png" alt="Meditation" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
+                    <p class="text-sm sm:text-base font-bold">YOGA</p>
+                </div>
+            </a>
+
+            <a href="/event" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
+                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/run.png" alt="event" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
+                    <p class="text-sm sm:text-base font-bold">EVENT</p>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    {{-- <div id="features" class="bg-white rounded-full mx-12 shadow-xl p-5 text-center flex flex-col items-center reveal">
         <h2 class="text-3xl font-bold mb-8">Wellness Support</h2>
         <div class="flex justify-center space-x-28">
             <a href="/spa" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
@@ -68,7 +95,7 @@
                 </div>
             </a>
         </div>
-    </div>
+    </div> --}}
 
     {{-- halaman 3 --}}
     <div id="specialization" class="p-10 text-center flex flex-col items-center reveal">
