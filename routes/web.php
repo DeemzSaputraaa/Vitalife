@@ -55,9 +55,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //spa
     Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
     Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
+
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
     Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
+    Route::get('/pembayaran', function () {
+        return view('fitur.spesBayar');
+    });
 
     Route::get('/yoga', function () {
         return view('fitur.yoga');

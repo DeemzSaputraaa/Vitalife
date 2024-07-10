@@ -23,7 +23,7 @@
         @include('layouts.sidenav')
 
         <!-- Konten Utama -->
-        <main class="flex-1 p-8 pl-48">
+        <main class="flex-1 p-6 pl-48">
             <header class="flex justify-between items-center mb-8">
                 <div class="flex items-center">
                     <button>

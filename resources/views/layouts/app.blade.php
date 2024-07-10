@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
     <!-- ScrollReveal Library -->
     <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
@@ -62,6 +63,53 @@
                     left: 0,
                 }
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const counters = [{
+                    id: 'counter1',
+                    target: 5000
+                },
+                {
+                    id: 'counter2',
+                    target: 200
+                },
+                {
+                    id: 'counter3',
+                    target: 1000
+                },
+                {
+                    id: 'counter4',
+                    target: 700
+                }
+            ];
+
+            const animateCounter = (counter) => {
+                const element = document.getElementById(counter.id);
+                let animated = false;
+
+                const observer = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !animated) {
+                        anime({
+                            targets: element,
+                            innerHTML: [0, counter.target],
+                            easing: 'linear',
+                            round: 1,
+                            duration: 3000,
+                            begin: () => {
+                                animated = true;
+                            }
+                        });
+                        observer.unobserve(element);
+                    }
+                }, {
+                    threshold: 0.5
+                });
+
+                observer.observe(element);
+            };
+
+            counters.forEach(animateCounter);
         });
 
         // document.addEventListener('DOMContentLoaded', function() {

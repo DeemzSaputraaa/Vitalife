@@ -47,25 +47,28 @@
     <div id="features"
         class="bg-white rounded-full mx-4 sm:mx-8 md:mx-12 shadow-xl p-3 sm:p-4 md:p-5 text-center flex flex-col items-center reveal">
         <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 md:mb-8">Wellness Support</h2>
-        <div class="flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-28">
-            <a href="/spa" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/spa.png" alt="spa" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
-                    <p class="text-sm sm:text-base font-bold">SPA</p>
+        <div class="flex flex-wrap justify-center gap-10 sm:gap-16 md:gap-24 lg:gap-32">
+            <a href="/spa"
+                class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
+                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/spa.png" alt="spa" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">SPA</p>
                 </div>
             </a>
 
-            <a href="/yoga" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/meditation.png" alt="Meditation" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
-                    <p class="text-sm sm:text-base font-bold">YOGA</p>
+            <a href="/yoga"
+                class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
+                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/meditation.png" alt="Meditation" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">YOGA</p>
                 </div>
             </a>
 
-            <a href="/event" class="flex-shrink-0 transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/run.png" alt="event" class="h-16 sm:h-20 md:h-24 mb-2 sm:mb-3" />
-                    <p class="text-sm sm:text-base font-bold">EVENT</p>
+            <a href="/event"
+                class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
+                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/run.png" alt="event" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">EVENT</p>
                 </div>
             </a>
         </div>
@@ -98,63 +101,63 @@
     </div> --}}
 
     {{-- halaman 3 --}}
-    <div id="specialization" class="p-10 text-center flex flex-col items-center reveal">
-        <h2 class="text-3xl font-bold mb-8">Specialisation</h2>
-        <div class="grid grid-cols-4 gap-20">
+    <div id="specialization" class="p-5 sm:p-8 md:p-10 text-center flex flex-col items-center reveal">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">Specialisation</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
             <a href="{{ route('spesialisFilter') }}" id="anatomy" name="anatomy"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/anatomy.png" alt="Anatomy" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Anatomy</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/anatomy.png" alt="Anatomy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Anatomy</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="primaryCare" name="specializatio"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/care.png" alt="Primary Care" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Primary Care</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/care.png" alt="Primary Care" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Primary Care</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="cardiology" name="cardiology"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/cardiology.png" alt="Cardiology" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Cardiology</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/cardiology.png" alt="Cardiology" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Cardiology</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="skinGenitals" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/skin.png" alt="Skin & Genitals" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Skin & Genitals</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/skin.png" alt="Skin & Genitals" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Skin & Genitals</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="humanSenses" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/human.png" alt="Human Senses" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Human Senses</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/human.png" alt="Human Senses" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Human Senses</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="piscologist" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/psico.png" alt="Piscologist" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Piscologist</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/psico.png" alt="Piscologist" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Piscologist</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="fisioterapy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/fisio.png" alt="Fisioterapy" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Fisioterapy</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/fisio.png" alt="Fisioterapy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Fisioterapy</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="pregnancy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-3 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/preg.png" alt="Pregnancy" class="h-24 mb-3" />
-                    <p class="text-base font-bold">Pregnancy</p>
+                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
+                    <img src="../image/preg.png" alt="Pregnancy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
+                    <p class="text-base sm:text-lg font-bold">Pregnancy</p>
                 </div>
             </a>
         </div>
@@ -229,7 +232,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-navy-800 mb-2">5000+</h3>
+                        <h3 id="counter1" class="text-3xl font-bold text-navy-800 mb-2">0</h3>
                         <p class="text-gray-500">Happy Patients</p>
                     </div>
                     <div class="bg-white p-6 mt-12 rounded-lg shadow-sm flex flex-col items-center">
@@ -241,7 +244,7 @@
                                 </path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-navy-800 mb-2">200+</h3>
+                        <h3 id="counter2" class="text-3xl font-bold text-navy-800 mb-2">0</h3>
                         <p class="text-gray-500">Hospitals</p>
                     </div>
                     <div class="bg-white p-6 mb-12 rounded-lg shadow-sm flex flex-col items-center">
@@ -252,7 +255,7 @@
                                     d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-navy-800 mb-2">1000+</h3>
+                        <h3 id="counter3" class="text-3xl font-bold text-navy-800 mb-2">0</h3>
                         <p class="text-gray-500">Laboratories</p>
                     </div>
                     <div class="bg-white p-6 rounded-lg shadow-sm flex flex-col items-center">
@@ -263,7 +266,7 @@
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
                         </div>
-                        <h3 class="text-3xl font-bold text-navy-800 mb-2">700+</h3>
+                        <h3 id="counter4" class="text-3xl font-bold text-navy-800 mb-2">0</h3>
                         <p class="text-gray-500">Expert Doctors</p>
                     </div>
                 </div>
