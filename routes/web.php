@@ -36,11 +36,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 // Public Routes
 Route::get('/contact', function () {
     return view('fitur.contact');
-});
+})->name('contact');
+
+Route::get('/aboutUs', function () {
+    return view('fitur.aboutUs');
+})->name('aboutus');
 
 Route::get('/service', function () {
     return view('fitur.service');
-});
+})->name('service');
 
 Route::get('/detailEvent', function () {
     return view('fitur.detailEvent');

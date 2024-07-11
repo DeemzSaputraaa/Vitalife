@@ -149,7 +149,7 @@
 
     {{-- footer 2 --}}
 
-    {{-- <section class="ezy__copyright10 light py-12 bg-gray-800 dark:bg-gray-900 text-white dark:text-white">
+    <section class="ezy__copyright10 light py-12 bg-gray-800 dark:bg-gray-900 text-white dark:text-white">
         <div class="container px-4">
             <div class="grid grid-cols-12">
                 <div class="col-span-12 md:col-span-8 md:col-start-3">
@@ -162,6 +162,12 @@
                                 <p class="ml-3">&copy; Copyright {{ date('Y') }}</p>
                             </div>
                         </div>
+                        <div class="flex space-x-4 mt-4">
+                            <a href="{{ route('contact') }}"
+                                class="text-white hover:text-gray-300 transition duration-300">Contact</a>
+                            <a href="{{ route('aboutus') }}"
+                                class="text-white hover:text-gray-300 transition duration-300">Service</a>
+                        </div>
                         <p class="opacity-50 mb-6">Isheaven male their dry doesn't without him set saw two him man
                             itself second fifth light over fish over which creepeth void don't. Image darkness
                             gathering. All hath don't it, abundantly darkness can't forth appear, in.</p>
@@ -169,12 +175,12 @@
                 </div>
             </div>
         </div>
-    </section> --}}
+    </section>
 
 
     {{-- footer 3 --}}
 
-    <div class="relative bg-gray-800 h-80 reveal">
+    {{-- <div class="relative bg-gray-800 h-80 reveal">
         <!-- kotak1 -->
         <div
             class="absolute inset-0 top-0 left-0 w-full h-5/6 bg-gray-200 text-black rounded-br-full flex justify-end items-end">
@@ -210,11 +216,11 @@
                     dolorum voluptates eius? Accusantium, natus.
                 </p>
             </div>
-        </div>
+        </div> --}}
 
-        {{-- copyright --}}
-        <div class="absolute bottom-0 left-0 p-4 text-gray-400">
+    {{-- copyright --}}
+    {{-- <div class="absolute bottom-0 left-0 p-4 text-gray-400">
             <p>&copy; 2024 Vitalife. All rights reserved.</p>
         </div>
-    </div>
+    </div> --}}
 </footer>
