@@ -1,60 +1,39 @@
-export function initializeImageSlider() {
-    const slider = document.getElementById("imageSlider");
-    if (!slider) {
-        console.error("Slider element not found");
-        return;
-    }
-
-    const images = slider.querySelectorAll(".slider-image");
+document.addEventListener("DOMContentLoaded", function () {
+    const imageSlider = document.getElementById("imageSlider");
+    const sliderImages = imageSlider.querySelectorAll(".slider-image");
+    const totalImages = sliderImages.length;
+    const visibleImages = 3;
     let currentIndex = 0;
 
     function showImages() {
-        images.forEach((img, i) => {
-            if (i >= currentIndex && i < currentIndex + 3) {
-                img.classList.remove("hidden");
-                img.style.order = i - currentIndex;
+        sliderImages.forEach((image, index) => {
+            const adjustedIndex =
+                (index - currentIndex + totalImages) % totalImages;
+            if (adjustedIndex < visibleImages) {
+                image.style.display = "block";
+                image.style.order = adjustedIndex;
             } else {
-                img.classList.add("hidden");
-                img.style.order = "";
+                image.style.display = "none";
             }
         });
-        console.log("Current index:", currentIndex);
     }
 
-    function nextImage() {
-        currentIndex = (currentIndex + 1) % images.length;
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalImages;
         showImages();
     }
 
-    function prevImage() {
-        currentIndex = (currentIndex - 1 + images.length) % images.length;
-        showImages();
+    function startAutoSlide() {
+        return setInterval(nextSlide, 3000); // Geser setiap 3 detik
     }
 
     // Inisialisasi tampilan awal
     showImages();
 
-    // Fungsi untuk tombol next
-    const nextButton = document.getElementById("nextButton");
-    if (nextButton) {
-        nextButton.addEventListener("click", () => {
-            console.log("Next button clicked");
-            nextImage();
-        });
-    } else {
-        console.error("Next button not found");
-    }
+    // Mulai pergeseran otomatis
+    const intervalId = startAutoSlide();
 
-    // Fungsi untuk tombol previous
-    const prevButton = document.getElementById("prevButton");
-    if (prevButton) {
-        prevButton.addEventListener("click", () => {
-            console.log("Prev button clicked");
-            prevImage();
-        });
-    } else {
-        console.error("Prev button not found");
-    }
-
-    console.log("Image slider initialized");
-}
+    // Opsional: Hentikan pergeseran saat kursor di atas slider
+    imageSlider.addEventListener("mouseenter", () => clearInterval(intervalId));
+    imageSlider.addEventListener("mouseleave", () => startAutoSlide());
+});

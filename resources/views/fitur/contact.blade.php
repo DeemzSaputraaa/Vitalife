@@ -1,9 +1,10 @@
 <x-app-layout>
-    <section class="ezy__contact11 light bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white overflow-hidden">
+    <section
+        class="ezy__contact11 light bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white overflow-hidden reveal">
         <div class="bg-no-repeat bg-left-bottom bg-cover py-14"
             style="background-image: url(https://cdn.easyfrontend.com/pictures/contact/contact_11.png)">
-            <div class="container px-4">
-                <div class="grid grid-cols-12 py-6">
+            <div class="container px-14">
+                <div class="grid grid-cols-12 py-14">
                     <div class="col-span-12 lg:col-span-4 mb-12 lg:mb-0">
                         <h2 class="text-2xl leading-none font-bold md:text-[40px] mb-6 text-white">Get in Touch</h2>
                         <p class="text-lg text-white">
@@ -13,7 +14,7 @@
                     </div>
                     <div class="col-span-12 lg:col-span-5 lg:col-start-8">
                         <div
-                            class="bg-white text-black dark:bg-[#162231] rounded-2xl border-[25px] dark:border-[#1C293A] border-[#F4F7FD] p-6 md:p-12">
+                            class="bg-white text-black  rounded-2xl border-[25px] dark:border-blue-200 border-[#F4F7FD] p-6 md:p-12">
                             <h2 class="text-2xl md:text-[45px] leading-none font-bold mb-4">Contact Us</h2>
                             <p class="text-lg mb-12">We list your menu online, help you process orders.</p>
 
@@ -57,5 +58,32 @@
         <div class="ezy__contact11-blank-card"></div>
     </section>
 
-    {{-- @include('layouts.footer') --}}
+    <section class="ezy__copyright10 light py-12 bg-gray-800 dark:bg-gray-900 text-white dark:text-white">
+        <div class="container px-4">
+            <div class="grid grid-cols-12">
+                <div class="col-span-12 md:col-span-8 md:col-start-3">
+                    <div class="flex flex-col justify-center items-center text-center">
+                        <div class="flex items-center justify-center mb-4">
+                            <div>
+                                <img src="../image/LOGO_1.png" alt="" class="max-w-full h-auto w-24">
+                            </div>
+                            <div>
+                                <p class="ml-3">&copy; Copyright {{ date('Y') }}</p>
+                            </div>
+                        </div>
+                        <div class="flex space-x-4 mt-2 mb-6">
+                            <a href="{{ route('contact') }}"
+                                class="text-white hover:text-blue-600 hover:scale-110 transition duration-300">Contact</a>
+                            <a href="{{ route('aboutus') }}"
+                                class="text-white hover:text-blue-600 hover:scale-110 transition duration-300">About
+                                Us</a>
+                        </div>
+                        <p class="opacity-50 mb-6">Isheaven male their dry doesn't without him set saw two him man
+                            itself second fifth light over fish over which creepeth void don't. Image darkness
+                            gathering. All hath don't it, abundantly darkness can't forth appear, in.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </x-app-layout>

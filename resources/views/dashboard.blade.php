@@ -180,30 +180,37 @@
                             <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
                         </div>
                     </div>
-
                     <div
                         class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
                         <div class="relative">
                             <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
                         </div>
                     </div>
-
                     <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image hidden transition-all duration-300 ease-in-out">
+                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
                         <div class="relative">
                             <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
                         </div>
                     </div>
+                    <div
+                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
+                        <div class="relative">
+                            <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
+                        <div class="relative">
+                            <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
+                        </div>
+                    </div>
+                    <div
+                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
+                        <div class="relative">
+                            <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
+                        </div>
+                    </div>
                 </div>
-
-                <button id="prevButton"
-                    class="absolute top-1/2 -translate-y-1/2 left-0 md:-left-3 text-2xl bg-blue-600 hover:bg-blue-700 w-12 h-12 flex justify-center items-center rounded-full z-10 transition duration-300 ease-in-out">
-                    <i class="fas fa-angle-left"></i>
-                </button>
-                <button id="nextButton"
-                    class="absolute top-1/2 -translate-y-1/2 right-0 md:-right-3 text-2xl bg-blue-600 hover:bg-blue-700 w-12 h-12 flex justify-center items-center rounded-full z-10 transition duration-300 ease-in-out">
-                    <i class="fas fa-angle-right"></i>
-                </button>
             </div>
         </div>
     </section>

@@ -1,4 +1,5 @@
 import "./bootstrap";
+import "./imageSlider";
 
 import Alpine from "alpinejs";
 import { initializeImageSlider } from "./imageSlider";

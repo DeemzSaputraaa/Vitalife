@@ -154,19 +154,20 @@
             <div class="grid grid-cols-12">
                 <div class="col-span-12 md:col-span-8 md:col-start-3">
                     <div class="flex flex-col justify-center items-center text-center">
-                        <div class="flex items-center justify-center mb-6">
+                        <div class="flex items-center justify-center mb-4">
                             <div>
-                                <img src="../image/LOGO_1.png" alt="" class="max-w-full h-auto w-24 h-24">
+                                <img src="../image/LOGO_1.png" alt="" class="max-w-full h-auto w-24">
                             </div>
                             <div>
                                 <p class="ml-3">&copy; Copyright {{ date('Y') }}</p>
                             </div>
                         </div>
-                        <div class="flex space-x-4 mt-4">
+                        <div class="flex space-x-4 mt-2 mb-6">
                             <a href="{{ route('contact') }}"
-                                class="text-white hover:text-gray-300 transition duration-300">Contact</a>
+                                class="text-white hover:text-blue-600 hover:scale-110 transition duration-300">Contact</a>
                             <a href="{{ route('aboutus') }}"
-                                class="text-white hover:text-gray-300 transition duration-300">Service</a>
+                                class="text-white hover:text-blue-600 hover:scale-110 transition duration-300">About
+                                Us</a>
                         </div>
                         <p class="opacity-50 mb-6">Isheaven male their dry doesn't without him set saw two him man
                             itself second fifth light over fish over which creepeth void don't. Image darkness
