@@ -8,32 +8,46 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 class AuthenticatedSessionController extends Controller
 {
-    /**
-     * Display the login view.
-     */
     public function create(): View
     {
         return view('auth.login');
     }
 
-    /**
-     * Handle an incoming authentication request.
-     */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(LoginRequest $request): RedirectResponse|JsonResponse
     {
-        $request->authenticate();
+        try {
+            $request->authenticate();
+            $request->session()->regenerate();
 
-        $request->session()->regenerate();
+            $redirectRoute = route('dashboard', absolute: false);
 
-        return redirect()->intended(route('dashboard', absolute: false));
+            if ($request->wantsJson()) {
+                return new JsonResponse([
+                    'success' => true,
+                    'message' => 'Logged in successfully!',
+                    'redirect' => $redirectRoute
+                ]);
+            }
+
+            return redirect()->intended($redirectRoute)->with('status', 'Logged in successfully!');
+        } catch (\Throwable $e) {
+            if ($request->wantsJson()) {
+                return new JsonResponse([
+                    'success' => false,
+                    'message' => 'The provided credentials do not match our records.'
+                ], 422);
+            }
+
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->onlyInput('email');
+        }
     }
 
-    /**
-     * Destroy an authenticated session.
-     */
     public function destroy(Request $request): RedirectResponse
     {
         Auth::guard('web')->logout();
@@ -42,6 +56,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('status', 'Logged out successfully!');
     }
 }

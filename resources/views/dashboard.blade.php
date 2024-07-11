@@ -174,7 +174,6 @@
                             <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
                         </div>
                     </div>
-
                     <div
                         class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
                         <div class="relative">

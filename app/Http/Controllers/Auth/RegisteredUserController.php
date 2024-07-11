@@ -15,50 +15,57 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
-    /**
-     * Display the registration view.
-     */
     public function create(): View
     {
         return view('auth.register');
     }
 
-    /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
-            'role' => ['required', 'string', 'in:user,premium_user,moderator,admin'], // Menambahkan 'admin' ke pilihan role
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
-        ]);
+        try {
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+                'role' => ['required', 'string', 'in:user,premium_user,moderator,admin'],
+                'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'role' => $request->role,
-            'password' => Hash::make($request->password),
-        ]);
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role' => $request->role,
+                'password' => Hash::make($request->password),
+            ]);
 
-        event(new Registered($user));
+            event(new Registered($user));
 
-        $admins = User::where('role', 'admin')->get();
-        foreach ($admins as $admin) {
-            $admin->notify(new NewUserRegistered($user));
+            $admins = User::where('role', 'admin')->get();
+            foreach ($admins as $admin) {
+                $admin->notify(new NewUserRegistered($user));
+            }
+
+            Auth::login($user);
+
+            $redirectRoute = $user->role === 'admin' ? route('admin.dashboard') : route('dashboard');
+
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => true,
+                    'message' => 'Registration successful!',
+                    'redirect' => $redirectRoute
+                ]);
+            }
+
+            return redirect()->route('dashboard')->with('security_notice', 'Jika Anda melihat peringatan keamanan dari Google, itu adalah fitur normal. Kami sarankan Anda mengikuti saran untuk meningkatkan keamanan akun Anda.');
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            if ($request->ajax()) {
+                return response()->json([
+                    'success' => false,
+                    'errors' => $e->errors()
+                ], 422);
+            }
+
+            return redirect()->back()->withErrors($e->errors())->withInput();
         }
-
-        Auth::login($user);
-
-        // Mengarahkan ke dashboard admin jika role adalah admin
-        if ($user->role === 'admin') {
-            return redirect(route('admin.dashboard', absolute: false));
-        }
-
-        // Untuk role lainnya, arahkan ke dashboard biasa
-        return redirect(route('dashboard', absolute: false));
     }
 }
