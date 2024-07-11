@@ -18,12 +18,13 @@
 </head>
 
 <body>
-    <div class="flex h-full bg-blue-100">
+    @include('layouts.sidenav')
+    <div class="flex h-full bg-blue-100 pl-3">
         <!-- Sidebar -->
-        @include('layouts.sidenav')
+
 
         <!-- Konten Utama -->
-        <main class="flex-1 p-6 pl-48">
+        <main class="flex-1 p-4 pl-48">
             <header class="flex justify-between items-center mb-8">
                 <div class="flex items-center">
                     <button>

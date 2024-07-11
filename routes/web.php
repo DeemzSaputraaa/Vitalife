@@ -84,6 +84,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
     Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
     Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
+    // Route::get('/admin/spa', [AdminController::class, 'index'])->name('admin.spa.index');
 });
 
 // Other Routes
