@@ -7,6 +7,7 @@ use App\Http\Controllers\YogaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AccountUserController;
+use App\Models\yoga;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedbackController;
@@ -68,6 +69,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/yoga', function () {
         return view('fitur.yoga');
     })->name('yoga');
+
+    Route::get('/yoga/fil', [YogaController::class, 'index'])->name('yoga.index');
+
 
     Route::get('/event', function () {
         return view('fitur.event');

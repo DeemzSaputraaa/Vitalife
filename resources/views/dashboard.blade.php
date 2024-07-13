@@ -191,6 +191,9 @@
                         <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
                         </div>
+                        <div class="w-1/3 flex-shrink-0 px-3">
+                            <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
+                        </div>
                     </div>
                 </div>
             </div>

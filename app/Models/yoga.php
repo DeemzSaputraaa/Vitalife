@@ -11,7 +11,14 @@ class yoga extends Model
         'nama',
         'harga',
         'alamat',
-        'noHP'
+        'noHP',
+        'waktuBuka',
+        'gambar'
     ];
+
+    protected $casts = [
+        'waktuBuka' => 'array',
+    ];
+
     use HasFactory;
 }

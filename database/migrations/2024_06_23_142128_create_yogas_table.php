@@ -17,6 +17,8 @@ return new class extends Migration
             $table->integer('harga');
             $table->string('alamat');
             $table->string('noHP');
+            $table->json('waktuBuka');
+            $table->string('gambar')->nullable();
             $table->timestamps();
         });
     }
@@ -27,5 +29,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('yogas');
+        Schema::table('yoga', function (Blueprint $table) {
+            $table->dropColumn('gambar');
+        });
     }
 };
