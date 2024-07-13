@@ -18,38 +18,47 @@
                             <h2 class="text-2xl md:text-[45px] leading-none font-bold mb-4">Contact Us</h2>
                             <p class="text-lg mb-12">We list your menu online, help you process orders.</p>
 
-                            <form class="">
+                            <form action="{{ route('feedback.store') }}" method="POST">
+                                @csrf
                                 <div class="mb-4">
                                     <label class="block font-medium text-sm text-indigo-900 dark:text-indigo-600">
-                                        Name
+                                        Nama
                                     </label>
-                                    <input type="text"
+                                    <input type="text" name="name"
                                         class="border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm w-full"
-                                        placeholder="Enter Name" />
+                                        placeholder="Masukkan Nama" required />
                                 </div>
                                 <div class="mb-4">
                                     <label class="block font-medium text-sm text-indigo-900 dark:text-indigo-600">
                                         Email
                                     </label>
-                                    <input type="email"
+                                    <input type="email" name="email"
                                         class="border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm w-full"
-                                        placeholder="Enter Email" />
+                                        placeholder="Masukkan Email" required />
                                 </div>
                                 <div class="mb-4">
                                     <label class="block font-medium text-sm text-indigo-900 dark:text-indigo-600">
-                                        Message
+                                        Pesan
                                     </label>
                                     <textarea name="message"
                                         class="border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-lg shadow-sm w-full"
-                                        placeholder="Enter Message" rows="4"></textarea>
+                                        placeholder="Masukkan Pesan" rows="4" required></textarea>
                                 </div>
                                 <div class="text-start">
                                     <button type="submit"
                                         class="bg-blue-600 hover:bg-opacity-90 text-white px-8 py-3 rounded mb-4">
-                                        Submit
+                                        Kirim
                                     </button>
                                 </div>
                             </form>
+
+                            @if (session('success'))
+                                <div class="mt-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                                    role="alert">
+                                    <strong class="font-bold">Berhasil!</strong>
+                                    <span class="block sm:inline">{{ session('success') }}</span>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>

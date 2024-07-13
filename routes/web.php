@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AccountUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\FeedbackController;
+use App\Models\Feedback;
 
 // Welcome
 Route::get('/', function () {
@@ -27,11 +29,6 @@ Route::get('/register', 'Auth\RegisterController@showRegistrationForm')->name('r
 // Social Media Authentication
 Route::get('/auth/{provider}', [SocialiteController::class, 'redirectToProvider']);
 Route::get('/auth/{provider}/callback', [SocialiteController::class, 'handleProviderCallback']);
-
-// Account User
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
-});
 
 // Public Routes
 Route::get('/contact', function () {
@@ -89,8 +86,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
     Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
     Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
-    // Route::get('/admin/spa', [AdminController::class, 'index'])->name('admin.spa.index');
+    Route::post('/admin/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
+    Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback');
+    Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
 });
+
+
 
 // Other Routes
 Route::get('/spaadmin', function () {
