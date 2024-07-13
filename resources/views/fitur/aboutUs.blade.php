@@ -16,9 +16,23 @@
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Suci Mutiarani</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Project Manajer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Numquam ducimus cumque iusto eius magnam enim beatae, modi aperiam nemo
-                            rerum? Et impedit molestiae earum? Error nemo dolorum omnis tempora quibusdam.</p>
+                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
+                            <span class="short-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
+                                eius magnam enim beatae, modi aperiam nemo rerum? Et...
+                            </span>
+                            <span class="full-text" style="display: none;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
+                                eius magnam enim beatae, modi aperiam nemo rerum? Et impedit molestiae earum? Error nemo
+                                dolorum omnis tempora quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit. Quibusdam iusto obcaecati, debitis facilis eaque assumenda tempore illum sit vero
+                                natus fugit perspiciatis molestiae rerum, error vel dolores commodi perferendis sint?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, corporis.
+                                Exercitationem rerum, dicta deleniti impedit delectus assumenda laboriosam dolorem
+                                reprehenderit facere enim quo tempora, ab eligendi illo a animi esse.
+                            </span>
+                            <a href="#" class="read-more text-blue-500 hover:underline">Baca selengkapnya</a>
+                        </p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <div class="flex space-x-4">
@@ -53,10 +67,6 @@
                                     </svg>
                                 </button>
                             </div>
-                            {{-- <button
-                                class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
-                                View Details
-                            </button> --}}
                         </div>
                     </div>
                 </div>
@@ -67,9 +77,23 @@
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Legawan Perkasa</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Analisis Sistem</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Numquam ducimus cumque iusto eius magnam enim beatae, modi aperiam nemo
-                            rerum? Et impedit molestiae earum? Error nemo dolorum omnis tempora quibusdam.</p>
+                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
+                            <span class="short-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
+                                eius magnam enim beatae, modi aperiam nemo rerum? Et...
+                            </span>
+                            <span class="full-text" style="display: none;">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
+                                eius magnam enim beatae, modi aperiam nemo rerum? Et impedit molestiae earum? Error nemo
+                                dolorum omnis tempora quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit. Quibusdam iusto obcaecati, debitis facilis eaque assumenda tempore illum sit vero
+                                natus fugit perspiciatis molestiae rerum, error vel dolores commodi perferendis sint?
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, corporis.
+                                Exercitationem rerum, dicta deleniti impedit delectus assumenda laboriosam dolorem
+                                reprehenderit facere enim quo tempora, ab eligendi illo a animi esse.
+                            </span>
+                            <a href="#" class="read-more text-blue-500 hover:underline">Baca selengkapnya</a>
+                        </p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <div class="flex space-x-4">
@@ -105,10 +129,6 @@
                                     </svg>
                                 </button>
                             </div>
-                            <button
-                                class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
-                                View Details
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -159,10 +179,6 @@
                                     </svg>
                                 </button>
                             </div>
-                            <button
-                                class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
-                                View Details
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -212,10 +228,6 @@
                                     </svg>
                                 </button>
                             </div>
-                            <button
-                                class="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-300">
-                                View Details
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -254,3 +266,23 @@
         </div>
     </section>
 </x-app-layout>
+<script>
+    document.querySelectorAll('.read-more').forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            var container = this.closest('p');
+            var shortText = container.querySelector('.short-text');
+            var fullText = container.querySelector('.full-text');
+
+            if (shortText.style.display !== 'none') {
+                shortText.style.display = 'none';
+                fullText.style.display = 'inline';
+                this.textContent = 'Baca lebih sedikit';
+            } else {
+                shortText.style.display = 'inline';
+                fullText.style.display = 'none';
+                this.textContent = 'Baca selengkapnya';
+            }
+        });
+    });
+</script>
