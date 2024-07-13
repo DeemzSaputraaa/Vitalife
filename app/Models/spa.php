@@ -14,7 +14,12 @@ class spa extends Model
         'alamat',
         'noHP',
         'waktuBuka',
-        'image'
+        'gambar'
     ];
+
+    protected $casts = [
+        'waktuBuka' => 'array',
+    ];
+
     use HasFactory;
 }

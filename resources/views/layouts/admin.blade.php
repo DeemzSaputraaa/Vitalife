@@ -72,6 +72,7 @@
             </header>
 
             @yield('content')
+            @yield('scripts')
         </main>
     </div>
 </body>

@@ -59,6 +59,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //spa
     Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
     Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
+    // Route::get('/spa/search', [SpaController::class, 'search'])->name('spa.search');
 
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');

@@ -13,6 +13,45 @@ class SpaController extends Controller
         return view('admin.dashboard', compact('spaCount'));
     }
 
+    // public function search(Request $request)
+    // {
+    //     $query = Spa::query();
+
+    //     if ($request->filled('location')) {
+    //         $query->where('alamat', 'like', '%' . $request->location . '%');
+    //     }
+
+    //     if ($request->filled('min_price')) {
+    //         $query->where('harga', '>=', $request->min_price);
+    //     }
+
+    //     if ($request->filled('max_price')) {
+    //         $query->where('harga', '<=', $request->max_price);
+    //     }
+
+    //     switch ($request->sort) {
+    //         case 'price-low-high':
+    //             $query->orderBy('harga', 'asc');
+    //             break;
+    //         case 'price-high-low':
+    //             $query->orderBy('harga', 'desc');
+    //             break;
+    //         case 'name-asc':
+    //             $query->orderBy('nama', 'asc');
+    //             break;
+    //         case 'name-desc':
+    //             $query->orderBy('nama', 'desc');
+    //             break;
+    //         default:
+    //             $query->orderBy('id_spa', 'desc');
+    //             break;
+    //     }
+
+    //     $spaTotal = $query->get();
+
+    //     return view('spa', compact('spaTotal'));
+    // }
+
     public function showSpas()
     {
         $spaTotal = Spa::all(); // Fetch all spa data
@@ -40,12 +79,27 @@ class SpaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|max:255',
-            'harga' => 'required|numeric',
-            'alamat' => 'required',
-            'noHP' => 'required',
-            'waktuBuka' => 'required'
+            'nama' => 'required|string|max:255',
+            'harga' => 'required|integer',
+            'alamat' => 'required|string',
+            'noHP' => 'required|string',
+            'waktuBuka' => 'required|array',
+            'waktuBuka.*' => 'required|string',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
+
+        $imageName = time() . '.' . $request->gambar->extension();
+        $request->gambar->move(public_path('images'), $imageName);
+
+
+        $spa = new Spa();
+        $spa->nama = $validatedData['nama'];
+        $spa->harga = $validatedData['harga'];
+        $spa->alamat = $validatedData['alamat'];
+        $spa->noHP = $validatedData['noHP'];
+        $spa->waktuBuka = $validatedData['waktuBuka'];
+        $spa->gambar = 'images/' . $imageName;
+        $spa->save();
 
         Spa::create($validatedData);
 
