@@ -166,47 +166,29 @@
     {{-- halaman 4 --}}
     <section class="py-2 md:py-5 bg-white text-zinc-900 dark:text-white z-10 reveal">
         <div class="container px-10 mx-auto">
-            <div class="relative">
-                <div id="imageSlider" class="grid grid-cols-6 mt-12 gap-6">
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+            <div class="relative" x-data="imageSlider()">
+                <div id="imageSlider" class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out"
+                        :style="{ transform: `translateX(-${currentIndex * (100/3)}%)` }">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
                         </div>
-                    </div>
-                    <div
-                        class="col-span-6 md:col-span-3 lg:col-span-2 slider-image transition-all duration-300 ease-in-out">
-                        <div class="relative">
+                        <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
                         </div>
                     </div>
@@ -279,5 +261,22 @@
             </div>
         </div>
     </section>
+    <script>
+        function imageSlider() {
+            return {
+                currentIndex: 0,
+                totalSlides: 7, // Jumlah total gambar
+                nextSlide() {
+                    this.currentIndex = (this.currentIndex + 1) % (this.totalSlides - 2);
+                },
+                startSlider() {
+                    setInterval(() => this.nextSlide(), 3000);
+                },
+                init() {
+                    this.startSlider();
+                }
+            }
+        }
+    </script>
     @include('layouts.footer')
 </x-app-layout>
