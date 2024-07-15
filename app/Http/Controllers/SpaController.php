@@ -72,7 +72,10 @@ class SpaController extends Controller
         $searchCriteria = [];
 
         if ($request->filled('location')) {
-            $query->where('alamat', 'like', '%' . $request->location . '%');
+            $query->where(function ($query) use ($request) {
+                $query->where('alamat', 'like', '%' . $request->location . '%')
+                    ->orWhere('nama', 'like', '%' . $request->location . '%');
+            });
             $searchPerformed = true;
             $searchCriteria[] = "lokasi: " . $request->location;
         }
