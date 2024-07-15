@@ -163,8 +163,8 @@
         </div>
     </div>
 
-    {{-- halaman 4 --}}
-    <section class="py-2 md:py-5 bg-white text-zinc-900 dark:text-white z-10 reveal">
+    {{-- halaman 4 voucher --}}
+    <section id="voucher" class="py-2 md:py-5 bg-white text-zinc-900 dark:text-white z-10 reveal">
         <div class="container px-10 mx-auto">
             <div class="relative" x-data="imageSlider()">
                 <div id="imageSlider" class="overflow-hidden">
@@ -280,6 +280,19 @@
                 }
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const scroll = urlParams.get('scroll');
+            if (scroll === 'voucher') {
+                const voucherSection = document.getElementById('voucher');
+                if (voucherSection) {
+                    voucherSection.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
     </script>
     @include('layouts.footer')
 </x-app-layout>

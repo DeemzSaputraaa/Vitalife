@@ -34,10 +34,10 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('spa')" :active="request()->routeIs('spa')">
+                            <x-dropdown-link :href="route('spa.index')" :active="request()->routeIs('spa.index')">
                                 {{ __('SPA') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('yoga')" :active="request()->routeIs('yoga')">
+                            <x-dropdown-link :href="route('yoga.index')" :active="request()->routeIs('yoga.index')">
                                 {{ __('Yoga') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('event')" :active="request()->routeIs('event')">
@@ -51,7 +51,7 @@
                     </x-nav-link>
 
                     {{-- voucher --}}
-                    <x-nav-link :href="route('spesialis')" :active="request()->routeIs('voucher')">
+                    <x-nav-link :href="route('dashboard', ['scroll' => 'voucher'])" :active="request()->routeIs('dashboard') && request()->query('scroll') === 'voucher'">
                         {{ __('Voucher') }}
                     </x-nav-link>
                 </div>

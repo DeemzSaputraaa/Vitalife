@@ -52,23 +52,61 @@ class SpaController extends Controller
     //     return view('spa', compact('spaTotal'));
     // }
 
-    public function showSpas()
+    // public function showSpas()
+    // {
+    //     $spaTotal = Spa::all(); // Fetch all spa data
+    //     return view('fitur.spa', compact('spaTotal'));
+    // }
+
+    // public function spaFilter(Request $request)
+    // {
+    //     $spa = $request->input('location');
+    //     $spaTotal = Spa::where('alamat', 'like', "%$spa%")->get();
+    //     return view('fitur.spaFilter', compact('spaTotal'));
+    // }
+
+    public function index(Request $request)
     {
-        $spaTotal = Spa::all(); // Fetch all spa data
+        $query = Spa::query();
+        $searchPerformed = false;
+        $searchCriteria = [];
+
+        if ($request->filled('location')) {
+            $query->where('alamat', 'like', '%' . $request->location . '%');
+            $searchPerformed = true;
+            $searchCriteria[] = "lokasi: " . $request->location;
+        }
+
+        // Filter berdasarkan rentang harga
+        if ($request->filled('min_price') || $request->filled('max_price')) {
+            if ($request->filled('min_price')) {
+                $query->where('harga', '>=', $request->min_price);
+                $searchCriteria[] = "harga minimal: Rp " . number_format($request->min_price, 0, ',', '.');
+            }
+            if ($request->filled('max_price')) {
+                $query->where('harga', '<=', $request->max_price);
+                $searchCriteria[] = "harga maksimal: Rp " . number_format($request->max_price, 0, ',', '.');
+            }
+            $searchPerformed = true;
+        }
+
+        $spaTotal = $query->get();
+
+        // Set status pencarian
+        if ($searchPerformed) {
+            $searchCriteriaString = implode(', ', $searchCriteria);
+            if ($spaTotal->isEmpty()) {
+                session()->flash('search_status', 'not_found');
+                session()->flash('search_query', $searchCriteriaString);
+            } else {
+                session()->flash('search_status', 'success');
+                session()->flash('search_query', $searchCriteriaString);
+            }
+        } else {
+            session()->forget(['search_status', 'search_query']);
+        }
+
         return view('fitur.spa', compact('spaTotal'));
-    }
-
-    public function spaFilter(Request $request)
-    {
-        $spa = $request->input('location');
-        $spaTotal = Spa::where('alamat', 'like', "%$spa%")->get();
-        return view('fitur.spaFilter', compact('spaTotal'));
-    }
-
-    public function index()
-    {
-        $spaTotal = Spa::all();
-        return view('admin.spaIndex', compact('spaTotal'));
     }
 
     public function create()
@@ -92,14 +130,14 @@ class SpaController extends Controller
         $request->gambar->move(public_path('images'), $imageName);
 
 
-        $spa = new Spa();
-        $spa->nama = $validatedData['nama'];
-        $spa->harga = $validatedData['harga'];
-        $spa->alamat = $validatedData['alamat'];
-        $spa->noHP = $validatedData['noHP'];
-        $spa->waktuBuka = $validatedData['waktuBuka'];
-        $spa->gambar = 'images/' . $imageName;
-        $spa->save();
+        // $spa = new Spa();
+        // $spa->nama = $validatedData['nama'];
+        // $spa->harga = $validatedData['harga'];
+        // $spa->alamat = $validatedData['alamat'];
+        // $spa->noHP = $validatedData['noHP'];
+        // $spa->waktuBuka = $validatedData['waktuBuka'];
+        // $spa->gambar = 'images/' . $imageName;
+        // $spa->save();
 
         Spa::create($validatedData);
 

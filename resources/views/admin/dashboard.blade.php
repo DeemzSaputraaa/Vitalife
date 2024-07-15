@@ -19,7 +19,7 @@
 
     <div class="flex space-x-4 mb-4">
         <!-- Total Mews Card -->
-        <button href="" class="bg-white text-black rounded-lg p-4 flex-1 w-full">
+        <a href="{{ route('admin.spas.index') }}" class="bg-white text-black rounded-lg p-4 flex-1 w-full">
             <div class="flex justify-between items-start">
                 <div>
                     <h2 class="text-2xl font-bold">{{ $spacount }}</h2>
@@ -37,7 +37,7 @@
             <div class="mt-4 bg-gray-200 rounded-full h-2">
                 <div class="bg-gray-800 h-2 rounded-full" style="width: 45%"></div>
             </div>
-        </button>
+        </a>
 
         <!-- Total Orders Today Card -->
         <div class="bg-white rounded-lg p-4 flex-1 shadow">

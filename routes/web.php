@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
+use App\Http\Controllers\Admin\SpasController;
+
 
 // Welcome
 Route::get('/', function () {
@@ -55,9 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     })->name('dashboard');
 
     //spa
-    Route::get('/spa', [SpaController::class, 'showSpas'])->name('spa');
-    Route::get('/spaFilter', [SpaController::class, 'spaFilter'])->name('spaFilter');
-    // Route::get('/spa/search', [SpaController::class, 'search'])->name('spa.search');
+    Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
 
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
@@ -66,11 +66,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('fitur.spesBayar');
     });
 
-    Route::get('/yoga', function () {
-        return view('fitur.yoga');
-    })->name('yoga');
+    // Route::get('/yoga', function () {
+    //     return view('fitur.yoga');
+    // })->name('yoga');
 
-    Route::get('/yoga/fil', [YogaController::class, 'index'])->name('yoga.index');
+    Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
 
 
     Route::get('/event', function () {
@@ -95,7 +95,13 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
 });
 
-
+// Admin Spa
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/spas', [SpasController::class, 'index'])->name('spas.index');
+    Route::get('/spas/{id}/edit', [SpasController::class, 'edit'])->name('spas.edit');
+    Route::put('/spas/{id}', [SpasController::class, 'update'])->name('spas.update');
+    Route::delete('/spas/{id}', [SpasController::class, 'destroy'])->name('spas.destroy');
+});
 
 // Other Routes
 Route::get('/spaadmin', function () {

@@ -15,6 +15,7 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -71,11 +72,70 @@
                 </div>
             </header>
 
-            @yield('content')
+            <div id="content-wrapper">
+                @yield('content')
+            </div>
             @yield('scripts')
         </main>
     </div>
+    <script>
+        function showLoading() {
+            Swal.fire({
+                title: 'Loading...',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+
+        function hideLoading() {
+            Swal.close();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showLoading();
+        });
+
+        window.addEventListener('load', () => {
+            hideLoading();
+        });
+
+        document.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
+                e.preventDefault();
+                showLoading();
+                window.location.href = link.href;
+            }
+        });
+
+        document.getElementById('content-wrapper').addEventListener('DOMNodeInserted', () => {
+            hideLoading();
+        });
+
+        function fetchNotifications() {
+            // ... (kode fetchNotifications yang sama) ...
+        }
+
+        function markAsRead(id) {
+            // ... (kode markAsRead yang sama) ...
+        }
+
+        document.getElementById('notificationButton').addEventListener('click', (e) => {
+            // ... (kode event listener yang sama) ...
+        });
+
+        document.addEventListener('click', (e) => {
+            // ... (kode event listener yang sama) ...
+        });
+
+        setInterval(fetchNotifications, 30000);
+        fetchNotifications();
+    </script>
 </body>
+
 <script>
     function fetchNotifications() {
         fetch('/notifications')
