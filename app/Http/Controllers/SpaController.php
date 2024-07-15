@@ -76,6 +76,7 @@ class SpaController extends Controller
                 $query->where('alamat', 'like', '%' . $request->location . '%')
                     ->orWhere('nama', 'like', '%' . $request->location . '%');
             });
+            $query->where('alamat', 'like', '%' . $request->location . '%');
             $searchPerformed = true;
             $searchCriteria[] = "lokasi: " . $request->location;
         }
@@ -114,7 +115,7 @@ class SpaController extends Controller
 
     public function create()
     {
-        return view('admin.formspa')->with('enctype', 'multipart/form-data');
+        return view('admin.formspa');
     }
 
     public function store(Request $request)
@@ -126,13 +127,13 @@ class SpaController extends Controller
             'noHP' => 'required|string',
             'waktuBuka' => 'required|array',
             'waktuBuka.*' => 'required|string',
-            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
     
-        if ($request->hasFile('gambar')) {
-            $imageName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('images'), $imageName);
-            $validatedData['gambar'] = 'images/' . $imageName;
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
         }
     
         try {

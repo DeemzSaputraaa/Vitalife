@@ -100,14 +100,8 @@
                         <div class="flex">
                             <div class="flex items-center border-b border-gray-500 pb-2">
                                 <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
-                                    @if ($spa->gambar)
-                                        <img src="{{ asset('storage/spa_image/' . $spa->gambar) }}"
-                                            alt="{{ $spa->nama }}" class="w-full h-full object-cover">
-                                    @else
-                                        <div class="w-full h-full flex items-center justify-center text-gray-500">
-                                            No Image
-                                        </div>
-                                    @endif
+                                    <img src="{{ asset($spa->image) }}" alt="spa"
+                                        class="object-cover w-full h-full">
                                 </div>
                                 <div>
                                     <h2 class="text-2xl font-bold">{{ $spa->nama }}</h2>

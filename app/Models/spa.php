@@ -14,7 +14,7 @@ class spa extends Model
         'alamat',
         'noHP',
         'waktuBuka',
-        'gambar'
+        'image'
     ];
 
     protected $casts = [
