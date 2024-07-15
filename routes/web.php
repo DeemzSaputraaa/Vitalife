@@ -13,6 +13,8 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
 use App\Http\Controllers\Admin\SpasController;
+use App\Http\Controllers\SocialAuthController;
+
 
 
 // Welcome
@@ -91,6 +93,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback');
     Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
 });
+
+Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider']);
+Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProviderCallback']);
 
 // Admin Spa
 Route::prefix('admin')->name('admin.')->group(function () {
