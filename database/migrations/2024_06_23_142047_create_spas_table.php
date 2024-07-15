@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('noHP');
             $table->json('waktuBuka');
-            $table->string('gambar');
+            $table->string('image');
             $table->timestamps();
         });
     }
