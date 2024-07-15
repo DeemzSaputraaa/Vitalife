@@ -1,5 +1,90 @@
 <x-app-layout>
     <section class="ezy__team1 light py-14 md:py-24 bg-blue-100  text-zinc-900">
+        <div class="bg-slate-300 p-4 sm:p-8">
+            <div class="relative w-96 h-96 mx-auto mb-6">
+                <img src="../image/logovitalife.png" alt="Logo Vitalife"
+                    class="absolute inset-0 object-center w-full h-full">
+            </div>
+            <h1 class="text-4xl sm:text-5xl font-bold text-center mb-4 sm:mb-8">Vitalife?</h1>
+
+            <p class="text-center mb-6 sm:mb-8 text-sm text-gray-600 px-14 sm:px-14">
+                Vitalife adalah aplikasi inovatif yang berfokus pada wellness tourism dalam kategori health tourism,
+                dirancang untuk meningkatkan pengalaman wisata kesehatan pengguna. Aplikasi ini menawarkan rekomendasi
+                pusat yoga dan spa terdekat di destinasi wisata, serta informasi tentang acara olahraga atau event
+                terbaru yang khas di lokasi tersebut. Selain itu, Vitalife menghubungkan pengguna dengan dokter umum
+                atau spesialis di klinik-klinik terdekat untuk konsultasi kesehatan, baik sebelum maupun setelah
+                aktivitas wisata, memastikan keselamatan dan kesiapan fisik pengguna. Fitur reservasi online yang mudah
+                dan transparan, informasi lengkap tentang fasilitas dan ulasan pengguna, serta opsi pelacakan
+                perkembangan kesehatan dan kebugaran, semuanya disediakan untuk mempersonalisasi dan memperkaya
+                perjalanan wellness pengguna. Vitalife juga rutin melakukan survei kepuasan pelanggan untuk terus
+                meningkatkan kualitas layanan berdasarkan umpan balik yang diterima, sehingga memastikan pengalaman
+                pengguna yang optimal dan terarah dalam perjalanan kesehatan mereka.
+            </p>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-8 mb-8">
+                <div class="text-center">
+                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Career for success</h3>
+                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Advanced highlight</h3>
+                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
+                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="font-semibold mb-2">Advanced creative</h3>
+                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded w-full sm:w-auto">Get Started Now</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded w-full sm:w-auto">Free Trial</button>
+                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded w-full sm:w-auto">See more</button>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                <div class="text-center">
+                    <p class="text-2xl font-bold">500K</p>
+                    <p class="text-sm text-gray-600">Users</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold">$500</p>
+                    <p class="text-sm text-gray-600">Earn</p>
+                </div>
+                <div class="text-center">
+                    <p class="text-2xl font-bold">500+</p>
+                    <p class="text-sm text-gray-600">Review</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ezy__team1 light py-14 md:py-24 bg-blue-100  text-zinc-900">
         <div class="container px-4 mx-auto">
             <div class="flex justify-center mb-6 md:mb-12">
                 <div class="max-w-lg text-center">
