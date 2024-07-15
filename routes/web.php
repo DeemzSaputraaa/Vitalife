@@ -66,10 +66,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('fitur.spesBayar');
     });
 
-    // Route::get('/yoga', function () {
-    //     return view('fitur.yoga');
-    // })->name('yoga');
-
+    //yoga
     Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
 
 
@@ -101,6 +98,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/spas/{id}/edit', [SpasController::class, 'edit'])->name('spas.edit');
     Route::put('/spas/{id}', [SpasController::class, 'update'])->name('spas.update');
     Route::delete('/spas/{id}', [SpasController::class, 'destroy'])->name('spas.destroy');
+});
+
+// Admin Yoga
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/yogas', [YogaController::class, 'index'])->name('yogas.index');
+    Route::get('/yogas/{id}/edit', [YogaController::class, 'edit'])->name('yogas.edit');
+    Route::put('/yogas/{id}', [YogaController::class, 'update'])->name('yogas.update');
+    Route::delete('/yogas/{id}', [YogaController::class, 'destroy'])->name('yogas.destroy');
 });
 
 // Other Routes

@@ -53,35 +53,27 @@ class YogaController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nama' => 'required|max:255',
+            'nama' => 'required|string|max:255',
             'harga' => 'required|integer',
-            'alamat' => 'required',
-            'noHP' => 'required',
+            'alamat' => 'required|string',
+            'noHP' => 'required|string',
             'waktuBuka' => 'required|array',
             'waktuBuka.*' => 'required|string',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        // try {
-        //     $imagePath = $request->file('gambar')->store('yoga_images', 'public');
-
-        //     $yoga = Yoga::create([
-        //         'nama' => $request->nama,
-        //         'harga' => $request->harga,
-        //         'alamat' => $request->alamat,
-        //         'noHP' => $request->noHP,
-        //         'waktuBuka' => json_encode($request->waktuBuka),
-        //         'gambar' => $imagePath,
-        //     ]);
-
-        //     return redirect()->route('yoga.index')->with('success', 'Data yoga berhasil disimpan');
-        // } catch (\Exception $e) {
-        //     return back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        // }
-
-        Yoga::create($validatedData);
-
-        return redirect()->route('admin.formyoga')->with('success', 'Data Yoga berhasil disimpan');
+    
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
+        }
+    
+        try {
+            $yoga = Yoga::create($validatedData);
+            return redirect()->route('admin.spaShow', $yoga)->with('success', 'Data SPA berhasil disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data SPA. Silakan coba lagi.');
+        }
     }
 
     public function show(Yoga $yoga)

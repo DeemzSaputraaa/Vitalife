@@ -12,59 +12,7 @@ class SpaController extends Controller
         $spaCount = Spa::count();
         return view('admin.dashboard', compact('spaCount'));
     }
-
-    // public function search(Request $request)
-    // {
-    //     $query = Spa::query();
-
-    //     if ($request->filled('location')) {
-    //         $query->where('alamat', 'like', '%' . $request->location . '%');
-    //     }
-
-    //     if ($request->filled('min_price')) {
-    //         $query->where('harga', '>=', $request->min_price);
-    //     }
-
-    //     if ($request->filled('max_price')) {
-    //         $query->where('harga', '<=', $request->max_price);
-    //     }
-
-    //     switch ($request->sort) {
-    //         case 'price-low-high':
-    //             $query->orderBy('harga', 'asc');
-    //             break;
-    //         case 'price-high-low':
-    //             $query->orderBy('harga', 'desc');
-    //             break;
-    //         case 'name-asc':
-    //             $query->orderBy('nama', 'asc');
-    //             break;
-    //         case 'name-desc':
-    //             $query->orderBy('nama', 'desc');
-    //             break;
-    //         default:
-    //             $query->orderBy('id_spa', 'desc');
-    //             break;
-    //     }
-
-    //     $spaTotal = $query->get();
-
-    //     return view('spa', compact('spaTotal'));
-    // }
-
-    // public function showSpas()
-    // {
-    //     $spaTotal = Spa::all(); // Fetch all spa data
-    //     return view('fitur.spa', compact('spaTotal'));
-    // }
-
-    // public function spaFilter(Request $request)
-    // {
-    //     $spa = $request->input('location');
-    //     $spaTotal = Spa::where('alamat', 'like', "%$spa%")->get();
-    //     return view('fitur.spaFilter', compact('spaTotal'));
-    // }
-
+    
     public function index(Request $request)
     {
         $query = Spa::query();

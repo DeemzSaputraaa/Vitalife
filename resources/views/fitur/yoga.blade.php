@@ -80,14 +80,8 @@
                         <div class="flex">
                             <div class="flex items-center border-b border-gray-500 pb-2">
                                 <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
-                                    @if ($yoga->gambar)
-                                        <img src="{{ asset('storage/yoga_image/' . $yoga->gambar) }}"
-                                            alt="{{ $yoga->nama }}" class="w-full h-full object-cover">
-                                    @else
-                                        <div class="w-full h-full flex items-center justify-center text-gray-500">
-                                            No Image
-                                        </div>
-                                    @endif
+                                    <img src="{{ asset($yoga->image) }}" alt="spa"
+                                        class="object-cover w-full h-full">
                                 </div>
                                 <div>
                                     <h2 class="text-2xl font-bold">{{ $yoga->nama }}</h2>

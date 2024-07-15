@@ -40,7 +40,7 @@
         </a>
 
         <!-- Total Orders Today Card -->
-        <div class="bg-white rounded-lg p-4 flex-1 shadow">
+        <a href="{{route('admin.yogas.index')}}" class="bg-white rounded-lg p-4 flex-1 shadow">
             <div class="flex justify-between items-start">
                 <div>
                     <h2 class="text-2xl font-bold">{{ $yogacount }}</h2>
@@ -59,7 +59,7 @@
             <div class="mt-4 bg-gray-200 rounded-full h-2">
                 <div class="bg-blue-500 h-2 rounded-full" style="width: 65%"></div>
             </div>
-        </div>
+        </a>
 
         <!-- Total Clients Today Card -->
         <div class="bg-white rounded-lg p-4 flex-1 shadow">
