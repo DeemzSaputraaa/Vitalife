@@ -132,19 +132,15 @@ class SpaController extends Controller
         $imageName = time() . '.' . $request->gambar->extension();
         $request->gambar->move(public_path('images'), $imageName);
 
-
-        // $spa = new Spa();
-        // $spa->nama = $validatedData['nama'];
-        // $spa->harga = $validatedData['harga'];
-        // $spa->alamat = $validatedData['alamat'];
-        // $spa->noHP = $validatedData['noHP'];
-        // $spa->waktuBuka = $validatedData['waktuBuka'];
-        // $spa->gambar = 'images/' . $imageName;
-        // $spa->save();
+        $validatedData['gambar'] = 'images/' . $imageName;
 
         Spa::create($validatedData);
 
-        return redirect()->route('admin.formspa')->with('success', 'Data SPA berhasil disimpan');
+        try {
+            return redirect()->route('admin.formspa')->with('success', 'Data SPA berhasil disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data SPA. Silakan coba lagi.');
+        }
     }
 
     public function show(Spa $spa)
