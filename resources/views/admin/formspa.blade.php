@@ -79,7 +79,8 @@
         </ul>
     </div>
 @endsection
-{{-- @section('scripts')
+
+@section('scripts')
     <script>
         function previewImage(event) {
             const input = event.target;
@@ -94,4 +95,4 @@
             }
         }
     </script>
-@endsection --}}
+@endsection

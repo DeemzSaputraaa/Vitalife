@@ -114,7 +114,7 @@ class SpaController extends Controller
 
     public function create()
     {
-        return view('admin.formspa');
+        return view('admin.formspa')->with('enctype', 'multipart/form-data');
     }
 
     public function store(Request $request)
@@ -126,18 +126,18 @@ class SpaController extends Controller
             'noHP' => 'required|string',
             'waktuBuka' => 'required|array',
             'waktuBuka.*' => 'required|string',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'gambar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $imageName = time() . '.' . $request->gambar->extension();
-        $request->gambar->move(public_path('images'), $imageName);
-
-        $validatedData['gambar'] = 'images/' . $imageName;
-
-        Spa::create($validatedData);
-
+    
+        if ($request->hasFile('gambar')) {
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('images'), $imageName);
+            $validatedData['gambar'] = 'images/' . $imageName;
+        }
+    
         try {
-            return redirect()->route('admin.formspa')->with('success', 'Data SPA berhasil disimpan');
+            $spa = Spa::create($validatedData);
+            return redirect()->route('admin.spaShow', $spa)->with('success', 'Data SPA berhasil disimpan');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Gagal menyimpan data SPA. Silakan coba lagi.');
         }
