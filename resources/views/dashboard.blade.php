@@ -45,30 +45,30 @@
     {{-- halaman 2 --}}
 
     <div id="features"
-        class="bg-white rounded-full mx-4 sm:mx-8 md:mx-12 shadow-xl p-3 sm:p-4 md:p-5 text-center flex flex-col items-center reveal">
-        <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 md:mb-8">Wellness Support</h2>
-        <div class="flex flex-wrap justify-center gap-10 sm:gap-16 md:gap-24 lg:gap-32">
+        class="bg-white rounded-lg shadow-md p-3 sm:p-4 md:p-5 text-center flex flex-col items-center reveal">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-5 sm:mb-7 md:mb-9">Wellness Support</h2>
+        <div class="flex flex-wrap justify-center gap-10 sm:gap-14 md:gap-20 lg:gap-28">
             <a href="/spa"
                 class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
-                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/spa.png" alt="spa" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">SPA</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/spa.png" alt="spa" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">SPA</p>
                 </div>
             </a>
 
             <a href="/yoga"
                 class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
-                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/meditation.png" alt="Meditation" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">YOGA</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/meditation.png" alt="Meditation" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">YOGA</p>
                 </div>
             </a>
 
             <a href="/event"
                 class="flex-shrink-0 transform transition duration-300 hover:scale-105 group mb-5 sm:mb-7">
-                <div class="relative p-4 sm:p-5 md:p-6 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
-                    <img src="../image/run.png" alt="event" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">EVENT</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/run.png" alt="event" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">EVENT</p>
                 </div>
             </a>
         </div>
@@ -102,62 +102,64 @@
 
     {{-- halaman 3 --}}
     <div id="specialization" class="p-5 sm:p-8 md:p-10 text-center flex flex-col items-center reveal">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">Specialisation</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 text-navy-blue">Specialisation</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 sm:gap-10">
             <a href="{{ route('spesialisFilter') }}" id="anatomy" name="anatomy"
-                class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/anatomy.png" alt="Anatomy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Anatomy</p>
+                class="flex flex-col items-center group">
+                <div
+                    class="w-full aspect-square bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 transition duration-300 hover:shadow-lg">
+                    <img src="../image/anatomy.png" alt="Anatomy" class="w-16 h-16 mb-4" />
+                    <p class="text-sm font-medium text-gray-600">Anatomy</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="primaryCare" name="specializatio"
-                class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/care.png" alt="Primary Care" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Primary Care</p>
+                class="flex flex-col items-center group">
+                <div
+                    class="w-full aspect-square bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 transition duration-300 hover:shadow-lg">
+                    <img src="../image/care.png" alt="Primary Care" class="w-16 h-16 mb-4" />
+                    <p class="text-sm font-medium text-gray-600">Primary Care</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="cardiology" name="cardiology"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/cardiology.png" alt="Cardiology" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Cardiology</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/cardiology.png" alt="Cardiology" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Cardiology</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="skinGenitals" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/skin.png" alt="Skin & Genitals" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Skin & Genitals</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/skin.png" alt="Skin & Genitals" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Skin & Genitals</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="humanSenses" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/human.png" alt="Human Senses" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Human Senses</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/human.png" alt="Human Senses" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Human Senses</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="piscologist" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/psico.png" alt="Piscologist" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Piscologist</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/psico.png" alt="Piscologist" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Piscologist</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="fisioterapy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/fisio.png" alt="Fisioterapy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Fisioterapy</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/fisio.png" alt="Fisioterapy" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Fisioterapy</p>
                 </div>
             </a>
             <a href="{{ route('spesialisFilter') }}" id="pregnancy" name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
-                <div class="relative p-4 sm:p-5 group-hover:shadow-lg rounded-lg group-hover:border-gray-500">
-                    <img src="../image/preg.png" alt="Pregnancy" class="h-20 sm:h-24 md:h-28 mb-3 sm:mb-4" />
-                    <p class="text-base sm:text-lg font-bold">Pregnancy</p>
+                <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
+                    <img src="../image/preg.png" alt="Pregnancy" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
+                    <p class="text-sm sm:text-base font-bold">Pregnancy</p>
                 </div>
             </a>
         </div>
@@ -167,11 +169,13 @@
     <section id="voucher" class="py-2 md:py-5 bg-white text-zinc-900 dark:text-white z-10 reveal">
         <div class="container px-10 mx-auto">
             <div class="relative" x-data="imageSlider()">
-                <div id="imageSlider" class="overflow-hidden">
+                <div id="imageSlider" class="overflow-hidden relative">
                     <div class="flex transition-transform duration-500 ease-in-out"
                         :style="{ transform: `translateX(-${currentIndex * (100/3)}%)` }">
+                        <!-- Ulangi struktur ini untuk setiap gambar -->
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
+                            <img class="w-full rounded-xl cursor-pointer" src="../image/banner1.jpg" alt=""
+                                onclick="openPopup('banner1.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
@@ -183,7 +187,8 @@
                             <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl" src="../image/banner1.jpg" alt="" />
+                            <img class="w-full rounded-xl cursor-pointer" src="../image/banner1.jpg" alt=""
+                                onclick="openPopup('banner1.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
                             <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
@@ -199,6 +204,16 @@
             </div>
         </div>
     </section>
+    <!-- Popup -->
+    <div id="popup"
+        class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto">
+            <img id="popupImage" src="" alt="" class="w-full rounded-xl mb-4">
+            <p id="popupDescription" class="text-gray-700"></p>
+            <button onclick="closePopup()"
+                class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Tutup</button>
+        </div>
+    </div>
 
     <section class="bg-blue-50 p-16 reveal">
         <div class="max-w-screen-xl mx-auto px-4">
@@ -264,7 +279,24 @@
             </div>
         </div>
     </section>
+
     <script>
+        // POP Up
+        function openPopup(imageSrc, description) {
+            const popup = document.getElementById('popup');
+            const popupImage = document.getElementById('popupImage');
+            const popupDescription = document.getElementById('popupDescription');
+
+            popupImage.src = `../image/${imageSrc}`;
+            popupDescription.textContent = description;
+            popup.classList.remove('hidden');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('hidden');
+        }
+
         function imageSlider() {
             return {
                 currentIndex: 0,
@@ -280,6 +312,41 @@
                 }
             }
         }
+
+        // Fungsi untuk menampilkan loading
+        function showLoading() {
+            Swal.fire({
+                title: 'Loading...',
+                text: 'Please wait',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                }
+            });
+        }
+
+        // Tampilkan loading saat halaman dimuat
+        window.addEventListener('load', function() {
+            showLoading();
+            // Sembunyikan loading setelah halaman selesai dimuat
+            setTimeout(() => {
+                Swal.close();
+            }, 500); // Atur waktu delay sesuai kebutuhan
+        });
+
+        // Tampilkan loading saat berpindah halaman
+        document.addEventListener('click', function(e) {
+            const target = e.target.closest('a');
+            if (target && !target.getAttribute('download') && target.href && !target.href.startsWith('#') && !e
+                .ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                showLoading();
+                setTimeout(() => {
+                    window.location = target.href;
+                }, 500); // Atur waktu delay sesuai kebutuhan
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);

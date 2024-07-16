@@ -18,48 +18,94 @@
                 </div>
 
                 {{-- konten --}}
-                <div class="flex flex-col md:w-2/3  mr-32 flex-1 pt-20 max-w-xl">
+                <div class="flex flex-col md:w-2/3 mr-32 flex-1 pt-20 max-w-xl" x-data="{ openItem: null }">
                     <div class="space-y-4">
-                        <div class="border-b pb-4">
-                            <button class="flex justify-between items-center w-full text-left">
+                        <div class="border-b pb-4" x-data="{ id: 1 }">
+                            <button @click="openItem = openItem === 1 ? null : 1"
+                                class="flex justify-between items-center w-full text-left">
                                 <span class="font-medium text-[#1e3a8a]">Why choose our medical for your family?</span>
-                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-200"
+                                    :class="{ 'rotate-45': openItem === 1 }" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
                             </button>
+                            <div x-show="openItem === 1" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" class="mt-2 text-gray-600">
+                                Our medical facility prioritizes family-centered care, offering comprehensive services,
+                                experienced professionals, and a warm, welcoming environment for all family members.
+                            </div>
                         </div>
-                        <div class="border-b pb-4">
-                            <button class="flex justify-between items-center w-full text-left">
+
+                        <div class="border-b pb-4" x-data="{ id: 2 }">
+                            <button @click="openItem = openItem === 2 ? null : 2"
+                                class="flex justify-between items-center w-full text-left">
                                 <span class="font-medium text-[#1e3a8a]">Why we are different from others?</span>
-                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+                                <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-200"
+                                    :class="{ 'rotate-45': openItem === 2 }" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
                             </button>
+                            <div x-show="openItem === 2" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" class="mt-2 text-gray-600">
+                                We stand out through our personalized approach, cutting-edge technology, and commitment
+                                to continuous improvement in patient care and satisfaction.
+                            </div>
                         </div>
-                        <div class="border-b pb-4">
-                            <button class="flex justify-between items-center w-full text-left">
-                                <span class="font-medium text-[#1e3a8a]">Trusted & experience senior care & love</span>
-                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+
+                        <div class="border-b pb-4" x-data="{ id: 3 }">
+                            <button @click="openItem = openItem === 3 ? null : 3"
+                                class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">Why choose our medical for your family?</span>
+                                <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-200"
+                                    :class="{ 'rotate-45': openItem === 3 }" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
                             </button>
+                            <div x-show="openItem === 3" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" class="mt-2 text-gray-600">
+                                Our medical facility prioritizes family-centered care, offering comprehensive services,
+                                experienced professionals, and a warm, welcoming environment for all family members.
+                            </div>
                         </div>
-                        <div class="border-b pb-4">
-                            <button class="flex justify-between items-center w-full text-left">
-                                <span class="font-medium text-[#1e3a8a]">How to get appointment for emergency
-                                    cases?</span>
-                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor"
+
+                        <div class="border-b pb-4" x-data="{ id: 4 }">
+                            <button @click="openItem = openItem === 4 ? null : 4"
+                                class="flex justify-between items-center w-full text-left">
+                                <span class="font-medium text-[#1e3a8a]">Why we are different from others?</span>
+                                <svg class="w-5 h-5 text-blue-500 transform transition-transform duration-200"
+                                    :class="{ 'rotate-45': openItem === 4 }" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
                             </button>
+                            <div x-show="openItem === 4" x-transition:enter="transition ease-out duration-200"
+                                x-transition:enter-start="opacity-0 transform scale-95"
+                                x-transition:enter-end="opacity-100 transform scale-100"
+                                x-transition:leave="transition ease-in duration-200"
+                                x-transition:leave-start="opacity-100 transform scale-100"
+                                x-transition:leave-end="opacity-0 transform scale-95" class="mt-2 text-gray-600">
+                                We stand out through our personalized approach, cutting-edge technology, and commitment
+                                to continuous improvement in patient care and satisfaction.
+                            </div>
                         </div>
                     </div>
                 </div>
