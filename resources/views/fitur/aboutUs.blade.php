@@ -20,71 +20,102 @@
                 meningkatkan kualitas layanan berdasarkan umpan balik yang diterima, sehingga memastikan pengalaman
                 pengguna yang optimal dan terarah dalam perjalanan kesehatan mereka.
             </p>
+        </div>
+        <div class="relative w-full mb-6">
+            <img src="../image/webvitalife.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
+        </div>
+        <div class="container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold text-center mb-8">Color Palette</h1>
 
-            <div class="flex flex-col sm:flex-row justify-center space-y-6 sm:space-y-0 sm:space-x-4 md:space-x-8 mb-8">
-                <div class="text-center">
-                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
-                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold mb-2">Career for success</h3>
-                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="grid grid-cols-4 sm:grid-cols-4 gap-10 max-w-4xl mx-auto">
+                <div class="flex flex-col items-center w-full h-32 sm:h-32">
+                    <img src="../image/custom1.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
+                    <p class="mt-3 text-sm font-medium">#DCF0ED</p>
                 </div>
-
-                <div class="text-center">
-                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
-                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold mb-2">Advanced highlight</h3>
-                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="flex flex-col items-center w-full h-32 sm:h-32">
+                    <img src="../image/custom2.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
+                    <p class="mt-3 text-sm font-medium">#80C8DC</p>
                 </div>
-
-                <div class="text-center">
-                    <div class="bg-white rounded-full p-4 mb-4 inline-block">
-                        <svg class="w-6 h-6 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h3 class="font-semibold mb-2">Advanced creative</h3>
-                    <p class="text-sm text-gray-600 px-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <div class="flex flex-col items-center w-full h-32 sm:h-32">
+                    <img src="../image/custom3.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
+                    <p class="mt-3 text-sm font-medium">#355385</p>
+                </div>
+                <div class="flex flex-col items-center w-full h-32 sm:h-32">
+                    <img src="../image/custom4.png" alt="Logo Vitalife" class="w-full h-auto object-contain">
+                    <p class="mt-3 text-sm font-medium">#0E1036</p>
                 </div>
             </div>
+        </div>
+        <div class="p-6 md:p-10 max-w-6xl mx-auto mt-28">
+            <p class="mb-6 text-lg font-semibold">
+                <span class="font-bold">Vitalife</span> mewujudkan harmoni antara kebugaran, pemanjaan diri, dan
+                pengalaman wisata yang menyegarkan. Aplikasi ini menggabungkan elemen-elemen kunci untuk menciptakan
+                gaya hidup yang aktif dan seimbang:
+            </p>
 
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-8">
-                <button class="bg-blue-500 text-white px-4 py-2 rounded w-full sm:w-auto">Get Started Now</button>
-                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded w-full sm:w-auto">Free Trial</button>
-                <button class="bg-gray-200 text-gray-700 px-4 py-2 rounded w-full sm:w-auto">See more</button>
-            </div>
+            <ol class="list-decimal pl-6 mb-6 space-y-2">
+                <li>Vitalitas sebagai fondasi kesehatan holistik.</li>
+                <li>Indulgensi yang bijak untuk menyeimbangkan kerja keras dan relaksasi.</li>
+                <li>Turisme yang menginspirasi dan memperluas wawasan.</li>
+                <li>Aktivitas yang mendorong pertumbuhan fisik dan mental.</li>
+                <li>Lifestyle yang mendukung kesejahteraan jangka panjang.</li>
+                <li>Invigorasi untuk memperbarui semangat dan energi.</li>
+                <li>Fitness sebagai kunci kualitas hidup yang lebih baik.</li>
+                <li>Events yang mempertemukan komunitas dengan minat serupa.</li>
+            </ol>
 
-            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-                <div class="text-center">
-                    <p class="text-2xl font-bold">500K</p>
-                    <p class="text-sm text-gray-600">Users</p>
+            <p class="text-lg">
+                Filosofi ini mencerminkan komitmen <span class="font-bold">Vitalife</span> untuk mengintegrasikan
+                kesehatan, kesenangan, dan petualangan dalam satu platform yang komprehensif, mendukung perjalanan
+                setiap individu menuju kehidupan yang lebih sehat dan lebih memuaskan.
+            </p>
+        </div>
+
+        <div class="container mx-auto p-4">
+            <h1 class="text-3xl font-bold text-center mb-6">Color Pallet</h1>
+
+            <div class="grid grid-cols-1 gap-4">
+                <!-- Biru Tua -->
+                <div style="background-image: url('../image/custom-4.png');"
+                    class=" bg-cover bg-center text-white p-6 rounded-lg text-lg">
+                    <div class="ml-10">
+                        <h2 class="font-bold mb-4">Biru Tua:</h2>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Melambangkan kepercayaan, profesionalisme, dan stabilitas.</li>
+                            <li>Mewakili kedalaman pengalaman dan pengetahuan dalam industri kesehatan dan pariwisata.
+                            </li>
+                            <li>Mencerminkan keamanan dan reliabilitas layanan Vitalife.</li>
+                        </ol>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold">$500</p>
-                    <p class="text-sm text-gray-600">Earn</p>
+
+                <!-- Biru Muda -->
+                <div style="background-image: url('../image/custom-2.png');"
+                    class="bg-cover bg-center p-6 rounded-lg text-lg">
+                    <div class="ml-10">
+                        <h2 class="font-bold mb-4">Biru Muda:</h2>
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Menyimbolkan kesegaran, vitalitas, dan energi positif.</li>
+                            <li>Menggambarkan kejernihan pikiran dan ketenangan yang didapat dari gaya hidup sehat.</li>
+                            <li>Merepresentasikan inovasi dan pendekatan modern terhadap wisata kesehatan.</li>
+                        </ol>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <p class="text-2xl font-bold">500+</p>
-                    <p class="text-sm text-gray-600">Review</p>
+
+                <!-- Kombinasi -->
+                <div style="background-image: url('../image/custom-1.png');" class="bg-cover bg-center p-6 rounded-lg">
+                    <p class="text-lg ml-10 mr-40">
+                        Kombinasi kedua warna ini dalam logo Vitalife menciptakan kesan harmonis antara aspek
+                        profesional dan menyegarkan dari layanan yang ditawarkan. Gradasi dari biru tua ke biru muda
+                        dapat diinterpretasikan sebagai perjalanan transformatif yang dialami pengguna - dari mencari
+                        stabilitas kesehatan hingga mencapai vitalitas dan kebugaran optimal.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ezy__team1 light py-14 md:py-24 bg-blue-100  text-zinc-900">
+    <section class="ezy__team1 light py-10 md:py-20 bg-blue-100  text-zinc-900">
         <div class="container px-4 mx-auto">
             <div class="flex justify-center mb-6 md:mb-12">
                 <div class="max-w-lg text-center">
