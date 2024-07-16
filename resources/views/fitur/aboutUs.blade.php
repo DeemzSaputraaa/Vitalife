@@ -77,7 +77,7 @@
             <div class="grid grid-cols-1 gap-4">
                 <!-- Biru Tua -->
                 <div style="background-image: url('../image/custom-4.png');"
-                    class=" bg-cover bg-center text-white p-6 rounded-lg text-lg">
+                    class=" bg-cover bg-center text-white p-3 rounded-lg text-lg">
                     <div class="ml-10">
                         <h2 class="font-bold mb-4">Biru Tua:</h2>
                         <ol class="list-decimal list-inside space-y-2">
@@ -91,7 +91,7 @@
 
                 <!-- Biru Muda -->
                 <div style="background-image: url('../image/custom-2.png');"
-                    class="bg-cover bg-center p-6 rounded-lg text-lg">
+                    class="bg-cover bg-center p-3 rounded-lg text-lg">
                     <div class="ml-10">
                         <h2 class="font-bold mb-4">Biru Muda:</h2>
                         <ol class="list-decimal list-inside space-y-2">
@@ -103,7 +103,7 @@
                 </div>
 
                 <!-- Kombinasi -->
-                <div style="background-image: url('../image/custom-1.png');" class="bg-cover bg-center p-6 rounded-lg">
+                <div style="background-image: url('../image/custom-1.png');" class="bg-cover bg-center p-3 rounded-lg">
                     <p class="text-lg ml-10 mr-40">
                         Kombinasi kedua warna ini dalam logo Vitalife menciptakan kesan harmonis antara aspek
                         profesional dan menyegarkan dari layanan yang ditawarkan. Gradasi dari biru tua ke biru muda
@@ -113,15 +113,51 @@
                 </div>
             </div>
         </div>
+        <div class="container pl-24 pt-20">
+            <div class="space-y-10 text-lg">
+                <!-- Logo 1 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <img src="path_to_logo1.png" alt="Logo 1" class="w-24 h-24 object-contain">
+                    <div>
+                        <h2 class="font-bold text-lg mb-2">Lingkaran:</h2>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Melambangkan keutuhan, keseimbangan, dan siklus kehidupan yang berkelanjutan.</li>
+                            <li>Mewakili pendekatan holistik Vitalife terhadap kesehatan dan kesejahteraan.</li>
+                            <li>Menggambarkan komunitas dan inklusivitas dalam pengalaman wisata kesehatan.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Logo 2 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <img src="path_to_logo2.png" alt="Logo 2" class="w-24 h-24 object-contain">
+                    <div>
+                        <h2 class="font-bold text-lg mb-2">Figur Manusia:</h2>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Dua bentuk menyerupai figur manusia dengan tangan terangkat, menggambarkan:</li>
+                            <li>Kegembiraan dan kebebasan yang didapat dari gaya hidup sehat.</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Logo 3 -->
+                <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
+                    <img src="path_to_logo3.png" alt="Logo 3" class="w-24 h-24 object-contain">
+                    <div>
+                        <h2 class="font-bold text-lg mb-2">Elemen Menyerupai Daun:</h2>
+                        <p>Daun: pertumbuhan, pembaruan, dan keberlanjutan dalam perjalanan kesehatan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="ezy__team1 light py-10 md:py-20 bg-blue-100  text-zinc-900">
+    <section class="ezy__team1 light py-6 md:py-16 bg-blue-100  text-zinc-900">
         <div class="container px-4 mx-auto">
-            <div class="flex justify-center mb-6 md:mb-12">
+            <div class="flex justify-center mb-6 md:mb-12 text-lg">
                 <div class="max-w-lg text-center">
                     <h2 class="text-4xl leading-none font-bold mb-4">Our Experts Team</h2>
-                    <p class="text-gray-900">Assumenda non repellendus distinctio nihil dicta
-                        sapiente, quibusdam maiores, illum at qui.</p>
+                    <p class="text-gray-900">Contributed in building this website</p>
                 </div>
             </div>
 
