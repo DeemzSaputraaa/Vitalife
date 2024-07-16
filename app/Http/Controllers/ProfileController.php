@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Validation\Rule;
+
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -56,5 +58,27 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    public function updateEmail(Request $request)
+    {
+        $request->validate([
+            'current_email' => ['required', 'email'],
+            'new_email' => ['required', 'email', 'confirmed', Rule::unique('users', 'email')->ignore($request->user()->id)],
+        ]);
+
+        $user = $request->user();
+
+        if ($request->current_email !== $user->email) {
+            return back()->withErrors(['current_email' => 'The provided email does not match your current email.']);
+        }
+
+        $user->email = $request->new_email;
+        $user->email_verified_at = null;
+        $user->save();
+
+        $user->sendEmailVerificationNotification();
+
+        return back()->with('status', 'email-updated');
     }
 }

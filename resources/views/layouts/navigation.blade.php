@@ -81,7 +81,13 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
-                        
+
+                        @if (auth()->user()->role == 'admin')
+                            <x-dropdown-link :href="route('admin.dashboard')">
+                                {{ __('Admin') }}
+                            </x-dropdown-link>
+                        @endif
+
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
@@ -91,12 +97,6 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-
-                        @if(auth ()->user()->role == 'admin')
-                            <x-dropdown-link :href="route('admin.dashboard')">
-                                {{ __('Admin') }}
-                            </x-dropdown-link>
-                        @endif
                     </x-slot>
                 </x-dropdown>
             </div>

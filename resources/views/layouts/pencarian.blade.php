@@ -32,7 +32,7 @@
             </div>
 
             <!-- Sort options -->
-            <div class="flex justify-start items-center w-full">
+            {{-- <div class="flex justify-start items-center w-full">
                 <label for="sort" class="text-sm font-medium text-gray-700 mr-2">Sort By:</label>
                 <select id="sort" name="sort"
                     class="rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600">
@@ -42,7 +42,7 @@
                     <option value="name-asc">Name: A to Z</option>
                     <option value="name-desc">Name: Z to A</option>
                 </select>
-            </div>
+            </div> --}}
         </form>
     </div>
 </div>
