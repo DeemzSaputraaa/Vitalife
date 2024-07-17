@@ -174,30 +174,32 @@
                         :style="{ transform: `translateX(-${currentIndex * (100/3)}%)` }">
                         <!-- Ulangi struktur ini untuk setiap gambar -->
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl cursor-pointer" src="../image/banner1.jpg" alt=""
-                                onclick="openPopup('banner1.jpg', 'Keterangan untuk Banner 1')" />
+                            <img class="w-full rounded-xl cursor-pointer" src="../image/MEMBERSHIP.jpg"
+                                alt="" onclick="openPopup('MAMBERSHIP.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
+                            <img class="w-full rounded-t-xl" src="../image/MORNING.jpg" alt=""
+                                onclick="openPopup('MORNING.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
+                            <img class="w-full rounded-t-xl" src="../image/MARATHON.jpg" alt=""
+                                onclick="openPopup('MARATHON.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
+                            <img class="w-full rounded-t-xl" src="../image/RADIUS.jpg" alt=""
+                                onclick="openPopup('RADIUS.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl cursor-pointer" src="../image/banner1.jpg" alt=""
-                                onclick="openPopup('banner1.jpg', 'Keterangan untuk Banner 1')" />
+                            <img class="w-full rounded-xl cursor-pointer" src="../image/SPAWEEK.jpg" alt=""
+                                onclick="openPopup('SPAWEEK.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner2.jpg" alt="" />
+                            <img class="w-full rounded-t-xl" src="../image/SPESIALIS.jpg" alt=""
+                                onclick="openPopup('SPESIALIS.jpg', 'Keterangan untuk Banner 1')" />
                         </div>
                         <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner3.jpg" alt="" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/banner4.jpg" alt="" />
+                            <img class="w-full rounded-t-xl" src="../image/RADIUS.jpg" alt=""
+                                onclick="openPopup('RADIUS.jpg', 'Keterangan untuk Banner 1', '2KAJWKS2')" />
                         </div>
                     </div>
                 </div>

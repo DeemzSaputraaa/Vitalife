@@ -7,9 +7,9 @@
     <div class="flex flex-col items-center mt-8 mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         @foreach ($eventTotal as $event)
             <div class="bg-white border rounded-lg p-4 mb-4 w-full max-w-5xl">
-                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
+                <div class="flex flex-row items-start space-x-4">
                     <img src="{{ asset($event->image) }}" alt="Maybank Marathon Bali"
-                        class="w-full sm:w-24 h-auto sm:h-24 object-cover rounded-md" />
+                        class="w-24 h-24 object-cover rounded-md flex-shrink-0" />
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-gray-900">{{ $event->nama }}</h3>
                         <p class="text-gray-600">{{ $event->deskripsi }}</p>
@@ -21,12 +21,13 @@
                             <span class="text-green-500 font-bold">{{ $event->noHP }}</span>
                             <p class="text-gray-600">93 Patient Stories</p>
                         </div>
+                        <div class="mt-4 text-right">
+                            <button
+                                class="bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium">
+                                Book FREE Event Visit
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="mt-4 text-right">
-                    <button class="bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium">
-                        Book FREE Event Visit
-                    </button>
                 </div>
             </div>
         @endforeach

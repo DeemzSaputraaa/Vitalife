@@ -7,7 +7,7 @@
         <div class="max-w-3xl mx-auto">
             <h1 class="text-2xl font-semibold text-gray-900 mb-6">Edit Event</h1>
 
-            <form action="{{ route('admin.events.update', $event->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.event.update', $event->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

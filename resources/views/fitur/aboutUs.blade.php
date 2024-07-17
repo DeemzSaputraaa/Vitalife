@@ -71,7 +71,7 @@
             </p>
         </div>
 
-        <div class="container mx-auto p-4">
+        <div class="container mx-auto p-4 py-8">
             <h1 class="text-3xl font-bold text-center mb-6">Color Pallet</h1>
 
             <div class="grid grid-cols-1 gap-4">
@@ -117,7 +117,7 @@
             <div class="space-y-10 text-lg">
                 <!-- Logo 1 -->
                 <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <img src="path_to_logo1.png" alt="Logo 1" class="w-24 h-24 object-contain">
+                    <img src="../image/log1.png" alt="Logo 1" class="w-40 h-40 object-contain mr-10">
                     <div>
                         <h2 class="font-bold text-lg mb-2">Lingkaran:</h2>
                         <ol class="list-decimal list-inside space-y-1">
@@ -129,8 +129,8 @@
                 </div>
 
                 <!-- Logo 2 -->
-                <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <img src="path_to_logo2.png" alt="Logo 2" class="w-24 h-24 object-contain">
+                <div class="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-4 md:space-x-6">
+                    <img src="../image/log2.png" alt="Logo 2" class="w-40 h-40 object-contain mr-10">
                     <div>
                         <h2 class="font-bold text-lg mb-2">Figur Manusia:</h2>
                         <ol class="list-decimal list-inside space-y-1">
@@ -141,8 +141,8 @@
                 </div>
 
                 <!-- Logo 3 -->
-                <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6">
-                    <img src="path_to_logo3.png" alt="Logo 3" class="w-24 h-24 object-contain">
+                <div class="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-4 md:space-x-6">
+                    <img src="../image/log3.png" alt="Logo 3" class="w-40 h-40 object-contain mr-10">
                     <div>
                         <h2 class="font-bold text-lg mb-2">Elemen Menyerupai Daun:</h2>
                         <p>Daun: pertumbuhan, pembaruan, dan keberlanjutan dalam perjalanan kesehatan.</p>
