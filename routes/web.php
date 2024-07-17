@@ -15,6 +15,7 @@ use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
 use App\Http\Controllers\Admin\SpasController;
 use App\Http\Controllers\Admin\YogasController;
+use App\Http\Controllers\Admin\SpesialisisController;
 use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\AdminProfileController;
@@ -80,11 +81,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //yoga
     Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
 
+    //event
     Route::get('/event', [EventController::class, 'index'])->name('event.index');
-
-    Route::get('/event', function () {
-        return view('fitur.event');
-    })->name('event');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -130,9 +128,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 // Admin Spesialis
-// Route::prefix('admin')->name('admin.')->group(function () {
-//     Route::get('/spesialisis', [SpesialisisController::class, 'index'])->name('spesialisis.index');
-// });
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/spesialisis', [SpesialisisController::class, 'index'])->name('spesialisis.index');
+});
 
 // Other Routes
 Route::get('/spaadmin', function () {

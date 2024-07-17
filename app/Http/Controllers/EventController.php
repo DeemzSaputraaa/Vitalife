@@ -13,7 +13,7 @@ class EventController extends Controller
     public function index()
     {
         $eventTotal = Event::all(); // retrieve all events from the database
-        return view('events.index', compact('eventTotal')); // pass the events to the view
+        return view('fitur.event', compact('eventTotal')); // pass the events to the view
     }
 
     /**
