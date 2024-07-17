@@ -23,7 +23,6 @@
     <div class="flex h-full bg-blue-100 pl-3">
         <!-- Sidebar -->
 
-
         <!-- Konten Utama -->
         <main class="flex-1 p-4 pl-48">
             <header class="flex justify-between items-center mb-8">

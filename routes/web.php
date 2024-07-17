@@ -114,6 +114,20 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::get('auth/{provider}', [SocialAuthController::class, 'redirectToProvider']);
 Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProviderCallback']);
 
+// Public routes
+Route::get('/event', [EventController::class, 'index'])->name('event.index');
+Route::get('/event/{id_event}', [EventController::class, 'show'])->name('event.show');
+
+// Admin routes
+Route::prefix('admin')->name('admin.')->middleware(['auth', 'admin'])->group(function () {
+    Route::get('/event', [EventController::class, 'adminIndex'])->name('event.index');
+    Route::get('/event/create', [EventController::class, 'create'])->name('event.create');
+    Route::post('/event', [EventController::class, 'store'])->name('event.store');
+    Route::get('/event/{id_event}/edit', [EventController::class, 'edit'])->name('event.edit');
+    Route::put('/event/{id_event}', [EventController::class, 'update'])->name('event.update');
+    Route::delete('/event/{id_event}', [EventController::class, 'destroy'])->name('event.destroy');
+});
+
 // Admin Spa
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/spas', [SpasController::class, 'index'])->name('spas.index');
