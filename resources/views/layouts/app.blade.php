@@ -114,29 +114,6 @@
             counters.forEach(animateCounter);
         });
 
-        // document.addEventListener('DOMContentLoaded', function() {
-        //     var text =
-        //         "We are the solution for travelling in a healthy condition and we provide health specialists...";
-
-        //     function startTyping() {
-        //         var typed = new Typed('#typed-text', {
-        //             strings: [text],
-        //             typeSpeed: 65,
-        //             startDelay: 1000,
-        //             showCursor: false,
-        //             cursorChar: '|',
-        //             onComplete: function(self) {
-        //                 setTimeout(function() {
-        //                     self.destroy();
-        //                     setTimeout(startTyping, 500);
-        //                 }, 1000);
-        //             }
-        //         });
-        //     }
-
-        //     startTyping();
-        // });
-
         function handleResize() {
             const width = window.innerWidth;
             const elements = document.querySelectorAll('.responsive-element');
@@ -190,6 +167,22 @@
             }
 
             startTyping();
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            Swal.fire({
+                title: 'Loading...',
+                html: 'Please wait while we prepare your content.',
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                willOpen: () => {
+                    Swal.showLoading();
+                },
+            });
+        });
+
+        // Hide loading alert when page is fully loaded
+        window.addEventListener('load', function() {
+            Swal.close();
         });
     </script>
 </body>

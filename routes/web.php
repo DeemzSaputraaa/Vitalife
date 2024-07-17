@@ -83,6 +83,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     //event
     Route::get('/event', [EventController::class, 'index'])->name('event.index');
+    Route::get('/events/search', [EventController::class, 'search'])->name('search.events');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

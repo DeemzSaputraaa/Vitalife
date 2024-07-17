@@ -13,8 +13,37 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventTotal = Event::all(); // retrieve all events from the database
-        return view('fitur.event', compact('eventTotal')); // pass the events to the view
+        $eventTotal = Event::all();
+        return view('fitur.event', compact('eventTotal'));
+    }
+
+    public function search(Request $request)
+    {
+        $query = Event::query();
+
+        if ($request->filled('nama_event')) {
+            $query->where('nama', 'like', '%' . $request->nama_event . '%');
+        }
+
+        if ($request->filled('lokasi')) {
+            $query->where('alamat', 'like', '%' . $request->lokasi . '%');
+        }
+
+        if ($request->filled('tanggal_mulai') && $request->filled('tanggal_akhir')) {
+            $query->whereBetween('tanggal', [$request->tanggal_mulai, $request->tanggal_akhir]);
+        } elseif ($request->filled('tanggal_mulai')) {
+            $query->where('tanggal', '>=', $request->tanggal_mulai);
+        } elseif ($request->filled('tanggal_akhir')) {
+            $query->where('tanggal', '<=', $request->tanggal_akhir);
+        }
+
+        if ($request->filled('jenis_event')) {
+            $query->where('deskripsi', 'like', '%' . $request->jenis_event . '%');
+        }
+
+        $eventTotal = $query->get();
+
+        return view('fitur.event', compact('eventTotal'));
     }
 
     /**
