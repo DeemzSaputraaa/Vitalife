@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('tempatTugas');
             $table->string('alamat');
             $table->string('noHP');
+            $table->string('image');
             $table->timestamps();
         });
     }

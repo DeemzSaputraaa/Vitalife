@@ -15,6 +15,7 @@ class spesialis extends Model
         'harga',
         'alamat',
         'noHP',
+        'image',
     ];
     use HasFactory;
 }
