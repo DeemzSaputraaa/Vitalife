@@ -40,7 +40,7 @@
                             <x-dropdown-link :href="route('yoga.index')" :active="request()->routeIs('yoga.index')">
                                 {{ __('Yoga') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('event')" :active="request()->routeIs('event')">
+                            <x-dropdown-link :href="route('event.index')" :active="request()->routeIs('event.index')">
                                 {{ __('Event') }}
                             </x-dropdown-link>
                         </x-slot>

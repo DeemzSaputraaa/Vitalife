@@ -1,16 +1,16 @@
 <x-app-layout>
     @include('layouts.carievent')
-    <div class="flex items-center pl-48 pt-8">
+    <div class="flex items-center pt-8 pl-36">
         <h3 class="text-3xl font-bold text-gray-800">Event</h3>
     </div>
 
     <div class="flex justify-center items-start mt-8 mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <!-- Content -->
         @foreach ($eventTotal as $event)
-            <div class="bg-white border rounded-lg p-4 mr-4 flex-1 max-w-xl">
+            <div class="bg-white border rounded-lg p-4 mr-4 flex-1 max-w-5xl">
                 <div class="flex items-start space-x-4">
                     <img src="{{ asset($event->image) }}" alt="Maybank Marathon Bali"
-                        class="w-24 h-24 rounded-full object-cover" />
+                        class="w-24 h-24 object-cover rounded-md" />
                     <div class="flex-1">
                         <h3 class="text-xl font-bold text-gray-900">{{ $event->nama }}</h3>
                         <p class="text-gray-600">{{ $event->deskripsi }}</p>
@@ -32,7 +32,7 @@
             </div>
         @endforeach
         <!-- Check -->
-        <div class="flex flex-col max-w-xs">
+        {{-- <div class="flex flex-col max-w-xs">
             <!-- Check box -->
             <div class="bg-white border rounded-lg p-4 flex-1">
                 <div class="space-y-4">
@@ -153,7 +153,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
     @include('layouts.footer')

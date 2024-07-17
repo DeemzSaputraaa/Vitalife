@@ -67,9 +67,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    //spa
-    Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
-
     //spesiyalis
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
     Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
@@ -77,14 +74,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('fitur.spesBayar');
     });
 
+    //spa
+    Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
+
     //yoga
     Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
 
     Route::get('/event', [EventController::class, 'index'])->name('event.index');
 
-    Route::get('/event', function () {
-        return view('fitur.event');
-    })->name('event');
+    // Route::get('/event', function () {
+    //     return view('fitur.event');
+    // })->name('event');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
