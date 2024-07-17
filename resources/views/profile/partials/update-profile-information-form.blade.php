@@ -61,7 +61,7 @@
     </form>
 </section> --}}
 
-<section>
+<section class="relative">
     <header>
         <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
             {{ __('Profile Information') }}
@@ -87,4 +87,47 @@
             @endif
         </div>
     </form>
+
+    <!-- Animated image -->
+    <div class="absolute right-0 top-0 bottom-0 w-1/3 overflow-hidden">
+        <img src="{{ asset('image/draw1.png') }}" alt="Decorative image" class="animated-image">
+    </div>
 </section>
+
+<style>
+    .animated-image {
+        position: absolute;
+        right: -50px;
+        /* Start slightly off-screen */
+        top: 50%;
+        transform: translateY(-50%);
+        width: 200px;
+        /* Adjust size as needed */
+        height: auto;
+        animation: float-in 3s ease-out forwards, float 4s ease-in-out infinite;
+    }
+
+    @keyframes float-in {
+        from {
+            right: -50px;
+            opacity: 0;
+        }
+
+        to {
+            right: 20px;
+            opacity: 1;
+        }
+    }
+
+    @keyframes float {
+
+        0%,
+        100% {
+            transform: translateY(-50%) translateX(0);
+        }
+
+        50% {
+            transform: translateY(-50%) translateX(-15px);
+        }
+    }
+</style>
