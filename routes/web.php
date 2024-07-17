@@ -14,13 +14,20 @@ use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
 use App\Http\Controllers\Admin\SpasController;
 use App\Http\Controllers\SocialAuthController;
-
-
+use App\Http\Controllers\WeatherController;
+use App\Http\Controllers\AdminProfileController;
+use App\Http\Controllers\DashboardController;
 
 // Welcome
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/admin/profile/edit', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
+Route::patch('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
+
+// Weather
+Route::get('/weather', [WeatherController::class, 'getWeather']);
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/notifications', [NotificationController::class, 'getNotifications']);
@@ -86,6 +93,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'Adminhomepage'])->name('admin.dashboard');
+    Route::get('/website-usage-data', [DashboardController::class, 'getWebsiteUsageData']);
     Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
     Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
     Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
@@ -101,17 +109,17 @@ Route::get('auth/{provider}/callback', [SocialAuthController::class, 'handleProv
 // Admin Spa
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/spas', [SpasController::class, 'index'])->name('spas.index');
-    Route::get('/spas/{id}/edit', [SpasController::class, 'edit'])->name('spas.edit');
-    Route::put('/spas/{id}', [SpasController::class, 'update'])->name('spas.update');
-    Route::delete('/spas/{id}', [SpasController::class, 'destroy'])->name('spas.destroy');
+    Route::get('/spas/{id_spa}/edit', [SpasController::class, 'edit'])->name('spas.edit');
+    Route::put('/spas/{id_spa}', [SpasController::class, 'update'])->name('spas.update');
+    Route::delete('/spas/{id_spa}', [SpasController::class, 'destroy'])->name('spas.destroy');
 });
 
 // Admin Yoga
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/yogas', [YogaController::class, 'index'])->name('yogas.index');
-    Route::get('/yogas/{id}/edit', [YogaController::class, 'edit'])->name('yogas.edit');
-    Route::put('/yogas/{id}', [YogaController::class, 'update'])->name('yogas.update');
-    Route::delete('/yogas/{id}', [YogaController::class, 'destroy'])->name('yogas.destroy');
+    Route::get('/yogas/{id_yoga}/edit', [YogaController::class, 'edit'])->name('yogas.edit');
+    Route::put('/yogas/{id_yoga}', [YogaController::class, 'update'])->name('yogas.update');
+    Route::delete('/yogas/{id_yoga}', [YogaController::class, 'destroy'])->name('yogas.destroy');
 });
 
 // Other Routes

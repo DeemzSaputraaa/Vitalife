@@ -65,9 +65,25 @@
                         </div>
                     </div>
                     <!-- Placeholder avatar pengguna -->
-                    <div class="flex items-center space-x-2">
-                        <span class="text-sm font-medium text-gray-700">{{ Auth::user()->name }}</span>
-                        <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                    <div class="relative" x-data="{ open: false }">
+                        <div @click="open = !open" class="flex items-center space-x-2 cursor-pointer">
+                            <span class="text-sm font-medium text-gray-700">{{ Auth::user()->name }}</span>
+                            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                        </div>
+
+                        <div x-show="open" @click.away="open = false"
+                            class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+                            <div class="py-1">
+                                <a href="{{ route('profile.edit') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    Edit Profile
+                                </a>
+                                <a href="{{ route('dashboard') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                                    Website
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </header>

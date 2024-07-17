@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class spa extends Model
 {
     protected $table = 'spas';
+    protected $primaryKey = 'id_spa';
     protected $fillable = [
         'nama',
         'harga',

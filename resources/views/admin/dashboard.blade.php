@@ -6,13 +6,21 @@
     <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
         <div>
             <h2 class="text-2xl font-bold mb-2">Hello, {{ Auth::user()->name }}!</h2>
-            <p class="text-gray-700"></p>
-            <p class="text-gray-700">Sunny weather</p>
+            <p class="text-gray-700">Weather</p>
+            <p class="text-gray-700" x-data="{ weather: null }" x-init="fetch('/api/weather')
+                .then(response => response.json())
+                .then(data => weather = data)">
+                <span x-text="weather ? `Temperature: ${weather.temperature}°C` : 'Loading...'"></span>
+                <br>
+                <span x-text="weather ? `Description: ${weather.description}` : ''"></span>
+            </p>
         </div>
         <div class="w-24 h-24">
             <!-- Replace with an appropriate SVG or image for the avatar -->
-            <svg class="w-full h-full text-blue-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+            <svg class="w-full h-full text-blue-500" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
+                </path>
             </svg>
         </div>
     </div>
@@ -40,7 +48,7 @@
         </a>
 
         <!-- Total Orders Today Card -->
-        <a href="{{route('admin.yogas.index')}}" class="bg-white rounded-lg p-4 flex-1 shadow">
+        <a href="{{ route('admin.yogas.index') }}" class="bg-white rounded-lg p-4 flex-1 shadow">
             <div class="flex justify-between items-start">
                 <div>
                     <h2 class="text-2xl font-bold">{{ $yogacount }}</h2>
@@ -102,10 +110,10 @@
     <!-- Bagian grafik -->
     <div class="grid grid-cols-2 gap-4 mb-4">
         <div class="bg-white p-4 rounded-lg shadow">
-            <h3 class="font-bold mb-4">Revenue</h3>
+            <h3 class="font-bold mb-4">Website Usage</h3>
             <div class="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md">
                 <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-xl font-bold">Revenue</h2>
+                    <h2 class="text-xl font-bold">Visits</h2>
                     <div class="flex space-x-2">
                         <button class="px-3 py-1 bg-gray-800 text-white rounded-md">Monthly</button>
                         <button class="px-3 py-1 text-gray-600">Weekly</button>
@@ -114,17 +122,7 @@
                 </div>
 
                 <div class="relative h-64">
-                    <!-- Chart lines would go here -->
-                    <div class="absolute bottom-0 left-0 w-full h-px bg-gray-200"></div>
-                    <div class="absolute top-0 left-0 h-full w-px bg-gray-200"></div>
-
-                    <!-- Example of a line -->
-                    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-blue-500 opacity-20 rounded-tr-full">
-                    </div>
-
-                    <!-- Data points -->
-                    <div class="absolute bottom-1/2 right-0 w-2 h-2 bg-blue-500 rounded-full"></div>
-                    <div class="absolute bottom-1/4 right-1/4 w-2 h-2 bg-red-500 rounded-full"></div>
+                    <canvas id="websiteUsageChart"></canvas>
                 </div>
 
                 <div class="flex justify-between mt-2 text-sm text-gray-600">
@@ -138,11 +136,7 @@
                 <div class="flex items-center mt-4 space-x-4">
                     <div class="flex items-center">
                         <div class="w-3 h-3 bg-blue-500 rounded-full mr-2"></div>
-                        <span>Income: 18%</span>
-                    </div>
-                    <div class="flex items-center">
-                        <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
-                        <span>Expenses: 11%</span>
+                        <span>Visits: <span id="visitsPercentage">0</span>%</span>
                     </div>
                 </div>
             </div>
@@ -173,4 +167,64 @@
             </tbody>
         </table>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('/website-usage-data')
+                .then(response => response.json())
+                .then(data => {
+                    const ctx = document.getElementById('websiteUsageChart').getContext('2d');
+                    new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: data.map(item => item.date),
+                            datasets: [{
+                                label: 'Website Visits',
+                                data: data.map(item => item.visits),
+                                borderColor: 'rgb(59, 130, 246)',
+                                backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                                tension: 0.4,
+                                fill: true
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        display: false
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                },
+                                x: {
+                                    ticks: {
+                                        display: false
+                                    },
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            },
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }
+                    });
+
+                    if (data.length > 1) {
+                        const firstValue = data[0].visits;
+                        const lastValue = data[data.length - 1].visits;
+                        const percentageIncrease = ((lastValue - firstValue) / firstValue * 100).toFixed(2);
+                        document.getElementById('visitsPercentage').textContent = percentageIncrease;
+                    }
+                });
+        });
+    </script>
 @endsection
