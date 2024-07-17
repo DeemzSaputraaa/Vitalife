@@ -6,18 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\yoga; // Pastikan model Spa sudah dibuat
 
-class SpasController extends Controller
+class YogasController extends Controller
 {
     public function index()
     {
         $yogas = Yoga::all();
-        return view('admin.spas.index', compact('spas'));
+        return view('admin.yogas.index', compact('yogas'));
     }
 
     public function edit($id)
     {
         $yoga = Yoga::findOrFail($id);
-        return view('admin.spas.edit', compact('spas'));
+        return view('admin.yogas.edit', compact('yogas'));
     }
 
     public function update(Request $request, $id)
