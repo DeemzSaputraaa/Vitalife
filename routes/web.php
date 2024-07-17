@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SpaController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\SpesialisController;
 use App\Http\Controllers\YogaController;
 use App\Http\Controllers\AdminController;
@@ -79,6 +80,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //yoga
     Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
 
+    Route::get('/event', [EventController::class, 'index'])->name('event.index');
 
     Route::get('/event', function () {
         return view('fitur.event');
@@ -91,20 +93,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::patch('/profile/email', [ProfileController::class, 'updateEmail'])->name('profile.update.email');
 });
 
+
 // Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'Adminhomepage'])->name('admin.dashboard');
     Route::get('/website-usage-data', [DashboardController::class, 'getWebsiteUsageData']);
-    
+
     Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
     Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
-    
+
     Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
     Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
-    
+
     Route::get('/admin/formspesialis', [SpesialisController::class, 'create'])->name('admin.formspesialis');
     Route::post('/admin/spesialis', [SpesialisController::class, 'store'])->name('spesialis.store');
-    
+
     Route::post('/admin/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback');
     Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');

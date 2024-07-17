@@ -6,29 +6,31 @@
 
     <div class="flex justify-center items-start mt-8 mx-auto px-4 sm:px-6 lg:px-8 pb-4">
         <!-- Content -->
-        <div class="bg-white border rounded-lg p-4 mr-4 flex-1 max-w-xl">
-            <div class="flex items-start space-x-4">
-                <img src="../image/bgspa.jpg" alt="Maybank Marathon Bali" class="w-24 h-24 rounded-full object-cover" />
-                <div class="flex-1">
-                    <h3 class="text-xl font-bold text-gray-900">Maybank Marathon Bali</h3>
-                    <p class="text-gray-600">Marathon</p>
-                    <p class="text-gray-600">25 Aug, 2024 (Sun)</p>
-                    <p class="text-gray-600">Gianyar, Bali, Indonesia</p>
-                    <p class="text-gray-600">Event size: 10,000 - 24,999 participants</p>
-                    <p class="text-gray-600">10 km, 21.1 km, 42.195 km</p>
-                    <div class="flex items-center space-x-2 mt-2">
-                        <span class="text-green-500 font-bold">99%</span>
-                        <p class="text-gray-600">93 Patient Stories</p>
+        @foreach ($eventTotal as $event)
+            <div class="bg-white border rounded-lg p-4 mr-4 flex-1 max-w-xl">
+                <div class="flex items-start space-x-4">
+                    <img src="{{ asset($event->image) }}" alt="Maybank Marathon Bali"
+                        class="w-24 h-24 rounded-full object-cover" />
+                    <div class="flex-1">
+                        <h3 class="text-xl font-bold text-gray-900">{{ $event->nama }}</h3>
+                        <p class="text-gray-600">{{ $event->deskripsi }}</p>
+                        <p class="text-gray-600">{{ $event->tanggal }}</p>
+                        <p class="text-gray-600">{{ $event->alamat }}</p>
+                        <p class="text-gray-600">{{ $event->harga }}</p>
+                        <p class="text-gray-600">10 km, 21.1 km, 42.195 km</p>
+                        <div class="flex items-center space-x-2 mt-2">
+                            <span class="text-green-500 font-bold">{{ $event->noHP }}</span>
+                            <p class="text-gray-600">93 Patient Stories</p>
+                        </div>
                     </div>
                 </div>
+                <div class="mt-4 text-right">
+                    <button class="bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        Book FREE Event Visit
+                    </button>
+                </div>
             </div>
-            <div class="mt-4 text-right">
-                <button class="bg-blue-900 hover:bg-blue-800 text-white px-4 py-2 rounded-md text-sm font-medium">
-                    Book FREE Event Visit
-                </button>
-            </div>
-        </div>
-
+        @endforeach
         <!-- Check -->
         <div class="flex flex-col max-w-xs">
             <!-- Check box -->
@@ -48,7 +50,8 @@
                             <span class="text-gray-900 font-medium">About Checkout</span>
                         </label>
                     </div>
-                    <p class="text-sm text-gray-600">Show only the events available for registration on VitaLife. Quick
+                    <p class="text-sm text-gray-600">Show only the events available for registration on VitaLife.
+                        Quick
                         and easy.</p>
                 </div>
             </div>

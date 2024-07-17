@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\event;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -12,7 +12,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $eventTotal = Event::all(); // retrieve all events from the database
+        return view('events.index', compact('eventTotal')); // pass the events to the view
     }
 
     /**
