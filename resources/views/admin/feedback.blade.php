@@ -27,7 +27,7 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $feedback->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $feedback->email }}</td>
-                            <td class="px-6 py-4">{{ Str::limit($feedback->message, 50) }}</td>
+                            <td class="px-6 py-4">{{ $feedback->message }}</td>
                             <td class="px-6 py-4 whitespace-nowrap">{{ $feedback->created_at->format('d/m/Y H:i') }}</td>
                         </tr>
                     @endforeach
