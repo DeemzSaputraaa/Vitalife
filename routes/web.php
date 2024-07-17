@@ -13,6 +13,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedbackController;
 use App\Models\Feedback;
 use App\Http\Controllers\Admin\SpasController;
+use App\Http\Controllers\Admin\YogasController;
 use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\AdminProfileController;
@@ -116,7 +117,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // Admin Yoga
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::get('/yogas', [YogaController::class, 'index'])->name('yogas.index');
+    Route::get('/yogas', [YogasController::class, 'index'])->name('yogas.index');
     Route::get('/yogas/{id_yoga}/edit', [YogaController::class, 'edit'])->name('yogas.edit');
     Route::put('/yogas/{id_yoga}', [YogaController::class, 'update'])->name('yogas.update');
     Route::delete('/yogas/{id_yoga}', [YogaController::class, 'destroy'])->name('yogas.destroy');
