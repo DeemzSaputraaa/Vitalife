@@ -86,7 +86,7 @@
                 @foreach ($spesLihat as $spesialis)
                     <div class="flex items-center border rounded-lg p-5">
                         <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
-                            <img src="https://picsum.photos/id/237/200/200" alt="Profile Picture"
+                            <img src="{{ asset($spesialis->image) }}" alt="Profile Picture"
                                 class="w-full h-full object-cover">
                         </div>
                         <div class="flex-grow">
