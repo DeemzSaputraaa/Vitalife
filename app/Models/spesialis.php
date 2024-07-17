@@ -10,6 +10,8 @@ class spesialis extends Model
     protected $table = 'spesialis';
     protected $fillable = [
         'nama',
+        'spesialisasi',
+        'tempatTugas',
         'harga',
         'alamat',
         'noHP',

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id('id_spesialis');
             $table->string('nama');
             $table->integer('harga');
-            $table->string('Anatomy');
             $table->string('spesialisasi');
             $table->string('tempatTugas');
             $table->string('alamat');

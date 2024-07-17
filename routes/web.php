@@ -95,10 +95,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'Adminhomepage'])->name('admin.dashboard');
     Route::get('/website-usage-data', [DashboardController::class, 'getWebsiteUsageData']);
+    
     Route::get('/admin/formspa', [SpaController::class, 'create'])->name('admin.formspa');
     Route::post('/admin/spa', [SpaController::class, 'store'])->name('spa.store');
+    
     Route::get('/admin/formyoga', [YogaController::class, 'create'])->name('admin.formyoga');
     Route::post('/admin/yoga', [YogaController::class, 'store'])->name('yoga.store');
+    
+    Route::get('/admin/formspesialis', [SpesialisController::class, 'create'])->name('admin.formspesialis');
+    Route::post('/admin/spesialis', [SpesialisController::class, 'store'])->name('spesialis.store');
+    
     Route::post('/admin/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback');
     Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
@@ -119,6 +125,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/yogas', [YogasController::class, 'index'])->name('yogas.index');
 });
+
+// Admin Spesialis
+// Route::prefix('admin')->name('admin.')->group(function () {
+//     Route::get('/spesialisis', [SpesialisisController::class, 'index'])->name('spesialisis.index');
+// });
 
 // Other Routes
 Route::get('/spaadmin', function () {

@@ -32,7 +32,7 @@ class SpesialisController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.formspesialis');
     }
 
     /**
@@ -40,7 +40,28 @@ class SpesialisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nama' => 'required|string|max:255',
+            'harga' => 'required|integer',
+            'spesialisasi' => 'required|string',
+            'tempatTugas' => 'required|string',
+            'alamat' => 'required|string',
+            'noHP' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+    
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
+        }
+    
+        try {
+            $spesialis = Spesialis::create($validatedData);
+            return redirect()->route('admin.spaShow', $spesialis)->with('success', 'Data Spesialis berhasil disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data Spesialis. Silakan coba lagi.');
+        }
     }
 
     /**

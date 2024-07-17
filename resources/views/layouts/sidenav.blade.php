@@ -65,7 +65,7 @@
                     <i class="fa-solid fa-person-walking w-6 h-6"></i>
                     <span class="ml-2">Yoga</span>
                 </a>
-                <a href="" class="p-2 rounded-lg mb-4 flex items-center text-white">
+                <a href="{{route('admin.formspesialis')}}" class="p-2 rounded-lg mb-4 flex items-center text-white">
                     <i class="fa-solid fa-user-doctor"></i>
                     <span class="ml-4">Spesialis</span>
                 </a>
