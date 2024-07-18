@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Mail\WelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 class RegisteredUserController extends Controller
 {
@@ -44,6 +46,9 @@ class RegisteredUserController extends Controller
             foreach ($admins as $admin) {
                 $admin->notify(new NewUserRegistered($user));
             }
+
+            // Kirim email selamat datang
+            Mail::to($user->email)->send(new WelcomeEmail($user));
 
             Auth::login($user);
 
