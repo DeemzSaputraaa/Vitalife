@@ -56,6 +56,11 @@ class EventController extends Controller
         return view('admin.event.index', compact('events', 'spacount'));
     }
 
+    public function dashboard()
+    {
+        $eventcount = Event::count();
+        return view('admin.dashboard', compact('eventcount'));
+    }
     /**
      * Show the form for creating a new resource.
      */

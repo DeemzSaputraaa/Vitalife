@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Voucher;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -18,5 +19,11 @@ class DashboardController extends Controller
         ];
 
         return response()->json($data);
+    }
+
+    public function index()
+    {
+        $vouchers = Voucher::all();
+        return view('dashboard', compact('vouchers'));
     }
 }

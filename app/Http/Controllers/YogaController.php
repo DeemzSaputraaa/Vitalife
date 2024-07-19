@@ -61,13 +61,13 @@ class YogaController extends Controller
             'waktuBuka.*' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $imageName);
             $validatedData['image'] = 'images/' . $imageName;
         }
-    
+
         try {
             $yoga = Yoga::create($validatedData);
             return redirect()->route('admin.spaShow', $yoga)->with('success', 'Data SPA berhasil disimpan');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\yoga; // Pastikan model Spa sudah dibuat
+use App\Models\Spa;
 
 class YogasController extends Controller
 {

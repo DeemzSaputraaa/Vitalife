@@ -2,28 +2,35 @@
     {{-- halaman 1 --}}
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal mt-8">
         <div class="pt-1">
-            <div class="container flex flex-wrap items-center justify-center">
-                <div class="flex flex-col md:flex-row items-center justify-between w-full">
-                    <div class="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 pl-6 md:pl-8">
-                        <p class="uppercase tracking-loose">Skip the Travel! Take Online</p>
-                        <h1 class="text-5xl font-bold leading-tight">Welcome <span class="text-blue-300">Vitalife</span>
-                        </h1>
-                        <p class="text-2xl mb-8">
-                            <span id="typed-text"></span>
-                            <span class="typed-cursor animate-blink">|</span>
+            <div class="container flex items-center justify-center">
+                <div class="flex flex-row items-center justify-between w-full">
+                    <div class="w-1/2 text-left pl-4 sm:pl-8 md:pl-12 lg:pl-16 xl:pl-20 pr-4 sm:pr-8">
+                        <p class="uppercase tracking-loose text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+                            Skip the Travel! Take Online
                         </p>
+                        <h1
+                            class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mt-2 mb-4">
+                            Welcome <span class="text-blue-300">Vitalife</span>
+                        </h1>
+                        <div class="mb-4 sm:mb-8">
+                            <p
+                                class="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl h-16 sm:h-20 md:h-24 lg:h-28 xl:h-32 overflow-hidden">
+                                <span id="typed-text"></span>
+                                <span class="typed-cursor animate-blink">|</span>
+                            </p>
+                        </div>
                         <a href="#specialisation" class="inline-block group">
                             <button
-                                class="bg-blue-500 text-white font-bold rounded-full py-4 px-8 shadow-lg 
-                                    transform transition duration-300 ease-in-out
-                                    group-hover:scale-105 group-hover:bg-blue-600 group-hover:shadow-xl
-                                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                                class="bg-blue-500 text-white font-bold rounded-full py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 xl:py-6 xl:px-12 shadow-lg 
+                                transform transition duration-300 ease-in-out
+                                hover:scale-105 hover:bg-blue-600 hover:shadow-xl
+                                focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
                                 <span
                                     class="inline-block transform group-hover:translate-x-1 transition-transform duration-200">
                                     Consult Now
                                 </span>
                                 <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
+                                    class="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 lg:h-7 lg:w-7 xl:h-8 xl:w-8 inline-block ml-2 transform group-hover:translate-x-1 transition-transform duration-200"
                                     viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
                                         d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
@@ -32,9 +39,10 @@
                             </button>
                         </a>
                     </div>
-                    <div class="w-full md:w-1/2 flex justify-end">
+                    <div class="w-1/2 flex justify-end">
                         <div class="rounded-lg overflow-hidden">
-                            <img class="w-full h-auto" src="../image/bgdash.png" alt="Dashboard Background" />
+                            <img class="w-full h-auto object-cover" src="../image/bgdash.png"
+                                alt="Dashboard Background" />
                         </div>
                     </div>
                 </div>
@@ -172,40 +180,22 @@
                 <div id="imageSlider" class="overflow-hidden relative">
                     <div class="flex transition-transform duration-500 ease-in-out"
                         :style="{ transform: `translateX(-${currentIndex * (100/3)}%)` }">
-                        <!-- Ulangi struktur ini untuk setiap gambar -->
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl cursor-pointer" src="../image/MEMBERSHIP.jpg"
-                                alt="" onclick="openPopup('MAMBERSHIP.jpg', 'Keterangan untuk Banner 1')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/MORNING.jpg" alt=""
-                                onclick="openPopup('MORNING.jpg', 'Voucher Sarapan Pagi: Nikmati diskon 25% untuk menu sarapan kami yang lezat!', 'MORNING25')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/MARATHON.jpg" alt=""
-                                onclick="openPopup('MARATHON.jpg', 'Keterangan untuk Banner 1')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/RADIUS.jpg" alt=""
-                                onclick="openPopup('RADIUS.jpg', 'Keterangan untuk Banner 1')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-xl cursor-pointer" src="../image/SPAWEEK.jpg" alt=""
-                                onclick="openPopup('SPAWEEK.jpg', 'Keterangan untuk Banner 1', 'MORNING25')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/SPESIALIS.jpg" alt=""
-                                onclick="openPopup('SPESIALIS.jpg', 'Keterangan untuk Banner 1')" />
-                        </div>
-                        <div class="w-1/3 flex-shrink-0 px-3">
-                            <img class="w-full rounded-t-xl" src="../image/RADIUS.jpg" alt=""
-                                onclick="openPopup('RADIUS.jpg', 'Keterangan untuk Banner 1', '2KAJWKS2')" />
-                        </div>
+                        @foreach ($vouchers as $voucher)
+                            <div class="w-1/3 flex-shrink-0 px-3">
+                                <!-- Debug: Print image path -->
+                                {{ Storage::url($voucher->image) }}
+
+                                <img class="w-full rounded-xl cursor-pointer"
+                                    src="{{ Storage::url($voucher->image) }}" alt="{{ $voucher->description }}"
+                                    onclick="openPopup('{{ Storage::url($voucher->image) }}', '{{ $voucher->description }}', '{{ $voucher->code }}')" />
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Popup -->
     <div id="popup"
         class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden flex items-center justify-center z-50">
@@ -226,8 +216,8 @@
         </div>
     </div>
 
-    <section class="bg-blue-50 p-16 reveal">
-        <div class="max-w-screen-xl mx-auto px-4">
+    <section class="bg-blue-50 p-4 sm:p-8 md:p-12 lg:p-16 reveal">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-4">
             <div class="flex md:flex-row justify-between items-start">
                 <div class="flex-1 md:w-1/2 mb-8 md:mb-0">
                     <p class="text-blue-500 uppercase text-sm font-semibold mb-2">CARING FOR THE HEALTH OF YOU AND YOUR

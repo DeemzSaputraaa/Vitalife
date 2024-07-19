@@ -12,7 +12,7 @@ class SpaController extends Controller
         $spaCount = Spa::count();
         return view('admin.dashboard', compact('spaCount'));
     }
-    
+
     public function index(Request $request)
     {
         $query = Spa::query();
@@ -77,13 +77,13 @@ class SpaController extends Controller
             'waktuBuka.*' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $imageName);
             $validatedData['image'] = 'images/' . $imageName;
         }
-    
+
         try {
             $spa = Spa::create($validatedData);
             return redirect()->route('admin.spaShow', $spa)->with('success', 'Data SPA berhasil disimpan');

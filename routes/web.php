@@ -20,6 +20,7 @@ use App\Http\Controllers\SocialAuthController;
 use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\VoucherController;
 
 // Welcome
 Route::get('/', function () {
@@ -64,9 +65,16 @@ Route::get('/detailEvent', function () {
 
 // Authenticated Routes
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::prefix('admin')->name('admin.')->group(function () {
+        Route::get('/vouchers', [VoucherController::class, 'index'])->name('vouchers.index');
+        Route::get('/vouchers/create', [VoucherController::class, 'create'])->name('vouchers.create');
+        Route::post('/vouchers', [VoucherController::class, 'store'])->name('vouchers.store');
+        Route::resource('vouchers', VoucherController::class)->except(['index', 'create', 'store']);
+        // Route::resource('vouchers', VoucherController::class);
+        // Route::post('/voucher', [VoucherController::class, 'store'])->name('voucher.store');
+        // Route::get('/voucher', [VoucherController::class, 'index'])->name('admin.voucher');
+    });
 
     //spa
     Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
@@ -109,6 +117,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::post('/admin/feedback', [FeedbackController::class, 'store'])->name('feedback.store');
     Route::get('/admin/feedback', [FeedbackController::class, 'index'])->name('admin.feedback');
+
     Route::get('/admin/accountuser', [AccountUserController::class, 'index'])->name('admin.accountuser');
 });
 
