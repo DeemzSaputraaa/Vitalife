@@ -74,6 +74,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         // Route::resource('vouchers', VoucherController::class);
         // Route::post('/voucher', [VoucherController::class, 'store'])->name('voucher.store');
         // Route::get('/voucher', [VoucherController::class, 'index'])->name('admin.voucher');
+
+        //account
+        Route::get('/account/create', [AdminController::class, 'create'])->name('account.create');
+        Route::post('/account', [AdminController::class, 'store'])->name('account.store');
+        Route::get('/account/{user}/edit', [AdminController::class, 'edit'])->name('account.edit');
+        Route::put('/account/{user}', [AdminController::class, 'update'])->name('account.update');
+        Route::delete('/account/{user}', [AdminController::class, 'destroy'])->name('account.destroy');
     });
 
     //spa
