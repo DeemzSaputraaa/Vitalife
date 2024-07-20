@@ -112,7 +112,7 @@
     <div id="specialization" class="p-5 sm:p-8 md:p-10 text-center flex flex-col items-center reveal">
         <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 text-navy-blue">Specialisation</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 sm:gap-10">
-            <a href="{{ route('spesialisFilter') }}" id="anatomy" name="anatomy"
+            <a href="{{ route('spesialisFilter') }}?spesialisasi=Anatomy id="anatomy" name="anatomy"
                 class="flex flex-col items-center group">
                 <div
                     class="w-full aspect-square bg-white shadow-md rounded-lg flex flex-col items-center justify-center p-6 transition duration-300 hover:shadow-lg">
