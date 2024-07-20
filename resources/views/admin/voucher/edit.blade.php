@@ -14,7 +14,7 @@
                             <label for="image" class="block text-sm font-medium text-gray-700">Image</label>
                             <input type="file" name="image" id="image"
                                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            <img src="{{ Storage::url($voucher->image) }}" alt="Current Voucher Image"
+                            <img src="{{ asset($voucher->image) }}" alt="Current Voucher Image"
                                 class="mt-2 w-32 h-32 object-cover">
                         </div>
                         <div class="mb-4">

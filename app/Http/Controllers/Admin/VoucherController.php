@@ -46,6 +46,11 @@ class VoucherController extends Controller
     {
         return view('admin.voucher.edit', compact('voucher'));
     }
+    
+    public function show(Voucher $voucher)
+    {
+        return view('admin.voucher.show', compact('voucher'));
+    }
 
     public function update(Request $request, Voucher $voucher)
     {

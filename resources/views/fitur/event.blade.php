@@ -84,7 +84,7 @@
             @foreach ($eventTotal as $event)
                 <div class="bg-white border rounded-lg p-4 mb-4 w-full max-w-5xl">
                     <div class="flex flex-row items-start space-x-4">
-                        <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->nama }}"
+                        <img src="{{ asset('/' . $event->image) }}" alt="{{ $event->nama }}"
                             class="w-40 h-28 object-cover rounded-md flex-shrink-0" />
                         <div class="flex-1">
                             <h3 class="text-xl font-bold text-gray-900">{{ $event->nama }}</h3>

@@ -10,7 +10,7 @@
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold mb-4">Voucher Details</h2>
                         <div class="mb-4">
-                            <img src="{{ Storage::url($voucher->image) }}" alt="Voucher Image"
+                            <img src="{{ asset($voucher->image) }}" alt="Voucher Image"
                                 class="w-64 h-64 object-cover rounded-lg shadow-md">
                         </div>
                         <div class="mb-4">

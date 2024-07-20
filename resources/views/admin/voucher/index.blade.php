@@ -47,7 +47,7 @@
                                 @foreach ($vouchers as $voucher)
                                     <tr>
                                         <td class="px-6 py-4 whitespace-nowrap">
-                                            <img src="{{ Storage::url($voucher->image) }}" alt="Voucher Image"
+                                            <img src="{{ asset($voucher->image) }}" alt="Voucher Image"
                                                 class="w-16 h-16 object-cover rounded">
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $voucher->description }}</td>
