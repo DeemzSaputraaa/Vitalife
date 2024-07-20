@@ -16,12 +16,8 @@
             </p>
         </div>
         <div class="w-24 h-24">
-            <!-- Replace with an appropriate SVG or image for the avatar -->
-            <svg class="w-full h-full text-blue-500" fill="currentColor" viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd">
-                </path>
-            </svg>
+            <img src="{{ Auth::user()->image }}" alt="User Avatar" class="w-full h-full">
+        </div>
         </div>
     </div>
 

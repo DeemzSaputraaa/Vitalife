@@ -97,7 +97,7 @@ class ProfileController extends Controller
     
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
-            $request->image->move(public_path('images'), $imageName);
+            $request->image->move(public_path('admin/images'), $imageName);
             $validatedData['image'] = 'images/' . $imageName;
         }
     

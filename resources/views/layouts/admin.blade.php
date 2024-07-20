@@ -67,7 +67,10 @@
                     <div class="relative" x-data="{ open: false }">
                         <div @click="open = !open" class="flex items-center space-x-2 cursor-pointer">
                             <span class="text-sm font-medium text-gray-700">{{ Auth::user()->name }}</span>
-                            <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+                            <div class="w-8 h-8 bg-gray-300 rounded-full">
+                                <img src="{{ Auth::user()->image }}" alt="Avatar"
+                                    class="w-8 h-8 rounded-full">
+                            </div>
                         </div>
 
                         <div x-show="open" @click.away="open = false"
