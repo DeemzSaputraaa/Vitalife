@@ -1,18 +1,19 @@
 <x-app-layout>
     <div class="py-6 flex justify-center mt-14">
         <div class="w-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-            
-            <div class="p-3 sm:p-6 bg-white dark:bg-gray-500 shadow sm:rounded-lg">
-                <div class="max-w-lg mx-auto">
-                    @include('profile.partials.update-profile-photo-form')
-                </div>
-            </div>
-            
             <div class="p-3 sm:p-6 bg-white dark:bg-gray-500 shadow sm:rounded-lg">
                 <div class="max-w-lg mx-auto">
                     @include('profile.partials.update-profile-information-form')
                 </div>
             </div>
+
+            @if(auth()->user()->role =='admin')
+            <div class="p-3 sm:p-6 bg-white dark:bg-gray-500 shadow sm:rounded-lg">
+                <div class="max-w-lg mx-auto">
+                    @include('profile.partials.update-profile-image')
+                </div>
+            </div>
+            @endif
 
             <div class="p-3 sm:p-6 bg-white dark:bg-gray-500 shadow sm:rounded-lg">
                 <div class="max-w-lg mx-auto">

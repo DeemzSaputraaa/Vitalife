@@ -23,6 +23,13 @@ class ProfileController extends Controller
         ]);
     }
 
+    public function create()
+    {
+        return view('profile.edit', [
+            'user' => $request->user(),
+        ]);
+    }
+
     /**
      * Update the user's profile information.
      */
@@ -80,5 +87,27 @@ class ProfileController extends Controller
         $user->sendEmailVerificationNotification();
 
         return back()->with('status', 'email-updated');
+    }
+
+    public function updateImage(Request $request)
+    {
+        $validatedData = $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+    
+        if ($request->hasFile('image')) {
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
+        }
+    
+        try {
+            $user = $request->user();
+            $user->fill($validatedData);
+            $user->save();
+            return redirect()->route('admin.spaShow', $user)->with('success', 'Data Spesialis berhasil disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data Spesialis. Silakan coba lagi.');
+        }
     }
 }
