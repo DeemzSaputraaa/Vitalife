@@ -8,11 +8,9 @@ use App\Http\Controllers\YogaController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\AccountUserController;
-use App\Models\yoga;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\FeedbackController;
-use App\Models\Feedback;
 use App\Http\Controllers\Admin\SpasController;
 use App\Http\Controllers\Admin\YogasController;
 use App\Http\Controllers\Admin\SpesialisisController;
@@ -21,6 +19,7 @@ use App\Http\Controllers\WeatherController;
 use App\Http\Controllers\AdminProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\VoucherController;
+use App\Http\Controllers\LanguageController;
 
 // Welcome
 Route::get('/', function () {
@@ -169,5 +168,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::get('/spaadmin', function () {
     return view('spaadmin');
 });
+
+Route::post('/change-language', [LanguageController::class, 'changeLanguage']);
 
 require __DIR__ . '/auth.php';

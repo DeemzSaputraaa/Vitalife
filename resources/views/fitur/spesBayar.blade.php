@@ -4,11 +4,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
-                        <!-- Kolom Kiri: Informasi Dokter dan Rincian Pembayaran -->
                         <div class="flex-1">
-                            <!-- Informasi Dokter -->
                             <div class="flex items-center space-x-4 mb-6">
-                                <img src="{{ asset($spesialis->image) }}" alt="bla bla"
+                                <img src="{{ asset($spesialis->image) }}" alt="spesialis"
                                     class="w-16 h-16 rounded-full object-cover">
                                 <div>
                                     <h2 class="text-xl font-semibold">{{ $spesialis->nama }}</h2>
@@ -22,7 +20,6 @@
                                     <span>Biaya sesi 30 menit</span>
                                     <span>Rp{{ number_format($spesialis->harga, 0, ',', '.') }}</span>
                                 </div>
-                                <!-- Tambahkan rincian pembayaran lainnya sesuai kebutuhan -->
                             </div>
                         </div>
 
@@ -51,10 +48,12 @@
                                     </svg>
                                     <span>Via Dana</span>
                                 </div>
-                                <button
-                                    class="w-full bg-indigo-600 text-white py-3 px-4 rounded hover:bg-indigo-700 transition duration-300">
-                                    Lakukan Pembayaran
-                                </button>
+                                <div class="md:w-1/3">
+                                    <button id="paymentButton"
+                                        class="w-full bg-indigo-600 text-white py-3 px-4 rounded hover:bg-indigo-700 transition duration-300">
+                                        Lakukan Pembayaran
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -63,5 +62,88 @@
         </div>
     </div>
 
+    <!-- Modal Metode Pembayaran -->
+    <div id="paymentMethodModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Pilih Metode Pembayaran</h3>
+                <form id="paymentForm" class="mt-4 space-y-4">
+                    <div>
+                        <label for="nama" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="bank" class="block text-sm font-medium text-gray-700">Pilih Bank</label>
+                        <select id="bank" name="bank" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <option value="">Pilih Bank</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="BNI">BNI</option>
+                            <option value="BRI">BRI</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition duration-300">
+                        Bayar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Kode Pembayaran -->
+    <div id="paymentCodeModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Kode Pembayaran</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-500">Silakan gunakan kode pembayaran berikut:</p>
+                    <p id="paymentCode" class="text-2xl font-bold mt-2"></p>
+                </div>
+                <div class="items-center px-4 py-3">
+                    <button id="closeModal"
+                        class="px-4 py-2 bg-indigo-500 text-white text-base font-medium rounded-md w-full shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-300">
+                        Tutup
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @include('layouts.footer')
+
+    <script>
+        document.getElementById('paymentButton').addEventListener('click', function() {
+            document.getElementById('paymentMethodModal').classList.remove('hidden');
+        });
+
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const bank = document.getElementById('bank').value;
+            if (nama && bank) {
+                const paymentCode = generatePaymentCode(bank);
+                document.getElementById('paymentCode').textContent = paymentCode;
+                document.getElementById('paymentMethodModal').classList.add('hidden');
+                document.getElementById('paymentCodeModal').classList.remove('hidden');
+            }
+        });
+
+        document.getElementById('closeModal').addEventListener('click', function() {
+            document.getElementById('paymentCodeModal').classList.add('hidden');
+        });
+
+        function generatePaymentCode(bank) {
+            const bankCodes = {
+                'BCA': '001',
+                'Mandiri': '002',
+                'BNI': '003',
+                'BRI': '004'
+            };
+            const randomDigits = Math.floor(1000000000 + Math.random() * 9000000000);
+            return bankCodes[bank] + randomDigits;
+        }
+    </script>
 </x-app-layout>

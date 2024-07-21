@@ -86,8 +86,6 @@
                 </div>
             </div>
         </form>
-        <ul>
-        </ul>
     </div>
 @endsection
 {{-- @section('scripts')

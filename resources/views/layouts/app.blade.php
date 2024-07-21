@@ -184,6 +184,33 @@
         window.addEventListener('load', function() {
             Swal.close();
         });
+
+        // Bahasa
+        document.getElementById('changeLanguageBtn').addEventListener('click', function() {
+            const currentLang = this.getAttribute('data-lang');
+            const newLang = currentLang === 'en' ? 'id' : 'en';
+
+            fetch('/api/change-language', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        lang: newLang
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message === 'Language changed successfully') {
+                        window.location.reload();
+                    } else {
+                        console.error('Failed to change language');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 
