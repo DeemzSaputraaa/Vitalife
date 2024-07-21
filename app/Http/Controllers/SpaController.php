@@ -76,6 +76,7 @@ class SpaController extends Controller
             'waktuBuka' => 'required|array',
             'waktuBuka.*' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'maps' => 'required|string'
         ]);
 
         if ($request->hasFile('image')) {

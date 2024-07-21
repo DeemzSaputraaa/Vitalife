@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('noHP');
             $table->json('waktuBuka');
             $table->string('image');
+            $table->string('maps');
             $table->timestamps();
         });
     }

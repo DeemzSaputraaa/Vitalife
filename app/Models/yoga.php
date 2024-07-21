@@ -13,7 +13,8 @@ class yoga extends Model
         'alamat',
         'noHP',
         'waktuBuka',
-        'image'
+        'image',
+        'maps'
     ];
 
     protected $casts = [

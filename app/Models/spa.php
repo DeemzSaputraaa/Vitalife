@@ -15,6 +15,7 @@ class spa extends Model
         'alamat',
         'noHP',
         'waktuBuka',
+        'maps',
         'image'
     ];
 
