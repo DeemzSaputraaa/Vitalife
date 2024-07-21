@@ -8,13 +8,31 @@ use Illuminate\Http\Request;
 class SpesialisController extends Controller
 {
 
-    public function showSpes()
+    public function showSpes(Request $request)
     {
-        $spesLihat = spesialis::all();
+        $query = Spesialis::query();
+
+        // Search by name
+        if ($request->has('nama')) {
+            $query->where('nama', 'like', '%' . $request->input('nama') . '%');
+        }
+
+        // Filter by price range
+        if ($request->has('min_price') && $request->has('max_price')) {
+            $query->whereBetween('harga', [$request->input('min_price'), $request->input('max_price')]);
+        } elseif ($request->has('min_price')) {
+            $query->where('harga', '>=', $request->input('min_price'));
+        } elseif ($request->has('max_price')) {
+            $query->where('harga', '<=', $request->input('max_price'));
+        }
+
+        $spesLihat = $query->get();
+
         return view('fitur.spesialis', compact('spesLihat'));
     }
 
-    public function spesFilter(Request $request){
+    public function spesFilter(Request $request)
+    {
         $spes = $request->input('spesialisasi');
         $spesFilter = spesialis::where('spesialisasi', 'like', "%$spes%")->get();
         return view('fitur.spesialisFilter', compact('spesFilter'));
@@ -49,13 +67,13 @@ class SpesialisController extends Controller
             'noHP' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-    
+
         if ($request->hasFile('image')) {
             $imageName = time() . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $imageName);
             $validatedData['image'] = 'images/' . $imageName;
         }
-    
+
         try {
             $spesialis = Spesialis::create($validatedData);
             return redirect()->route('admin.spaShow', $spesialis)->with('success', 'Data Spesialis berhasil disimpan');

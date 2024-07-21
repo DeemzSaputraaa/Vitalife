@@ -73,7 +73,7 @@
                 <a href="{{ route('admin.event.create') }}"
                     class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.event.create') ? 'bg-white text-black' : 'text-white' }}">
                     <i class="fa-solid fa-person-running"></i>
-                    <span class="ml-4">Running</span>
+                    <span class="ml-4">Event</span>
                 </a>
                 <a href="{{ route('admin.accountuser') }}"
                     class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.accountuser') ? 'bg-white text-black' : 'text-white' }}">
@@ -98,28 +98,11 @@
                 </a>
                 <a href="{{ route('admin.vouchers.index') }}"
                     class="p-2 rounded-lg mb-4 flex items-center {{ Request::routeIs('admin.vouchers.index') ? 'bg-white text-black' : 'text-white' }}">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path fill-rule="evenodd"
-                            d="M3 6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-6.616l-2.88 2.592C8.537 20.461 7 19.776 7 18.477V17H5a2 2 0 0 1-2-2V6Zm4 2a1 1 0 0 0 0 2h5a1 1 0 1 0 0-2H7Zm8 0a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm-8 3a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H7Zm5 0a1 1 0 1 0 0 2h5a1 1 0 1 0 0-2h-5Z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <span class="ml-2">Vouchers</span>
+                    <i class="fa-duotone fa-solid fa-tickets-perforated"></i>
+                    <span class="ml-4">Vouchers</span>
                 </a>
-                {{-- <div class="p-2 rounded-lg mb-4 flex items-center text-white">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                    </path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <span class="ml-2">Settings</span>
-            </div> --}}
 
-                <a href="{{ route('dashboard') }}"
+                {{-- <a href="{{ route('dashboard') }}"
                     class="p-2 rounded-lg flex items-center {{ Request::routeIs('dashboard') ? 'bg-white text-black' : 'text-white' }}">
                     <svg class="w-6 h-6 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                         viewBox="0 0 24 24">
@@ -128,7 +111,7 @@
                             clip-rule="evenodd" />
                     </svg>
                     <span>Website</span>
-                </a>
+                </a> --}}
             </nav>
         </div>
 

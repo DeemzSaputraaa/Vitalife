@@ -4,12 +4,10 @@
 
 @section('content')
     <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
-        <div>
+        <div x-data="{ weather: null }" x-init="fetchWeather()">
             <h2 class="text-2xl font-bold mb-2">Hello, {{ Auth::user()->name }}!</h2>
             <p class="text-gray-700">Weather</p>
-            <p class="text-gray-700" x-data="{ weather: null }" x-init="fetch('/api/weather')
-                .then(response => response.json())
-                .then(data => weather = data)">
+            <p class="text-gray-700">
                 <span x-text="weather ? `Temperature: ${weather.temperature}°C` : 'Loading...'"></span>
                 <br>
                 <span x-text="weather ? `Description: ${weather.description}` : ''"></span>
@@ -18,7 +16,7 @@
         <div class="w-24 h-24">
             <img src="{{ Auth::user()->image }}" alt="User Avatar" class="w-full h-full">
         </div>
-        </div>
+    </div>
     </div>
 
     <div class="flex space-x-4 mb-4">
@@ -166,6 +164,26 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        function fetchWeather() {
+            fetch('/api/weather')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    this.weather = data;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather:', error);
+                    this.weather = {
+                        temperature: 'N/A',
+                        description: 'Unable to fetch weather data'
+                    };
+                });
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             fetch('/website-usage-data')
                 .then(response => response.json())

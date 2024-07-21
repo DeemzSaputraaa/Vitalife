@@ -19,7 +19,7 @@
                                 <span class="typed-cursor animate-blink">|</span>
                             </p>
                         </div>
-                        <a href="#specialisation" class="inline-block group">
+                        <a href="#spesialis" class="inline-block group">
                             <button
                                 class="bg-blue-500 text-white font-bold rounded-full py-2 px-4 sm:py-3 sm:px-6 md:py-4 md:px-8 lg:py-5 lg:px-10 xl:py-6 xl:px-12 shadow-lg 
                                 transform transition duration-300 ease-in-out
@@ -109,7 +109,7 @@
     </div> --}}
 
     {{-- halaman 3 --}}
-    <div id="spesialisasi" class="p-5 sm:p-8 md:p-10 text-center flex flex-col items-center reveal">
+    <div id="spesialis" class="p-5 sm:p-8 md:p-10 text-center flex flex-col items-center reveal">
         <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 text-navy-blue">Specialisation</h2>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 sm:gap-10">
             <a href="{{ route('spesialisFilter') }}?spesialisasi=Anatomy" id="anatomy" name="anatomy"
@@ -156,7 +156,8 @@
                     <p class="text-sm sm:text-base font-bold">Piscologist</p>
                 </div>
             </a>
-            <a href="{{ route('spesialisFilter') }}?spesialisasi=Physiotherapi" id="fisioterapy" name="specialization"
+            <a href="{{ route('spesialisFilter') }}?spesialisasi=Physiotherapi" id="fisioterapy"
+                name="specialization"
                 class="flex flex-col items-center transform transition duration-300 hover:scale-105 group">
                 <div class="relative p-3 sm:p-4 md:p-5 group-hover:shadow-md rounded-lg group-hover:border-gray-500">
                     <img src="../image/fisio.png" alt="Fisioterapy" class="h-14 sm:h-16 md:h-20 mb-3 sm:mb-4" />
@@ -183,11 +184,11 @@
                         @foreach ($vouchers as $voucher)
                             <div class="w-1/3 flex-shrink-0 px-3">
                                 <!-- Debug: Print image path -->
-                                {{ Storage::url($voucher->image) }}
+                                {{ asset($voucher->image) }}
 
-                                <img class="w-full rounded-xl cursor-pointer"
-                                    src="{{ Storage::url($voucher->image) }}" alt="{{ $voucher->description }}"
-                                    onclick="openPopup('{{ Storage::url($voucher->image) }}', '{{ $voucher->description }}', '{{ $voucher->code }}')" />
+                                <img class="w-full rounded-xl cursor-pointer" src="{{ asset($voucher->image) }}"
+                                    alt="{{ $voucher->description }}"
+                                    onclick="openPopup('{{ asset($voucher->image) }}', '{{ $voucher->description }}', '{{ $voucher->code }}')" />
                             </div>
                         @endforeach
                     </div>
