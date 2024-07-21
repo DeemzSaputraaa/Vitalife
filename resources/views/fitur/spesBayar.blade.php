@@ -8,11 +8,11 @@
                         <div class="flex-1">
                             <!-- Informasi Dokter -->
                             <div class="flex items-center space-x-4 mb-6">
-                                <img src="https://example.com/path-to-image.jpg" alt="Endang Soekanti"
+                                <img src="{{ asset($spesialis->image) }}" alt="bla bla"
                                     class="w-16 h-16 rounded-full object-cover">
                                 <div>
-                                    <h2 class="text-xl font-semibold">Endang Soekanti</h2>
-                                    <p class="text-gray-600">Psikologi Klinis</p>
+                                    <h2 class="text-xl font-semibold">{{ $spesialis->nama }}</h2>
+                                    <p class="text-gray-600">{{ $spesialis->spesialisasi }}</p>
                                 </div>
                             </div>
 
@@ -20,20 +20,9 @@
                             <div class="bg-gray-100 p-4 rounded-lg">
                                 <div class="flex justify-between mb-2">
                                     <span>Biaya sesi 30 menit</span>
-                                    <span>Rp180.000</span>
+                                    <span>Rp{{ number_format($spesialis->harga, 0, ',', '.') }}</span>
                                 </div>
-                                <div class="flex justify-between mb-2">
-                                    <span>Biaya Layanan</span>
-                                    <span>Rp30.000</span>
-                                </div>
-                                <div class="flex justify-between mb-2">
-                                    <span>Kupon (DISCONDOCTOR)</span>
-                                    <span>-Rp60.150</span>
-                                </div>
-                                <div class="flex justify-between font-semibold">
-                                    <span>Total pembayaran</span>
-                                    <span>Rp149.850</span>
-                                </div>
+                                <!-- Tambahkan rincian pembayaran lainnya sesuai kebutuhan -->
                             </div>
                         </div>
 

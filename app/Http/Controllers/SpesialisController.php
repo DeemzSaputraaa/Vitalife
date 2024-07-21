@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 
 class SpesialisController extends Controller
 {
+    public function bayar($id_spesialis)
+    {
+        $spesialis = Spesialis::findOrFail($id_spesialis);
 
+        return view('fitur.spesBayar', compact('spesialis'));
+    }
     public function showSpes(Request $request)
     {
         $query = Spesialis::query();
