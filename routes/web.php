@@ -86,7 +86,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
 
     //spesiyalis
-    Route::get('/spesialis/{id_spesialis}/bayar', [SpesialisController::class, 'bayar'])->name('spesialis.bayar');
+    Route::get('/{id_spesialis}/bayar', [SpesialisController::class, 'bayar'])->name('spesialis.bayar');
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
     Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
     Route::get('/pembayaran', function () {
