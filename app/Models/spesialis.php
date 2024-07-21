@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class spesialis extends Model
 {
     protected $table = 'spesialis';
+    protected $primaryKey = 'id_spesialis';
     protected $fillable = [
         'nama',
         'spesialisasi',

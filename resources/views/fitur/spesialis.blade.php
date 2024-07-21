@@ -86,10 +86,12 @@
                     </div>
                     <div class="mt-4 md:mt-0 md:ml-8 text-center md:text-right">
                         <p class="text-gray-800 text-xl font-semibold mb-3">
-                            Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}</p>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded text-base">
-                            Make Appointment
-                        </button>
+                            Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}
+                        </p>
+                        <a href="{{ route('spesialis.bayar', ['id_spesialis' => $spesialis->id_spesialis]) }}"
+                            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded text-base inline-block">
+                            Bayar
+                        </a>
                     </div>
                 </div>
             @endforeach
