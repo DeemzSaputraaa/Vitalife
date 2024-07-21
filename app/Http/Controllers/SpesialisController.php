@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class SpesialisController extends Controller
 {
+    public function getWhatsAppNumber($id_spesialis)
+    {
+        $spesialis = Spesialis::findOrFail($id_spesialis);
+        return response()->json(['whatsappNumber' => $spesialis->noHP]);
+    }
     public function bayar($id_spesialis)
     {
         $spesialis = Spesialis::findOrFail($id_spesialis);

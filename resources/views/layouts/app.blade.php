@@ -186,30 +186,40 @@
         });
 
         // Bahasa
-        document.getElementById('changeLanguageBtn').addEventListener('click', function() {
-            const currentLang = this.getAttribute('data-lang');
-            const newLang = currentLang === 'en' ? 'id' : 'en';
+        document.addEventListener('DOMContentLoaded', function() {
+            const changeLanguageBtn = document.getElementById('changeLanguageBtn');
+            if (changeLanguageBtn) {
+                changeLanguageBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Change language button clicked');
+                    const currentLang = this.getAttribute('data-lang');
+                    const newLang = currentLang === 'en' ? 'id' : 'en';
 
-            fetch('/api/change-language', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        lang: newLang
-                    })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.message === 'Language changed successfully') {
-                        window.location.reload();
-                    } else {
-                        console.error('Failed to change language');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+                    fetch('/api/change-language', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                lang: newLang
+                            })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.message === 'Language changed successfully') {
+                                console.log('Language changed successfully. Reloading page...');
+                                window.location.reload();
+                            } else {
+                                console.error('Failed to change language:', data.message);
+                            }
+                        })
+                        .catch(error => console.error('Error:', error));
+                });
+            } else {
+                console.error('Change language button not found');
+            }
         });
     </script>
 </body>

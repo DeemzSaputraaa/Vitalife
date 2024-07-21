@@ -26,6 +26,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::post('/admin/apply-voucher', [VoucherController::class, 'apply'])->name('admin.apply.voucher');
+
 Route::get('/admin/profile/edit', [AdminProfileController::class, 'edit'])->name('admin.profile.edit');
 Route::patch('/admin/profile/update', [AdminProfileController::class, 'update'])->name('admin.profile.update');
 
@@ -86,12 +88,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/spa', [SpaController::class, 'index'])->name('spa.index');
 
     //spesiyalis
-    Route::get('/spesialis/{id_spesialis}/bayar', [SpesialisController::class, 'bayar'])->name('spesialis.bayar');
+    Route::get('/{id_spesialis}/bayar', [SpesialisController::class, 'bayar'])->name('spesialis.bayar');
     Route::get('/spesialis', [SpesialisController::class, 'showSpes'])->name('spesialis');
     Route::get('/spesialisFilter', [SpesialisController::class, 'spesFilter'])->name('spesialisFilter');
     Route::get('/pembayaran', function () {
         return view('fitur.spesBayar');
     });
+    Route::get('/spesialis/{id_spesialis}/whatsapp', [SpesialisController::class, 'getWhatsAppNumber'])->name('spesialis.whatsapp');
 
     //yoga
     Route::get('/yoga', [YogaController::class, 'index'])->name('yoga.index');
