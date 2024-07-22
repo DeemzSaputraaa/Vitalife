@@ -170,20 +170,15 @@
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Project Manajer</h6>
                         <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
                             <span class="short-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
-                                eius magnam enim beatae, modi aperiam nemo rerum? Et...
+                                A Project Manager is an individual who is responsible for managing and coordinating all
+                                aspects of a project, including planning, implementation, and supervision, to ensure the
+                                project is completed on time.
                             </span>
                             <span class="full-text" style="display: none;">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
-                                eius magnam enim beatae, modi aperiam nemo rerum? Et impedit molestiae earum? Error nemo
-                                dolorum omnis tempora quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Quibusdam iusto obcaecati, debitis facilis eaque assumenda tempore illum sit vero
-                                natus fugit perspiciatis molestiae rerum, error vel dolores commodi perferendis sint?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, corporis.
-                                Exercitationem rerum, dicta deleniti impedit delectus assumenda laboriosam dolorem
-                                reprehenderit facere enim quo tempora, ab eligendi illo a animi esse.
+                                A Project Manager is an individual who is responsible for managing and coordinating all
+                                aspects of a project, including planning, implementation, and supervision, to ensure the
+                                project is completed on time.
                             </span>
-                            <a href="#" class="read-more text-blue-500 hover:underline">Baca selengkapnya</a>
                         </p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
@@ -231,20 +226,10 @@
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Analisis Sistem</h6>
                         <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">
                             <span class="short-text">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
-                                eius magnam enim beatae, modi aperiam nemo rerum? Et...
+                                Systems Analysis is the process of understanding and evaluating information systems or
+                                business processes with the aim of improving efficiency, effectiveness and suitability
+                                to organizational needs through
                             </span>
-                            <span class="full-text" style="display: none;">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam ducimus cumque iusto
-                                eius magnam enim beatae, modi aperiam nemo rerum? Et impedit molestiae earum? Error nemo
-                                dolorum omnis tempora quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Quibusdam iusto obcaecati, debitis facilis eaque assumenda tempore illum sit vero
-                                natus fugit perspiciatis molestiae rerum, error vel dolores commodi perferendis sint?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, corporis.
-                                Exercitationem rerum, dicta deleniti impedit delectus assumenda laboriosam dolorem
-                                reprehenderit facere enim quo tempora, ab eligendi illo a animi esse.
-                            </span>
-                            <a href="#" class="read-more text-blue-500 hover:underline">Baca selengkapnya</a>
                         </p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
@@ -292,9 +277,9 @@
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Riski Setyaji</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">UI Desainer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Numquam ducimus cumque iusto eius magnam enim beatae, modi aperiam nemo
-                            rerum? Et impedit molestiae earum? Error nemo dolorum omnis tempora quibusdam.</p>
+                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">UI UX Designer is a professional who
+                            designs user interfaces (UI) and ensures optimal user experience (UX) in digital products,
+                            with the aim of ensuring that the product</p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <div class="flex space-x-4">
@@ -342,9 +327,10 @@
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Edwin Saputra</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Web Developer</h6>
-                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Numquam ducimus cumque iusto eius magnam enim beatae, modi aperiam nemo
-                            rerum? Et impedit molestiae earum? Error nemo dolorum omnis tempora quibusdam.</p>
+                        <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">Web Developers are professionals who
+                            design, create, and maintain websites. They work on both the display (front-end) and server
+                            (back-end) parts of the website, using a variety of programming languages ​​and technologies
+                            to ensure the site functions properly and securely.</p>
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <div class="flex space-x-4">

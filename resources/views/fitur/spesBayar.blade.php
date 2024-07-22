@@ -175,6 +175,37 @@
     @include('layouts.footer')
 
     <script>
+        // Fungsi untuk menyimpan pembayaran
+        function savePayment(payment) {
+            let payments = JSON.parse(localStorage.getItem('payments') || '[]');
+            payments.push(payment);
+            localStorage.setItem('payments', JSON.stringify(payments));
+        }
+
+        // Modifikasi event listener untuk form pembayaran
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const bank = document.getElementById('bank').value;
+            const kode = generatePaymentCode();
+            const tanggal = new Date().toLocaleString('id-ID');
+
+            const payment = {
+                nama,
+                bank,
+                kode,
+                tanggal,
+                status: 'Menunggu Konfirmasi'
+            };
+            savePayment(payment);
+            showPaymentCode(kode);
+
+            // Reset form
+            this.reset();
+            closeModal('paymentMethodModal');
+        });
+
+
         document.getElementById('paymentButton').addEventListener('click', function() {
             document.getElementById('paymentMethodModal').classList.remove('hidden');
         });

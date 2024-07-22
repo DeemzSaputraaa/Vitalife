@@ -17,7 +17,6 @@
             <img src="{{ Auth::user()->image }}" alt="User Avatar" class="w-full h-full">
         </div>
     </div>
-    </div>
 
     <div class="flex space-x-4 mb-4">
         <!-- Total Mews Card -->
@@ -141,29 +140,71 @@
         </div>
     </div>
 
-    <!-- Daftar pesanan -->
+    <!-- Daftar Riwayat Pembayaran -->
     <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="font-bold mb-4">Order List</h3>
+        <h3 class="font-bold mb-4">Riwayat Pembayaran</h3>
         <table class="w-full">
             <thead>
                 <tr class="text-left">
                     <th>No.</th>
-                    <th>Date</th>
-                    <th>Customer Name</th>
-                    <th>Location</th>
-                    <th>Amount</th>
+                    <th>Tanggal</th>
+                    <th>Nama Pelanggan</th>
+                    <th>Bank</th>
+                    <th>Jumlah</th>
+                    <th>Kode Pembayaran</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
-                <!-- Add table rows here -->
+            <tbody id="paymentHistoryBody">
+                <!-- Baris tabel akan ditambahkan secara dinamis di sini -->
             </tbody>
         </table>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Fungsi untuk memuat dan menampilkan riwayat pembayaran
+        function loadPaymentHistory() {
+            const tbody = document.getElementById('paymentHistoryBody');
+            const payments = JSON.parse(localStorage.getItem('payments') || '[]');
+
+            tbody.innerHTML = ''; // Bersihkan tabel terlebih dahulu
+
+            payments.forEach((payment, index) => {
+                const row = tbody.insertRow();
+                row.innerHTML = `
+                    <td class="p-2">${index + 1}</td>
+                    <td class="p-2">${payment.tanggal}</td>
+                    <td class="p-2">${payment.nama}</td>
+                    <td class="p-2">${payment.bank}</td>
+                    <td class="p-2">${payment.kode}</td>
+                    <td class="p-2">${payment.status}</td>
+                    <td class="p-2">
+                        <button onclick="updateStatus('${payment.kode}')" class="bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">
+                            Update Status
+                        </button>
+                    </td>
+                `;
+            });
+        }
+
+        // Fungsi untuk mengupdate status pembayaran
+        function updateStatus(kode) {
+            let payments = JSON.parse(localStorage.getItem('payments') || '[]');
+            const paymentIndex = payments.findIndex(p => p.kode === kode);
+
+            if (paymentIndex !== -1) {
+                payments[paymentIndex].status = 'Dikonfirmasi';
+                localStorage.setItem('payments', JSON.stringify(payments));
+                loadPaymentHistory(); // Muat ulang tabel
+            }
+        }
+
+        // Muat riwayat pembayaran saat halaman dimuat
+        window.addEventListener('load', loadPaymentHistory);
+
+
         function fetchWeather() {
             fetch('/api/weather')
                 .then(response => {
