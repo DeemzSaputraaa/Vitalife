@@ -88,7 +88,6 @@
                             </x-dropdown-link>
                         @endif
 
-
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
