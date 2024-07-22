@@ -68,7 +68,7 @@
                         <select id="role" name="role"
                             class="w-full mt-1 border-gray-300 dark:border-gray-700 dark:bg-white dark:text-indigo-600 text-indigo-900 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-full shadow-sm">
                             <option value="user">Regular User</option>
-                            <option value="admin">Admin</option>
+                            {{-- <option value="admin">Admin</option> --}}
                         </select>
                         <x-input-error :messages="$errors->get('role')" class="mt-2" />
                     </div>

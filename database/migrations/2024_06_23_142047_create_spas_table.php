@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('noHP');
             $table->json('waktuBuka');
-            $table->string('maps');
-            $table->string('image');
+            $table->string('image')->nullable();
+            $table->text('maps');
             $table->timestamps();
         });
     }
