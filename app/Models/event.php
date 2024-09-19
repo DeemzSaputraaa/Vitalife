@@ -31,6 +31,7 @@ class Event extends Model
      *
      * @var array
      */
+    protected $dates = ['tanggal'];
     protected $casts = [
         'tanggal' => 'datetime',
         'harga' => 'decimal:2',

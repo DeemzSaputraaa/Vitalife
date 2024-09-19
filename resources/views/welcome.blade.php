@@ -15,7 +15,7 @@
             <div class="container px-4 mx-auto pt-40">
                 <div class="max-w-5xl flex flex-col items-center text-center mx-auto mb-24 animate-fadeIn">
                     <div>
-                        <h1 class="text-3xl font-bold leading-tight md:text-6xl mb-6 text-white animate-fadeIn">Apa itu
+                        <h1 class="text-3xl font-bold leading-tight md:text-6xl mb-6 text-white animate-fadeIn">What is
                             <span
                                 class="text-blue-300 ml-2 my-4 text-6xl font-bold leading-tight animate-fadeIn">Vitalife</span>?
                         </h1>
@@ -35,12 +35,7 @@
                         </div>
                         <div class="max-w-lg flex justify-center mx-auto animate-fadeIn">
                             <div class="text-center text-white">
-                                <p class="text-xl opacity-80 leading-snug animate-fadeIn">Project Vitalife adalah
-                                    project pengembangan aplikasi mobile "Vitalife" yang bertujuan untuk meningkatkan
-                                    wisata kesehatan dan kebugaran di Indonesia. Aplikasi ini akan membantu pengguna
-                                    dalam menemukan pusat yoga dan spa terbaik, acara olahraga dan event terbaru,
-                                    berkonsultasi dengan dokter, melacak perkembangan mereka, dan mendapatkan umpan
-                                    balik tentang layanan aplikasi.</p>
+                                <p class="text-xl opacity-80 leading-snug animate-fadeIn">Project Vitalife is a mobile application development project "Vitalife" which aims to increase health and fitness tourism in Indonesia. This application will help users in finding the best yoga and spa centers, latest sports and events, consult doctors, track their progress, and get feedback about the application's services.</p>
                             </div>
                         </div>
                     </div>

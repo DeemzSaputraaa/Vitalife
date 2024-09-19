@@ -5,10 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Middleware\AdminMiddleware;
-use App\Models\Spa;
-use App\Models\Spesialis;
-use App\Models\Yoga;
+use App\Models\spa;
 use App\Models\User;
+use App\Models\spesialis;
+use App\Models\yoga;
+use App\Models\event;
 
 
 class AdminController extends Controller
@@ -17,8 +18,9 @@ class AdminController extends Controller
     {
         $spacount = Spa::count();
         $yogacount = Yoga::count();
+        $eventcount = Event::count();
         $spescount = Spesialis::count();
-        return view('admin.dashboard', compact('spacount', 'yogacount', 'spescount'));
+        return view('admin.dashboard', compact('spacount', 'yogacount', 'eventcount', 'spescount'));
     }
 
     public function create()

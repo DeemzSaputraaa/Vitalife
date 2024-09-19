@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class yoga extends Model
 {
+    protected $primaryKey = 'id_yoga';
+
     protected $fillable = [
         'nama',
         'harga',

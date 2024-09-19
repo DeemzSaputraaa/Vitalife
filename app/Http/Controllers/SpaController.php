@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Spa;
+use App\Models\spa;
 use Illuminate\Http\Request;
 
 class SpaController extends Controller

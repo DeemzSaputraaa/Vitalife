@@ -23,6 +23,25 @@
                                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">{{ $voucher->description }}</textarea>
                         </div>
                         <div class="mb-4">
+                            <label for="discount_percentage" class="block text-sm font-medium text-gray-700">Discount Percentage</label>
+                            <input type="number" name="discount_percentage" id="discount_percentage" min="0" max="100" required
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                value="{{ $voucher->discount_percentage ?? old('discount_percentage') }}">
+                        </div>
+                        <div class="mb-4">
+                            <label for="usage_limit" class="block text-sm font-medium text-gray-700">Batas Penggunaan</label>
+                            <input type="number" name="usage_limit" id="usage_limit" min="1"
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                value="{{ $voucher->usage_limit ?? old('usage_limit') }}">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="expired_at" class="block text-sm font-medium text-gray-700">Tanggal Kadaluarsa</label>
+                            <input type="date" name="expired_at" id="expired_at"
+                                class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+                                value="{{ $voucher->expired_at ? $voucher->expired_at->format('Y-m-d') : old('expired_at') }}">
+                        </div>
+                        <div class="mb-4">
                             <label for="code" class="block text-sm font-medium text-gray-700">Code</label>
                             <input type="text" name="code" id="code" value="{{ $voucher->code }}"
                                 class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Yoga;
+use App\Models\yoga;
 use Illuminate\Http\Request;
 
 class YogaController extends Controller
@@ -35,9 +35,16 @@ class YogaController extends Controller
         }
 
         // Filter berdasarkan rentang harga
-        if ($request->has('price_range') && $request->price_range != '') {
-            list($min, $max) = explode('-', $request->price_range);
-            $query->whereBetween('harga', [$min, $max === '+' ? PHP_INT_MAX : $max]);
+        if ($request->filled('min_price') || $request->filled('max_price')) {
+            if ($request->filled('min_price')) {
+                $query->where('harga', '>=', $request->min_price);
+                $searchCriteria[] = "harga minimal: Rp " . number_format($request->min_price, 0, ',', '.');
+            }
+            if ($request->filled('max_price')) {
+                $query->where('harga', '<=', $request->max_price);
+                $searchCriteria[] = "harga maksimal: Rp " . number_format($request->max_price, 0, ',', '.');
+            }
+            $searchPerformed = true;
         }
 
         $yogaTotal = $query->get();

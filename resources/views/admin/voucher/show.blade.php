@@ -18,6 +18,29 @@
                             <p>{{ $voucher->description }}</p>
                         </div>
                         <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Discount Percentage</h3>
+                            <p>{{ $voucher->discount_percentage }}%</p>
+                        </div>
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Batas Penggunaan</h3>
+                            <p>{{ $voucher->usage_limit ?? 'Tidak ada batas' }}</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Jumlah Penggunaan</h3>
+                            <p>{{ $voucher->usage_count }}</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Status</h3>
+                            <p>{{ $voucher->is_used ? 'Sudah digunakan' : 'Belum digunakan' }}</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <h3 class="text-lg font-semibold">Tanggal Kadaluarsa</h3>
+                            <p>{{ $voucher->expired_at}}</p>
+                        </div>
+                        <div class="mb-4">
                             <h3 class="text-lg font-semibold">Code</h3>
                             <p>{{ $voucher->code }}</p>
                         </div>

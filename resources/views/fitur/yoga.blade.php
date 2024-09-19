@@ -48,22 +48,18 @@
                         </select>
                     </div>
 
-                    <!-- Price Range Filter -->
-                    <div class="w-64">
-                        <select name="price_range" id="price_range"
-                            class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-blue-600">
-                            <option value="">Price Range</option>
-                            <option value="0-50000" {{ request('price_range') == '0-50000' ? 'selected' : '' }}>Rp 0 -
-                                Rp 50,000</option>
-                            <option value="50001-100000"
-                                {{ request('price_range') == '50001-100000' ? 'selected' : '' }}>Rp 50,001 - Rp 100,000
-                            </option>
-                            <option value="100001-200000"
-                                {{ request('price_range') == '100001-200000' ? 'selected' : '' }}>Rp 100,001 - Rp
-                                200,000</option>
-                            <option value="200001+" {{ request('price_range') == '200001+' ? 'selected' : '' }}>Rp
-                                200,001+</option>
-                        </select>
+                    <div class="flex flex-wrap justify-start items-center w-full gap-4">
+                    <!-- Price range filter -->
+                        <div class="flex justify-start items-center w-full space-x-4">
+                            <label for="min-price" class="text-sm font-medium text-gray-700">Price Range:</label>
+                            <input type="number" id="min-price" name="min_price"
+                                class="rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
+                                placeholder="Min" value="{{ request('min_price') }}" />
+                            <span class="text-gray-500">-</span>
+                            <input type="number" id="max-price" name="max_price"
+                                class="rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
+                                placeholder="Max" value="{{ request('max_price') }}" />
+                        </div>
                     </div>
                 </div>
             </form>
@@ -80,7 +76,7 @@
                         <div class="flex">
                             <div class="flex items-center border-b border-gray-500 pb-2">
                                 <div class="w-16 h-16 rounded-full bg-gray-200 mr-6 overflow-hidden">
-                                    <img src="{{ asset($yoga->image) }}" alt="spa"
+                                    <img src="{{ asset($yoga->image) }}" alt="yoga"
                                         class="object-cover w-full h-full">
                                 </div>
                                 <div>
@@ -90,58 +86,52 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="mt-6 bg-green-100 px-6 py-3 rounded-md inline-flex items-center">
-                            <svg class="w-5 h-5 mr-2 text-green-500" fill="currentColor" viewBox="0 0 20 20"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path fillRule="evenodd"
-                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                                    clipRule="evenodd" />
-                            </svg>
-                            <span class="text-green-500 font-medium text-lg">99% 93 Patient Stories</span>
-                        </div>
                         <div class="mt-6">
                             <p class="text-gray-500 text-lg">Alamat: {{ $yoga->alamat }}</p>
                             <p class="text-gray-500 text-lg">No. HP: {{ $yoga->noHP }}</p>
-                            <a href="#" class="text-blue-500 hover:text-blue-700 text-lg">more</a>
                         </div>
                         <div class="mt-6">
                             <p class="text-gray-500 text-lg">Harga: Rp
                                 {{ number_format($yoga->harga, 0, ',', '.') }}
                             </p>
                         </div>
-                        <div class="mt-6 flex justify-end">
+                        <div class="mt-6 flex justify-start">
                             <button
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded text-lg mr-4">Book
-                                FREE Yoga Visit</button>
-                            <button
-                                class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-3 px-6 rounded text-lg">Schedule</button>
+                                class="scheduleBtn bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded">
+                                Schedule
+                            </button>
                         </div>
 
                         <!-- Available -->
-                        <div class="mt-10">
-                            <h3 class="text-xl font-bold">Waktu Buka</h3>
-                            <div class="grid grid-cols-3 gap-6 mt-6">
-                                @if (is_array($yoga->waktuBuka) || is_object($yoga->waktuBuka))
-                                    @foreach ($yoga->waktuBuka as $hari => $jam)
-                                        <div>
-                                            <p class="text-m text-gray-500 text-lg">{{ $hari }}
-                                                {{ $jam }}</p>
+                        <div class="scheduleInfo mt-10 hidden">
+                            <h3 class="text-xl font-bold mb-4">Waktu Buka</h3>
+                            <div class="grid grid-cols-3 gap-4">
+                                @foreach (['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] as $hari)
+                                    @if(isset($yoga->waktuBuka[$hari]) && !empty($yoga->waktuBuka[$hari]))
+                                        <div class="text-center bg-gray-50 p-3 rounded-lg">
+                                            <p class="text-lg font-semibold text-gray-700">{{ $hari }}</p>
+                                            <p class="text-md text-gray-500">{{ $yoga->waktuBuka[$hari] }}</p>
                                         </div>
-                                    @endforeach
-                                @else
-                                    <div>
-                                        <p class="text-m text-gray-500 text-lg">{{ $yoga->waktuBuka }}</p>
-                                    </div>
-                                @endif
+                                    @else
+                                        <div class="text-center bg-gray-50 p-3 rounded-lg">
+                                            <p class="text-lg font-semibold text-gray-700">{{ $hari }}</p>
+                                            <p class="text-md text-gray-500">Tutup</p>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     <div class="col-span-2">
-                        <h2 class="text-2xl font-bold mb-6">Maps Location</h2>
-                        <iframe
-                            src="{{ $yoga->maps }}"
-                            width="100%" height="400" style="border: none" allowFullScreen="" loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        <h2 class="text-2xl font-bold mb-6">Lokasi Maps</h2>
+                        @if($yoga->maps)
+                            <iframe
+                                src="{{ $yoga->maps }}"
+                                width="100%" height="400" style="border: none" allowFullScreen="" loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        @else
+                            <p>Tidak ada peta tersedia untuk lokasi ini.</p>
+                        @endif
                     </div>
                 </div>
             @endforeach
@@ -150,3 +140,43 @@
 
     @include('layouts.footer')
 </x-app-layout>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const scheduleBtns = document.querySelectorAll('.scheduleBtn');
+
+        scheduleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const scheduleInfo = this.closest('.col-span-5').querySelector('.scheduleInfo');
+                scheduleInfo.classList.toggle('hidden');
+
+                if (scheduleInfo.classList.contains('hidden')) {
+                    this.textContent = 'Schedule';
+                } else {
+                    this.textContent = 'Close Schedule';
+                }
+            });
+        });
+
+        // Cek status pencarian
+        const searchStatus = '{{ session('search_status') }}';
+        const searchQuery = '{{ session('search_query') }}';
+
+        if (searchStatus === 'success') {
+            Swal.fire({
+                title: 'Spa Ditemukan!',
+                text: `Hasil pencarian untuk ${searchQuery}`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            });
+        } else if (searchStatus === 'not_found') {
+            Swal.fire({
+                title: 'Spa Tidak Ditemukan',
+                text: `Tidak ada hasil untuk pencarian dengan kriteria: ${searchQuery}`,
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+</script>

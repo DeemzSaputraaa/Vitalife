@@ -12,28 +12,36 @@ class SpesialisController extends Controller
         $spesialis = Spesialis::findOrFail($id_spesialis);
         return response()->json(['whatsappNumber' => $spesialis->noHP]);
     }
+    
     public function bayar($id_spesialis)
     {
         $spesialis = Spesialis::findOrFail($id_spesialis);
         return view('fitur.spesBayar', compact('spesialis'));
     }
+
     public function showSpes(Request $request)
     {
         $query = Spesialis::query();
 
         // Search by name
-        if ($request->has('nama')) {
-            $query->where('nama', 'like', '%' . $request->input('nama') . '%');
+        if ($request->filled('nama')) {
+            $searchTerm = $request->input('nama');
+            $query->where('nama', 'like', '%' . $searchTerm . '%');
         }
 
         // Filter by price range
-        if ($request->has('min_price') && $request->has('max_price')) {
-            $query->whereBetween('harga', [$request->input('min_price'), $request->input('max_price')]);
-        } elseif ($request->has('min_price')) {
-            $query->where('harga', '>=', $request->input('min_price'));
-        } elseif ($request->has('max_price')) {
-            $query->where('harga', '<=', $request->input('max_price'));
+        if ($request->filled('min_price') || $request->filled('max_price')) {
+            if ($request->filled('min_price')) {
+                $query->where('harga', '>=', $request->input('min_price'));
+            }
+            if ($request->filled('max_price')) {
+                $query->where('harga', '<=', $request->input('max_price'));
+            }
         }
+
+        if ($request->filled('location')) {
+            $query->where('alamat', 'like', '%' . $request->input('location') . '%');
+        }    
 
         $spesLihat = $query->get();
 

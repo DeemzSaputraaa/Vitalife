@@ -1,8 +1,7 @@
 import "./bootstrap";
-import "./imageSlider";
 
 import Alpine from "alpinejs";
-import { initializeImageSlider } from "./imageSlider";
+
 
 document.addEventListener("DOMContentLoaded", () => {
     initializeImageSlider();

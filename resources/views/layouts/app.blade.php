@@ -24,12 +24,33 @@
         .slider-image {
             transition: order 0.3s ease-in-out;
         }
+        /* Menghilangkan scrollbar untuk semua elemen */
+        * {
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        
+        *::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        /* Memastikan scroll masih berfungsi */
+        html, body {
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Tambahan untuk memastikan konten tidak terpotong */
+        .overflow-container {
+            overflow-y: auto;
+            height: 100vh;
+        }
     </style>
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="font-sans antialiased">
+<body class="font-sans antialiased overflow-container">
     <div class="min-h-screen"> <!--ganti warna-->
         @include('layouts.navigation')
 
@@ -221,6 +242,13 @@
                 console.error('Change language button not found');
             }
         });
+
+        // Kode untuk mencegah scroll default
+        document.body.addEventListener('wheel', function(e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+            }
+        }, { passive: false });
     </script>
 </body>
 

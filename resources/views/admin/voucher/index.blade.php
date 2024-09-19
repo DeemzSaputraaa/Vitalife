@@ -33,6 +33,9 @@
                                         class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Description
                                     </th>
+                                    <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Discount
+                                    </th>
                                     <th
                                         class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Code
@@ -51,6 +54,7 @@
                                                 class="w-16 h-16 object-cover rounded">
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $voucher->description }}</td>
+                                        <td class="px-6 py-4 whitespace-nowrap">{{ $voucher->discount_percentage }}%</td>
                                         <td class="px-6 py-4 whitespace-nowrap">{{ $voucher->code }}</td>
                                         <td class="px-6 py-4 whitespace-nowrap">
                                             <a href="{{ route('admin.vouchers.edit', $voucher) }}"

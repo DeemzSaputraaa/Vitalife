@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\yoga; // Pastikan model Spa sudah dibuat
-use App\Models\Spa;
+use App\Models\spa;
 
 class YogasController extends Controller
 {
@@ -15,21 +15,25 @@ class YogasController extends Controller
         return view('admin.yogas.index', compact('yogas'));
     }
 
-    public function edit($id)
+    public function edit($id_yoga)
     {
-        $yoga = Yoga::findOrFail($id);
-        return view('admin.yogas.edit', compact('yogas'));
+        $yoga = Yoga::findOrFail($id_yoga);
+        return view('admin.yogas.edit', compact('yoga'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_yoga)
     {
-        // Logika untuk update spa
+        $yoga = Yoga::findOrFail($id_yoga);
+        $yoga->maps = $request->input('maps');
+        $yoga->save();
+        $yoga->update($request->all());
+        return redirect()->route('admin.yogas.index')->with('success', 'Yoga berhasil diperbarui');
     }
 
-    public function destroy($id)
+    public function destroy($id_yoga)
     {
-        $yoga = Spa::findOrFail($id);
+        $yoga = Yoga::findOrFail($id_yoga);
         $yoga->delete();
-        return redirect()->route('admin.yogas.index')->with('success', 'yoga berhasil dihapus');
+        return redirect()->route('admin.yogas.index')->with('success', 'Yoga berhasil dihapus');
     }
 }

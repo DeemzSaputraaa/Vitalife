@@ -1,5 +1,5 @@
 <x-app-layout>
-    <section class="ezy__team1 light py-14 md:py-24 bg-blue-100  text-zinc-900">
+    <section class="ezy__team1 light py-6 md:py-16 bg-blue-100  text-zinc-900">
         <div class="bg-slate-300 p-4 sm:p-8">
             <div class="relative w-96 h-96 mx-auto mb-6">
                 <img src="../image/logovitalife.png" alt="Logo Vitalife"
@@ -164,7 +164,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
                 <!-- item 1 -->
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/team/tiara.jpeg" alt="Suci Mutiarani" class="w-full h-64 object-cover" />
+                    <img src="../image/tir.jpeg" alt="Suci Mutiarani" class="w-full h-64 object-cover" />
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Suci Mutiarani</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Project Manajer</h6>
@@ -183,7 +183,7 @@
                         <div
                             class="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                             <div class="flex space-x-4">
-                                <button onclick="window.open('https://instagram.com/your_profile_username', '_blank')">
+                                <button onclick="window.open('https://instagram.com/scmtrnnn', '_blank')">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-pink-600"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" fill="none" viewBox="0 0 24 24">
@@ -192,7 +192,7 @@
                                             clip-rule="evenodd" />
                                     </svg>
                                 </button>
-                                <button onclick="window.open('https://wa.me/089602651828', '_blank')">
+                                <button onclick="window.open('https://wa.me/08816759161', '_blank')">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-green-500"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" fill="none" viewBox="0 0 24 24">
@@ -203,7 +203,7 @@
                                             d="M16.735 13.492c-.038-.018-1.497-.736-1.756-.83a1.008 1.008 0 0 0-.34-.075c-.196 0-.362.098-.49.291-.146.217-.587.732-.723.886-.018.02-.042.045-.057.045-.013 0-.239-.093-.307-.123-1.564-.68-2.751-2.313-2.914-2.589-.023-.04-.024-.057-.024-.057.005-.021.058-.074.085-.101.08-.079.166-.182.249-.283l.117-.14c.121-.14.175-.25.237-.375l.033-.066a.68.68 0 0 0-.02-.64c-.034-.069-.65-1.555-.715-1.711-.158-.377-.366-.552-.655-.552-.027 0 0 0-.112.005-.137.005-.883.104-1.213.311-.35.22-.94.924-.94 2.16 0 1.112.705 2.162 1.008 2.561l.041.06c1.161 1.695 2.608 2.951 4.074 3.537 1.412.564 2.081.63 2.461.63.16 0.288-.013.4-.024l.072-.007c.488-.043 1.56-.599 1.804-1.276.192-.534.243-1.117.115-1.329-.088-.144-.239-.216-.43-.308Z" />
                                     </svg>
                                 </button>
-                                <button onclick="window.open('https://linkedin.com/your_profile_username', '_blank')">
+                                <button onclick="window.open('https://www.linkedin.com/in/suci-mutiarani-9b1b62237', '_blank')">
                                     <svg class="w-6 h-6 text-gray-800 dark:text-white hover:text-blue-500"
                                         aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24"
                                         height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -220,7 +220,7 @@
 
                 {{-- item 2 --}}
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="../image/team/lega.jpeg" alt="Legawan Perkasa" class="w-full h-64 object-cover" />
+                    <img src="../image/lega.jpeg" alt="Legawan Perkasa" class="w-full h-64 object-cover" />
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Legawan Perkasa</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">Analisis Sistem</h6>
@@ -272,10 +272,10 @@
 
                 {{-- item 3 --}}
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="https://cdn.easyfrontend.com/pictures/team/team_square_1.jpeg" alt="Suci Mutiarani"
+                    <img src="../image/dims2.jpeg" alt="Dimas Rizki Setyaji"
                         class="w-full h-64 object-cover" />
                     <div class="p-6 text-center">
-                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Riski Setyaji</h4>
+                        <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Rizki Setyaji</h4>
                         <h6 class="text-blue-600 dark:text-blue-400 font-medium mb-3">UI Desainer</h6>
                         <p class="text-gray-400 dark:text-gray-300 text-sm mb-4">UI UX Designer is a professional who
                             designs user interfaces (UI) and ensures optimal user experience (UX) in digital products,
@@ -322,7 +322,7 @@
 
                 {{-- item 4 --}}
                 <div class="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
-                    <img src="https://cdn.easyfrontend.com/pictures/team/team_square_1.jpeg" alt="Suci Mutiarani"
+                    <img src="../image/deemz.jpeg" alt="Dimas Edwin Saputra"
                         class="w-full h-64 object-cover" />
                     <div class="p-6 text-center">
                         <h4 class="text-xl text-gray-200 font-semibold mb-1">Dimas Edwin Saputra</h4>

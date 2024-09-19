@@ -21,7 +21,7 @@
     <div class="flex h-full bg-blue-100">
         <!-- Sidebar -->
         @include('layouts.sidenav')
-
+`
         <!-- Konten Utama -->
         <main class="flex-1 p-8">
             <header class="flex justify-between items-center mb-8">

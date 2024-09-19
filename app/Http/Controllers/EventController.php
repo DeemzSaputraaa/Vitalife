@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Event;
+use App\Models\event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -13,13 +13,13 @@ class EventController extends Controller
      */
     public function index()
     {
-        $eventTotal = Event::all();
+        $eventTotal = event::all();
         return view('fitur.event', compact('eventTotal'));
     }
 
     public function search(Request $request)
     {
-        $query = Event::query();
+        $query = event::query();
 
         if ($request->filled('nama_event')) {
             $query->where('nama', 'like', '%' . $request->nama_event . '%');
@@ -51,14 +51,14 @@ class EventController extends Controller
      */
     public function adminIndex()
     {
-        $events = Event::all();
+        $events = event::all();
         $spacount = $events->count();
         return view('admin.event.index', compact('events', 'spacount'));
     }
 
     public function dashboard()
     {
-        $eventcount = Event::count();
+        $eventcount = event::count();
         return view('admin.dashboard', compact('eventcount'));
     }
     /**
@@ -85,13 +85,17 @@ class EventController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('event', 'public');
-            $validatedData['image'] = $imagePath;
+            $imageName = time() . '.' . $request->image->extension();
+            $request->image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
         }
 
-        Event::create($validatedData);
-
-        return redirect()->route('admin.event.index')->with('success', 'Event created successfully.');
+        try {
+            $event = Event::create($validatedData);
+            return redirect()->route('admin.spaShow', $event)->with('success', 'Data Event berhasil disimpan');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Gagal menyimpan data SPA. Silakan coba lagi.');
+        }
     }
 
     /**
@@ -112,40 +116,44 @@ class EventController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Event $event, $id_event)
+    public function update(Request $request, $id_event)
     {
-        $event = Event::findOrFail($id_event);
+        try {
+            $event = Event::findOrFail($id_event);
 
-        $validatedData = $request->validate([
-            'nama' => 'required|max:255',
-            'deskripsi' => 'required',
-            'tanggal' => 'required|date',
-            'alamat' => 'required',
-            'harga' => 'required|numeric',
-            'noHP' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
+            $validatedData = $request->validate([
+                'nama' => 'required|max:255',
+                'deskripsi' => 'required',
+                'tanggal' => 'required|date',
+                'alamat' => 'required',
+                'harga' => 'required|numeric',
+                'noHP' => 'required',
+                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            ]);
 
-        if ($request->hasFile('image')) {
-            // Delete old image
-            if ($event->image) {
-                Storage::disk('public')->delete($event->image);
+            if ($request->hasFile('image')) {
+                // Delete old image
+                if ($event->image) {
+                    Storage::disk('public')->delete($event->image);
+                }
+                $imagePath = $request->file('image')->store('events', 'public');
+                $validatedData['image'] = $imagePath;
             }
-            $imagePath = $request->file('image')->store('events', 'public');
-            $validatedData['image'] = $imagePath;
+
+            $event->update($validatedData);
+
+            return redirect()->route('admin.event.index')->with('success', 'Event updated successfully.');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Failed to update event: ' . $e->getMessage())->withInput();
         }
-
-        $event->update($validatedData);
-
-        return redirect()->route('admin.event.index')->with('success', 'Event updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Event $event, $id_event)
+    public function destroy(event $event, $id_event)
     {
-        $event = Event::findOrFail($id_event);
+        $event = event::findOrFail($id_event);
 
         if ($event->image) {
             Storage::disk('public')->delete($event->image);

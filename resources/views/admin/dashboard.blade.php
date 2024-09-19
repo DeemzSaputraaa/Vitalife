@@ -3,7 +3,7 @@
 @section('judul-halaman', 'Dashboard')
 
 @section('content')
-    <div class="bg-yellow-300 rounded-lg p-6 flex items-center justify-between mb-4">
+    <div class="bg-blue-300 rounded-lg p-6 flex items-center justify-between mb-4">
         <div x-data="{ weather: null }" x-init="fetchWeather()">
             <h2 class="text-2xl font-bold mb-2">Hello, {{ Auth::user()->name }}!</h2>
             <p class="text-gray-700">Weather</p>
@@ -66,7 +66,7 @@
         <a href="{{ route('admin.event.index') }}" class="bg-white rounded-lg p-4 flex-1 shadow">
             <div class="flex justify-between items-start">
                 <div>
-                    <h2 class="text-2xl font-bold">{{ $spacount }}</h2>
+                    <h2 class="text-2xl font-bold">{{ $eventcount }}</h2>
                     <p class="text-sm text-gray-500">Total Event</p>
                 </div>
                 <div class="bg-green-100 p-2 rounded-md">

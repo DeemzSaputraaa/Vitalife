@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Voucher;
+use App\Models\spesialis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -25,6 +26,9 @@ class VoucherController extends Controller
         $validatedData = $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'discount_percentage' => 'required|integer|min:0|max:100',
+            'usage_limit' => 'nullable|integer|min:1',
+            'expired_at' => 'nullable|date|after:today',
             'code' => 'required|string|unique:vouchers,code',
         ]);
 
@@ -57,6 +61,9 @@ class VoucherController extends Controller
         $validatedData = $request->validate([
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'description' => 'required|string',
+            'discount_percentage' => 'required|integer|min:0|max:100',
+            'usage_limit' => 'nullable|integer|min:1',
+            'expired_at' => 'nullable|date|after:today',
             'code' => 'required|string|unique:vouchers,code,' . $voucher->id,
         ]);
 
@@ -91,52 +98,53 @@ class VoucherController extends Controller
     public function apply(Request $request)
     {
         $voucherCode = $request->input('voucher_code');
+        $spesialisId = $request->input('id_spesialis');
 
         $voucher = Voucher::where('code', $voucherCode)->first();
+        $spesialis = Spesialis::find($spesialisId);
+
+        if (!$spesialis) {
+            return redirect()->back()->with('voucher_error', 'Data spesialis tidak ditemukan.');
+        }
+
+        $totalPrice = $spesialis->harga;
 
         if ($voucher) {
-            // Memeriksa apakah voucher masih valid
+            // Periksa apakah voucher masih valid
             if ($voucher->expired_at && now() > $voucher->expired_at) {
                 return redirect()->back()->with('voucher_error', 'Voucher sudah kadaluarsa.');
             }
 
-            // Memeriksa apakah voucher sudah digunakan
+            // Periksa apakah voucher sudah digunakan
             if ($voucher->is_used) {
                 return redirect()->back()->with('voucher_error', 'Voucher sudah digunakan.');
             }
 
-            // Memeriksa apakah voucher memiliki batas penggunaan
+            // Periksa apakah voucher memiliki batas penggunaan
             if ($voucher->usage_limit && $voucher->usage_count >= $voucher->usage_limit) {
                 return redirect()->back()->with('voucher_error', 'Batas penggunaan voucher sudah tercapai.');
             }
 
-            // Menghitung potongan harga
-            $discount = 0;
-            if ($voucher->discount_type === 'percentage') {
-                $discount = $request->input('total_price') * ($voucher->discount_value / 100);
-            } else {
-                $discount = $voucher->discount_value;
-            }
-
-            // Memastikan potongan tidak melebihi total harga
-            $totalPrice = $request->input('total_price');
-            $discountedPrice = max(0, $totalPrice - $discount);
+            // Hitung diskon
+            $discountAmount = ($totalPrice * $voucher->discount_percentage) / 100;
+            $discountedPrice = $totalPrice - $discountAmount;
 
             // Update penggunaan voucher
             $voucher->usage_count += 1;
-            if ($voucher->usage_count >= $voucher->usage_limit) {
+            if ($voucher->usage_limit && $voucher->usage_count >= $voucher->usage_limit) {
                 $voucher->is_used = true;
             }
             $voucher->save();
 
-            // Menyimpan informasi voucher dan potongan harga ke dalam session
+            // Simpan informasi voucher dan diskon dalam session
             session([
                 'applied_voucher' => $voucher->code,
-                'discount_amount' => $discount,
+                'discount_percentage' => $voucher->discount_percentage,
+                'discount_amount' => $discountAmount,
                 'discounted_price' => $discountedPrice
             ]);
 
-            return redirect()->back()->with('voucher_success', 'Voucher berhasil diterapkan! Potongan harga: Rp ' . number_format($discount, 0, ',', '.'));
+            return redirect()->back()->with('voucher_success', 'Voucher berhasil diterapkan! Potongan harga: ' . $voucher->discount_percentage . '% (Rp ' . number_format($discountAmount, 0, ',', '.') . ')');
         } else {
             return redirect()->back()->with('voucher_error', 'Kode voucher tidak valid.');
         }

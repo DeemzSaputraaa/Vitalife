@@ -4,10 +4,9 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
-                        <div class="flex-1">
+                    <div class="flex-1">
                             <div class="flex items-center space-x-4 mb-6">
-                                <img src="{{ asset($spesialis->image) }}" alt="spesialis"
-                                    class="w-16 h-16 rounded-full object-cover">
+                                <img src="{{ asset($spesialis->image) }}" alt="spesialis" class="w-16 h-16 rounded-full object-cover">
                                 <div>
                                     <h2 class="text-xl font-semibold">{{ $spesialis->nama }}</h2>
                                     <p class="text-gray-600">{{ $spesialis->spesialisasi }}</p>
@@ -20,35 +19,49 @@
                                     <span>Biaya sesi 30 menit</span>
                                     <span>Rp{{ number_format($spesialis->harga, 0, ',', '.') }}</span>
                                 </div>
+                                @if(session('applied_voucher'))
+                                <div class="flex justify-between mb-2 text-green-600">
+                                    <span>Potongan Voucher ({{ session('applied_voucher') }} - {{ session('discount_percentage') }}%)</span>
+                                    <span>- Rp{{ number_format(session('discount_amount'), 0, ',', '.') }}</span>
+                                </div>
+                                <div class="flex justify-between font-bold">
+                                    <span>Total Pembayaran</span>
+                                    <span>Rp{{ number_format(session('discounted_price'), 0, ',', '.') }}</span>
+                                </div>
+                                @else
+                                <div class="flex justify-between font-bold">
+                                    <span>Total Pembayaran</span>
+                                    <span>Rp{{ number_format($spesialis->harga, 0, ',', '.') }}</span>
+                                </div>
+                                @endif
+                            </div>
+                            <!-- Tambahkan Voucher -->
+                            <div class="bg-white p-4 rounded-lg border border-gray-200 mt-4">
+                                <h3 class="text-lg font-semibold mb-2">Tambahkan Voucher</h3>
+                                <form action="{{ route('admin.apply.voucher') }}" method="POST" class="flex space-x-2">
+                                    @csrf
+                                    <input type="hidden" name="id_spesialis" value="{{ $spesialis->id_spesialis }}">
+                                    <input type="text" name="voucher_code" placeholder="Masukkan kode voucher"
+                                        class="flex-grow px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                    <button type="submit"
+                                        class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                        Terapkan
+                                    </button>
+                                </form>
+
+                                @if (session('voucher_success'))
+                                    <div class="mt-2 text-green-600">
+                                        {{ session('voucher_success') }}
+                                    </div>
+                                @endif
+
+                                @if (session('voucher_error'))
+                                    <div class="mt-2 text-red-600">
+                                        {{ session('voucher_error') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
-
-                        <!-- Tambahkan Voucher -->
-                        {{-- <div class="bg-white p-4 rounded-lg border border-gray-200">
-                            <h3 class="text-lg font-semibold mb-2">Tambahkan Voucher</h3>
-                            <form action="{{ route('admin.apply.voucher') }}" method="POST" class="flex space-x-2">
-                                @csrf
-                                <input type="text" name="voucher_code" placeholder="Masukkan kode voucher"
-                                    class="flex-grow px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                                <button type="submit"
-                                    class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    Terapkan
-                                </button>
-                            </form>
-
-                            @if (session('voucher_success'))
-                                <div class="mt-2 text-green-600">
-                                    {{ session('voucher_success') }}
-                                </div>
-                            @endif
-
-                            @if (session('voucher_error'))
-                                <div class="mt-2 text-red-600">
-                                    {{ session('voucher_error') }}
-                                </div>
-                            @endif
-                        </div> --}}
-
                         <!-- Kolom Kanan: Metode Pembayaran -->
                         <div class="md:w-1/3">
                             <h3 class="text-lg font-semibold mb-4">Metode pembayaran</h3>

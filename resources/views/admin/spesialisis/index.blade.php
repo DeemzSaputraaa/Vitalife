@@ -25,47 +25,36 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse ($spesialisis as $spa)
+                @forelse ($spesialisis as $spesialis)
                     <tr>
-                        <td class="py-2 px-4 border-b">{{ is_array($spa->nama) ? implode(', ', $spa->nama) : $spa->nama }}
-                        </td>
-                        <td class="py-2 px-4 border-b">
-                            @if (is_array($spa->harga))
-                                {{ implode(', ', $spa->harga) }}
-                            @else
-                                {{ $spa->harga }}
-                            @endif
-                        </td>
-                        <td class="py-2 px-4 border-b">
-                            {{ is_array($spa->alamat) ? implode(', ', $spa->alamat) : $spa->alamat }}</td>
-                        <td class="py-2 px-4 border-b">{{ is_array($spa->spesialisasi) ? implode(', ', $spa->spesialisasi) : $spa->spesialisasi }}
-                        </td>
-                        <td class="py-2 px-4 border-b">
-                            {{ is_array($spa->tempatTugas) ? implode(', ', $spa->tempatTugas) : $spa->tempatTugas }}</td>
-                        <td class="py-2 px-4 border-b">
-                            {{ is_array($spa->noHP) ? implode(', ', $spa->noHP) : $spa->noHP }}</td>
+                        <td class="py-2 px-4 border-b">{{ $spesialis->nama }}</td>
+                        <td class="py-2 px-4 border-b">Rp {{ number_format($spesialis->harga, 0, ',', '.') }}</td>
+                        <td class="py-2 px-4 border-b">{{ $spesialis->alamat }}</td>
+                        <td class="py-2 px-4 border-b">{{ $spesialis->spesialisasi }}</td>
+                        <td class="py-2 px-4 border-b">{{ $spesialis->tempatTugas }}</td>
+                        <td class="py-2 px-4 border-b">{{ $spesialis->noHP }}</td>
                         <td class="py-2 px-4 border-b">
                             <div class="flex items-center space-x-2">
-                                <a href=""
+                                <a href="{{ route('admin.spesialisis.edit', $spesialis->id_spesialis) }}"
                                     class="text-blue-500 hover:text-blue-700">
-                                    <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                        width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z" />
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                        </path>
                                     </svg>
                                 </a>
-                                <form action="" method="POST"
+                                <form action="{{ route('admin.spesialisis.destroy', $spesialis->id_spesialis) }}" method="POST"
                                     class="inline">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="text-red-500 hover:text-red-700"
-                                        onclick="return confirm('Are you sure you want to delete this spa?')">
-                                        <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                            width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-                                            <path fill-rule="evenodd"
-                                                d="M8.586 2.586A2 2 0 0 1 10 2h4a2 2 0 0 1 2 2v2h3a1 1 0 1 1 0 2v12a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V8a1 1 0 0 1 0-2h3V4a2 2 0 0 1 .586-1.414ZM10 6h4V4h-4v2Zm1 4a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Zm4 0a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0v-8Z"
-                                                clip-rule="evenodd" />
+                                        onclick="return confirm('Apakah Anda yakin ingin menghapus spesialis ini?')">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                                            </path>
                                         </svg>
                                     </button>
                                 </form>
@@ -74,7 +63,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="6" class="py-2 px-4 border-b text-center">Tidak ada data spa</td>
+                        <td colspan="7" class="py-2 px-4 border-b text-center">Tidak ada data spesialis</td>
                     </tr>
                 @endforelse
             </tbody>
