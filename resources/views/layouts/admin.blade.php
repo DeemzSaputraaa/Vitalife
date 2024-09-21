@@ -29,8 +29,7 @@
                 <div class="flex items-center">
                     <button>
                         <svg class="w-6 h-6 text-gray-800 dark:text-black" aria-hidden="true"
-                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
-                            viewBox="0 0 24 24">
+                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                             <path stroke="currentColor" stroke-linecap="round" stroke-width="2"
                                 d="M5 7h14M5 12h14M5 17h10" />
                         </svg>
@@ -59,10 +58,6 @@
                     <div class="relative" x-data="{ open: false }">
                         <div @click="open = !open" class="flex items-center space-x-2 cursor-pointer">
                             <span class="text-sm font-medium text-gray-700">{{ Auth::user()->name }}</span>
-                            <div class="w-8 h-8 bg-gray-300 rounded-full">
-                                <img src="{{ Auth::user()->image }}" alt="Avatar"
-                                    class="w-8 h-8 rounded-full">
-                            </div>
                         </div>
 
                         <div x-show="open" @click.away="open = false"
@@ -89,122 +84,122 @@
         </main>
     </div>
     <script>
-        function showLoading() {
-            Swal.fire({
-                title: 'Loading...',
-                allowOutsideClick: false,
-                showConfirmButton: false,
-                willOpen: () => {
-                    Swal.showLoading();
-                }
-            });
-        }
-
-        function hideLoading() {
-            Swal.close();
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            showLoading();
-        });
-
-        window.addEventListener('load', () => {
-            hideLoading();
-        });
-
-        document.addEventListener('click', (e) => {
-            const link = e.target.closest('a');
-            if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
-                e.preventDefault();
-                showLoading();
-                window.location.href = link.href;
+    function showLoading() {
+        Swal.fire({
+            title: 'Loading...',
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            willOpen: () => {
+                Swal.showLoading();
             }
         });
+    }
 
-        document.getElementById('content-wrapper').addEventListener('DOMNodeInserted', () => {
-            hideLoading();
-        });
+    function hideLoading() {
+        Swal.close();
+    }
 
-        function fetchNotifications() {
-            // ... (kode fetchNotifications yang sama) ...
+    document.addEventListener('DOMContentLoaded', () => {
+        showLoading();
+    });
+
+    window.addEventListener('load', () => {
+        hideLoading();
+    });
+
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link && link.getAttribute('href') && link.getAttribute('href').startsWith('/')) {
+            e.preventDefault();
+            showLoading();
+            window.location.href = link.href;
         }
+    });
 
-        function markAsRead(id) {
-            // ... (kode markAsRead yang sama) ...
-        }
+    document.getElementById('content-wrapper').addEventListener('DOMNodeInserted', () => {
+        hideLoading();
+    });
 
-        document.getElementById('notificationButton').addEventListener('click', (e) => {
-            // ... (kode event listener yang sama) ...
-        });
+    function fetchNotifications() {
+        // ... (kode fetchNotifications yang sama) ...
+    }
 
-        document.addEventListener('click', (e) => {
-            // ... (kode event listener yang sama) ...
-        });
+    function markAsRead(id) {
+        // ... (kode markAsRead yang sama) ...
+    }
 
-        setInterval(fetchNotifications, 30000);
-        fetchNotifications();
+    document.getElementById('notificationButton').addEventListener('click', (e) => {
+        // ... (kode event listener yang sama) ...
+    });
+
+    document.addEventListener('click', (e) => {
+        // ... (kode event listener yang sama) ...
+    });
+
+    setInterval(fetchNotifications, 30000);
+    fetchNotifications();
     </script>
 </body>
 
 <script>
-    function fetchNotifications() {
-        fetch('/notifications')
-            .then(response => response.json())
-            .then(data => {
-                const notificationList = document.getElementById('notificationList');
-                const notificationCount = document.getElementById('notificationCount');
-                notificationList.innerHTML = '';
-                notificationCount.textContent = data.length;
+function fetchNotifications() {
+    fetch('/notifications')
+        .then(response => response.json())
+        .then(data => {
+            const notificationList = document.getElementById('notificationList');
+            const notificationCount = document.getElementById('notificationCount');
+            notificationList.innerHTML = '';
+            notificationCount.textContent = data.length;
 
-                if (data.length === 0) {
-                    const noNotification = document.createElement('div');
-                    noNotification.className = 'px-4 py-2 text-gray-500';
-                    noNotification.textContent = 'Tidak ada notifikasi baru';
-                    notificationList.appendChild(noNotification);
-                } else {
-                    data.forEach(notification => {
-                        const notificationItem = document.createElement('div');
-                        notificationItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
-                        notificationItem.textContent = notification.data.message;
-                        notificationItem.onclick = () => markAsRead(notification.id);
-                        notificationList.appendChild(notificationItem);
-                    });
-                }
-            });
-    }
+            if (data.length === 0) {
+                const noNotification = document.createElement('div');
+                noNotification.className = 'px-4 py-2 text-gray-500';
+                noNotification.textContent = 'Tidak ada notifikasi baru';
+                notificationList.appendChild(noNotification);
+            } else {
+                data.forEach(notification => {
+                    const notificationItem = document.createElement('div');
+                    notificationItem.className = 'px-4 py-2 hover:bg-gray-100 cursor-pointer';
+                    notificationItem.textContent = notification.data.message;
+                    notificationItem.onclick = () => markAsRead(notification.id);
+                    notificationList.appendChild(notificationItem);
+                });
+            }
+        });
+}
 
-    function markAsRead(id) {
-        fetch('/notifications/mark-as-read', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({
-                id: id
-            })
-        }).then(() => fetchNotifications());
-    }
+function markAsRead(id) {
+    fetch('/notifications/mark-as-read', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({
+            id: id
+        })
+    }).then(() => fetchNotifications());
+}
 
-    document.getElementById('notificationButton').addEventListener('click', (e) => {
-        e.stopPropagation();
-        const dropdown = document.getElementById('notificationDropdown');
-        dropdown.classList.toggle('hidden');
-        fetchNotifications();
-    });
-
-    document.addEventListener('click', (e) => {
-        const dropdown = document.getElementById('notificationDropdown');
-        if (!dropdown.contains(e.target) && e.target !== document.getElementById('notificationButton')) {
-            dropdown.classList.add('hidden');
-        }
-    });
-
-    // Ambil notifikasi setiap 30 detik
-    setInterval(fetchNotifications, 30000);
-
-    // Ambil notifikasi saat pertama kali
+document.getElementById('notificationButton').addEventListener('click', (e) => {
+    e.stopPropagation();
+    const dropdown = document.getElementById('notificationDropdown');
+    dropdown.classList.toggle('hidden');
     fetchNotifications();
+});
+
+document.addEventListener('click', (e) => {
+    const dropdown = document.getElementById('notificationDropdown');
+    if (!dropdown.contains(e.target) && e.target !== document.getElementById('notificationButton')) {
+        dropdown.classList.add('hidden');
+    }
+});
+
+// Ambil notifikasi setiap 30 detik
+setInterval(fetchNotifications, 30000);
+
+// Ambil notifikasi saat pertama kali
+fetchNotifications();
 </script>
 
 </html>

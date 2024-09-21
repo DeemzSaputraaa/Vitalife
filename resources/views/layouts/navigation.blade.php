@@ -10,18 +10,16 @@
                         <x-application-logo1 class="block w-full h-full object-contain" />
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-7 sm:-my-px sm:mx-10 sm:flex sm:ml-80 justify-between">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
-                        class="text-white hover:text-blue-200">
+                        class="text-white hover:text-blue-300 transition duration-150 ease-in-out {{ request()->routeIs('dashboard') ? 'border-b-2 border-blue-500 text-blue-300' : '' }}">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button
-                                class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-white hover:text-blue-200 hover:border-blue-300 focus:outline-none focus:text-blue-200 focus:border-blue-300 transition duration-150 ease-in-out {{ request()->routeIs('spa') || request()->routeIs('yoga') || request()->routeIs('event') ? 'border-white' : '' }}"
+                                class="inline-flex items-center px-1 pt-1 text-sm font-medium leading-5 text-white hover:text-blue-300 focus:outline-none focus:text-blue-300 transition duration-150 ease-in-out {{ request()->routeIs('spa.index') || request()->routeIs('yoga.index') || request()->routeIs('event.index') ? 'border-b-2 border-blue-500 text-blue-300' : '' }}"
                                 style="height: 64px; display: flex; align-items: center;">
                                 {{ __('Features') }}
                                 <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
@@ -32,31 +30,28 @@
                                 </svg>
                             </button>
                         </x-slot>
-
                         <x-slot name="content">
                             <x-dropdown-link :href="route('spa.index')" :active="request()->routeIs('spa.index')"
-                                class="text-gray-700 hover:bg-blue-100">
+                                class="text-gray-700 hover:text-blue-500">
                                 {{ __('SPA') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('yoga.index')" :active="request()->routeIs('yoga.index')"
-                                class="text-gray-700 hover:bg-blue-100">
+                                class="text-gray-700 hover:text-blue-500">
                                 {{ __('Yoga') }}
                             </x-dropdown-link>
-                            <x-dropdown-link :href="route('event.index')" :active="request()->routeIs('event')"
-                                class="text-gray-700 hover:bg-blue-100">
+                            <x-dropdown-link :href="route('event.index')" :active="request()->routeIs('event.index')"
+                                class="text-gray-700 hover:text-blue-500">
                                 {{ __('Event') }}
                             </x-dropdown-link>
                         </x-slot>
                     </x-dropdown>
-
                     <x-nav-link :href="route('spesialis')" :active="request()->routeIs('spesialis')"
-                        class="text-white hover:text-blue-200">
+                        class="text-white hover:text-blue-300 transition duration-150 ease-in-out {{ request()->routeIs('spesialis') ? 'border-b-2 border-blue-500 text-blue-300' : '' }}">
                         {{ __('Spesialisation') }}
                     </x-nav-link>
-
                     <x-nav-link :href="route('dashboard', ['scroll' => 'voucher'])"
                         :active="request()->routeIs('dashboard') && request()->query('scroll') === 'voucher'"
-                        class="text-white hover:text-blue-200">
+                        class="text-white hover:text-blue-300 transition duration-150 ease-in-out {{ request()->routeIs('dashboard') && request()->query('scroll') === 'voucher' ? 'border-b-2 border-blue-500 text-blue-300' : '' }}">
                         {{ __('Voucher') }}
                     </x-nav-link>
                 </div>

@@ -10,8 +10,7 @@
                             class="block w-full rounded-md border-0 py-1.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600"
                             placeholder="Enter specialist name" value="{{ request('nama') }}" />
                     </div>
-                    <button type="submit"
-                        class="bg-blue-600 text-white rounded-md py-2 px-6 text-sm flex items-center">
+                    <button type="submit" class="bg-blue-600 text-white rounded-md py-2 px-6 text-sm flex items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -68,27 +67,28 @@
         </div>
         <div class="bg-white rounded-lg shadow-2xl p-8 w-full max-w-5xl mx-auto">
             @foreach ($spesFilter as $spesialis)
-                <div class="flex flex-col md:flex-row items-center md:items-start border rounded-lg p-6 mb-6">
-                    <div
-                        class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-200 mb-4 md:mb-0 md:mr-8 overflow-hidden flex-shrink-0">
-                        <img src="{{ asset($spesialis->image) }}" alt="Profile Picture"
-                            class="w-full h-full object-cover">
-                    </div>
-                    <div class="flex-grow text-center md:text-left">
-                        <h2 class="text-2xl font-bold mb-2">{{ $spesialis->nama }}</h2>
-                        <p class="text-gray-600 text-xl mb-1">{{ $spesialis->Anatomy }}</p>
-                        <p class="text-gray-600 text-lg font-semibold mb-1">{{ $spesialis->spesialisasi }}</p>
-                        <p class="text-gray-600 text-sm">{{ $spesialis->tempatTugas }}</p>
-                        <p class="text-gray-600 text-sm">{{ $spesialis->alamat }}</p>
-                    </div>
-                    <div class="mt-4 md:mt-0 md:ml-8 text-center md:text-right">
-                        <p class="text-gray-800 text-xl font-semibold mb-3">
-                            Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}</p>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded text-base">
-                            Bayar
-                        </button>
-                    </div>
+            <div class="flex flex-col md:flex-row items-center md:items-start border rounded-lg p-6 mb-6">
+                <div
+                    class="w-24 h-24 md:w-32 md:h-32 rounded-full bg-gray-200 mb-4 md:mb-0 md:mr-8 overflow-hidden flex-shrink-0">
+                    <img src="{{ asset($spesialis->image) }}" alt="Profile Picture" class="w-full h-full object-cover">
                 </div>
+                <div class="flex-grow text-center md:text-left">
+                    <h2 class="text-2xl font-bold mb-2">{{ $spesialis->nama }}</h2>
+                    <p class="text-gray-600 text-xl mb-1">{{ $spesialis->Anatomy }}</p>
+                    <p class="text-gray-600 text-lg font-semibold mb-1">{{ $spesialis->spesialisasi }}</p>
+                    <p class="text-gray-600 text-sm">{{ $spesialis->tempatTugas }}</p>
+                    <p class="text-gray-600 text-sm">{{ $spesialis->alamat }}</p>
+                </div>
+                <div class="mt-4 md:mt-0 md:ml-8 text-center md:text-right">
+                    <p class="text-gray-800 text-xl font-semibold mb-3">
+                        Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}
+                    </p>
+                    <a href="{{ route('spesialis.bayar', ['id_spesialis' => $spesialis->id_spesialis]) }}"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded text-base inline-block">
+                        Bayar
+                    </a>
+                </div>
+            </div>
             @endforeach
         </div>
         {{-- <div class="bg-white rounded-lg shadow-2xl p-8 flex-1">
@@ -101,22 +101,21 @@
                         </div>
                         <div class="flex-grow">
                             <h2 class="text-xl font-bold mb-1">{{ $spesialis->nama }}</h2>
-                            <p class="text-gray-600 text-xl">{{ $spesialis->Anatomy }}</p>
-                            <p class="text-gray-600 text-m font-bold">{{ $spesialis->spesialisasi }}</p>
-                            <p class="text-gray-600 text-xs">{{ $spesialis->tempatTugas }}</p>
-                            <p class="text-gray-600 text-xs">{{ $spesialis->alamat }}</p>
-                        </div>
-                        <div class="ml-4 text-right">
-                            <p class="text-gray-800 text-lg font-semibold">
-                                Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}</p>
-                            <button
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm mt-2 block">Make
-                                Appointment</button>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div> --}}
+        <p class="text-gray-600 text-xl">{{ $spesialis->Anatomy }}</p>
+        <p class="text-gray-600 text-m font-bold">{{ $spesialis->spesialisasi }}</p>
+        <p class="text-gray-600 text-xs">{{ $spesialis->tempatTugas }}</p>
+        <p class="text-gray-600 text-xs">{{ $spesialis->alamat }}</p>
+    </div>
+    <div class="ml-4 text-right">
+        <p class="text-gray-800 text-lg font-semibold">
+            Rp.{{ number_format($spesialis->harga, 0, ',', '.') }}</p>
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm mt-2 block">Make
+            Appointment</button>
+    </div>
+    </div>
+    @endforeach
+    </div>
+    </div> --}}
 
     </div>
     <hr class="w-full border-gray-300 mb-6" />

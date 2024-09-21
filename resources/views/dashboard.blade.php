@@ -19,24 +19,22 @@
                                 <span class="typed-cursor animate-blink">|</span>
                             </p>
                         </div>
-                        <a href="#spesialis" class="inline-block group">
-                            <button class="bg-blue-500 text-white font-bold rounded-full py-1 px-3 sm:py-2 sm:px-4 md:py-2.5 md:px-5 lg:py-3 lg:px-6 xl:py-4 xl:px-8 shadow-lg 
-                        transform transition duration-300 ease-in-out
-                        hover:scale-105 hover:bg-blue-600 hover:shadow-xl
-                        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-                                <span
-                                    class="inline-block transform group-hover:translate-x-1 transition-transform duration-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
-                                    Consult Now
-                                </span>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                    class="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 xl:h-7 xl:w-7 inline-block ml-1 transform group-hover:translate-x-1 transition-transform duration-200"
-                                    viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </a>
+                        <button id="consultNowBtn" class="bg-blue-500 text-white font-bold rounded-full py-1 px-3 sm:py-2 sm:px-4 md:py-2.5 md:px-5 lg:py-3 lg:px-6 xl:py-4 xl:px-8 shadow-lg 
+                    transform transition duration-300 ease-in-out
+                    hover:scale-105 hover:bg-blue-600 hover:shadow-xl
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            <span
+                                class="inline-block transform group-hover:translate-x-1 transition-transform duration-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl">
+                                Consult Now
+                            </span>
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 xl:h-7 xl:w-7 inline-block ml-1 transform group-hover:translate-x-1 transition-transform duration-200"
+                                viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
                     </div>
                     <div class="w-1/2 flex justify-end">
                         <div class="rounded-lg overflow-hidden">
@@ -250,6 +248,18 @@
     </section>
 
     <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const consultNowBtn = document.getElementById('consultNowBtn');
+        const spesialisSection = document.getElementById('spesialis');
+
+        consultNowBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            spesialisSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
     // POP Up
     function openPopup(imageSrc, description, voucherCode) {
         const popup = document.getElementById('popup');

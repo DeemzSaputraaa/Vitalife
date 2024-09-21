@@ -4,9 +4,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <div class="flex flex-col md:flex-row justify-between space-y-8 md:space-y-0 md:space-x-8">
-                    <div class="flex-1">
+                        <div class="flex-1">
                             <div class="flex items-center space-x-4 mb-6">
-                                <img src="{{ asset($spesialis->image) }}" alt="spesialis" class="w-16 h-16 rounded-full object-cover">
+                                <img src="{{ asset($spesialis->image) }}" alt="spesialis"
+                                    class="w-16 h-16 rounded-full object-cover">
                                 <div>
                                     <h2 class="text-xl font-semibold">{{ $spesialis->nama }}</h2>
                                     <p class="text-gray-600">{{ $spesialis->spesialisasi }}</p>
@@ -21,7 +22,8 @@
                                 </div>
                                 @if(session('applied_voucher'))
                                 <div class="flex justify-between mb-2 text-green-600">
-                                    <span>Potongan Voucher ({{ session('applied_voucher') }} - {{ session('discount_percentage') }}%)</span>
+                                    <span>Potongan Voucher ({{ session('applied_voucher') }} -
+                                        {{ session('discount_percentage') }}%)</span>
                                     <span>- Rp{{ number_format(session('discount_amount'), 0, ',', '.') }}</span>
                                 </div>
                                 <div class="flex justify-between font-bold">
@@ -50,15 +52,15 @@
                                 </form>
 
                                 @if (session('voucher_success'))
-                                    <div class="mt-2 text-green-600">
-                                        {{ session('voucher_success') }}
-                                    </div>
+                                <div class="mt-2 text-green-600">
+                                    {{ session('voucher_success') }}
+                                </div>
                                 @endif
 
                                 @if (session('voucher_error'))
-                                    <div class="mt-2 text-red-600">
-                                        {{ session('voucher_error') }}
-                                    </div>
+                                <div class="mt-2 text-red-600">
+                                    {{ session('voucher_error') }}
+                                </div>
                                 @endif
                             </div>
                         </div>
@@ -97,6 +99,67 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- modal data diri pembayaran -->
+    <div id="personalDataModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden">
+        <div class="relative top-20 mx-auto p-5 border w-11/12 max-w-md shadow-lg rounded-md bg-white">
+            <button class="absolute top-2 right-2 text-gray-600 hover:text-gray-900"
+                onclick="closeModal('personalDataModal')">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+            <div class="mt-3 text-center">
+                <h3 class="text-lg leading-6 font-medium text-gray-900">Data Diri</h3>
+                <form id="personalDataForm" class="mt-4 space-y-4">
+                    <div>
+                        <label for="namaLengkap" class="block text-sm font-medium text-gray-700">Nama Lengkap</label>
+                        <input type="text" id="namaLengkap" name="namaLengkap" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="jenisKelamin" class="block text-sm font-medium text-gray-700">Jenis Kelamin</label>
+                        <select id="jenisKelamin" name="jenisKelamin" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                            <option value="">Pilih Jenis Kelamin</option>
+                            <option value="Laki-laki">Laki-laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="tanggalLahir" class="block text-sm font-medium text-gray-700">Tanggal Lahir</label>
+                        <input type="date" id="tanggalLahir" name="tanggalLahir" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="nomorTelepon" class="block text-sm font-medium text-gray-700">Nomor Telepon</label>
+                        <input type="tel" id="nomorTelepon" name="nomorTelepon" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+                    </div>
+                    <div>
+                        <label for="alamat" class="block text-sm font-medium text-gray-700">Alamat</label>
+                        <textarea id="alamat" name="alamat" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    </div>
+                    <div>
+                        <label for="riwayatPenyakit" class="block text-sm font-medium text-gray-700">Riwayat
+                            Penyakit</label>
+                        <textarea id="riwayatPenyakit" name="riwayatPenyakit"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    </div>
+                    <div>
+                        <label for="keluhan" class="block text-sm font-medium text-gray-700">Keluhan</label>
+                        <textarea id="keluhan" name="keluhan" required
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+                    </div>
+                    <button type="submit"
+                        class="w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 transition duration-300">
+                        Lanjutkan Pembayaran
+                    </button>
+                </form>
             </div>
         </div>
     </div>
@@ -188,155 +251,165 @@
     @include('layouts.footer')
 
     <script>
-        // Fungsi untuk menyimpan pembayaran
-        function savePayment(payment) {
-            let payments = JSON.parse(localStorage.getItem('payments') || '[]');
-            payments.push(payment);
-            localStorage.setItem('payments', JSON.stringify(payments));
+    // Fungsi untuk menyimpan pembayaran
+    function savePayment(payment) {
+        let payments = JSON.parse(localStorage.getItem('payments') || '[]');
+        payments.push(payment);
+        localStorage.setItem('payments', JSON.stringify(payments));
+    }
+
+    // Modifikasi event listener untuk form pembayaran
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const bank = document.getElementById('bank').value;
+        const kode = generatePaymentCode();
+        const tanggal = new Date().toLocaleString('id-ID');
+
+        const payment = {
+            nama,
+            bank,
+            kode,
+            tanggal,
+            status: 'Menunggu Konfirmasi'
+        };
+        savePayment(payment);
+        showPaymentCode(kode);
+
+        // Reset form
+        this.reset();
+        closeModal('paymentMethodModal');
+    });
+
+
+    document.getElementById('paymentButton').addEventListener('click', function() {
+        document.getElementById('paymentMethodModal').classList.remove('hidden');
+    });
+
+    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const nama = document.getElementById('nama').value;
+        const bank = document.getElementById('bank').value;
+        if (nama && bank) {
+            const paymentCode = generatePaymentCode(bank);
+            document.getElementById('paymentCode').textContent = paymentCode;
+            document.getElementById('paymentMethodModal').classList.add('hidden');
+            document.getElementById('paymentCodeModal').classList.remove('hidden');
+        }
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('paymentCodeModal').classList.add('hidden');
+    });
+
+    function generatePaymentCode(bank) {
+        const bankCodes = {
+            'BCA': '001',
+            'Mandiri': '002',
+            'BNI': '003',
+            'BRI': '004'
+        };
+        const randomDigits = Math.floor(1000000000 + Math.random() * 9000000000);
+        return bankCodes[bank] + randomDigits;
+    }
+
+    //WHATSAPP
+    window.closeModal = function(modalId) {
+        document.getElementById(modalId).classList.add('hidden');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const paymentButton = document.getElementById('paymentButton');
+        const personalDataModal = document.getElementById('personalDataModal');
+        const paymentMethodModal = document.getElementById('paymentMethodModal');
+        const paymentCodeModal = document.getElementById('paymentCodeModal');
+        const whatsappModal = document.getElementById('whatsappModal');
+        const closeModal = document.getElementById('closeModal');
+        const personalDataForm = document.getElementById('personalDataForm');
+        const paymentForm = document.getElementById('paymentForm');
+        const paymentCode = document.getElementById('paymentCode');
+        const whatsappButton = document.getElementById('whatsappButton');
+        const selectedSpesialisId = document.getElementById('selectedSpesialisId');
+
+        // Fungsi untuk menyimpan ID spesialis yang dipilih
+        function setSelectedSpesialis(id) {
+            selectedSpesialisId.value = id;
         }
 
-        // Modifikasi event listener untuk form pembayaran
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        // Event listener untuk tombol pembayaran
+        paymentButton.addEventListener('click', function() {
+            personalDataModal.classList.remove('hidden');
+        });
+
+        // Event listener untuk form data diri
+        personalDataForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const nama = document.getElementById('nama').value;
-            const bank = document.getElementById('bank').value;
-            const kode = generatePaymentCode();
-            const tanggal = new Date().toLocaleString('id-ID');
-
-            const payment = {
-                nama,
-                bank,
-                kode,
-                tanggal,
-                status: 'Menunggu Konfirmasi'
-            };
-            savePayment(payment);
-            showPaymentCode(kode);
-
-            // Reset form
-            this.reset();
-            closeModal('paymentMethodModal');
+            // Di sini Anda bisa menambahkan logika untuk menyimpan data diri
+            console.log('Data diri submitted');
+            personalDataModal.classList.add('hidden');
+            paymentMethodModal.classList.remove('hidden');
         });
 
-
-        document.getElementById('paymentButton').addEventListener('click', function() {
-            document.getElementById('paymentMethodModal').classList.remove('hidden');
-        });
-
-        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+        // Event listener untuk form pembayaran
+        paymentForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            const nama = document.getElementById('nama').value;
-            const bank = document.getElementById('bank').value;
-            if (nama && bank) {
-                const paymentCode = generatePaymentCode(bank);
-                document.getElementById('paymentCode').textContent = paymentCode;
-                document.getElementById('paymentMethodModal').classList.add('hidden');
-                document.getElementById('paymentCodeModal').classList.remove('hidden');
+            paymentMethodModal.classList.add('hidden');
+            paymentCodeModal.classList.remove('hidden');
+            paymentCode.textContent = generatePaymentCode();
+        });
+
+        // Event listener untuk tombol tutup pada modal kode pembayaran
+        closeModal.addEventListener('click', function() {
+            paymentCodeModal.classList.add('hidden');
+            whatsappModal.classList.remove('hidden');
+        });
+
+        // Event listener untuk tombol tutup pada modal kode pembayaran
+        closeModalButton.addEventListener('click', function() {
+            closeModal('paymentCodeModal');
+            whatsappModal.classList.remove('hidden');
+        });
+
+        // Fungsi untuk mengambil nomor WhatsApp dari database
+        async function getWhatsAppNumber() {
+            const id_spesialis = selectedSpesialisId.value;
+            if (!id_spesialis) {
+                console.error('ID Spesialis tidak ditemukan');
+                return null;
             }
-        });
-
-        document.getElementById('closeModal').addEventListener('click', function() {
-            document.getElementById('paymentCodeModal').classList.add('hidden');
-        });
-
-        function generatePaymentCode(bank) {
-            const bankCodes = {
-                'BCA': '001',
-                'Mandiri': '002',
-                'BNI': '003',
-                'BRI': '004'
-            };
-            const randomDigits = Math.floor(1000000000 + Math.random() * 9000000000);
-            return bankCodes[bank] + randomDigits;
+            try {
+                const response = await fetch(`/spesialis/${id_spesialis}/whatsapp`);
+                if (!response.ok) {
+                    throw new Error('Gagal mengambil nomor WhatsApp');
+                }
+                const data = await response.json();
+                return data.whatsappNumber;
+            } catch (error) {
+                console.error('Error:', error);
+                return null;
+            }
         }
 
-        //WHATSAPP
-        window.closeModal = function(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
+        // Event listener untuk tombol WhatsApp
+        whatsappButton.addEventListener('click', async function(e) {
+            e.preventDefault();
+            const phoneNumber =
+                "{{ is_array($spesialis->noHP) ? implode(', ', $spesialis->noHP) : $spesialis->noHP }}";
+            if (phoneNumber) {
+                const message = encodeURIComponent("Halo, saya ingin berkonsultasi dengan Anda.");
+                window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+            } else {
+                alert('Maaf, nomor WhatsApp tidak tersedia saat ini.');
+            }
+        });
+
+        // Fungsi untuk generate kode pembayaran
+        function generatePaymentCode() {
+            return Math.random().toString(36).substr(2, 10).toUpperCase();
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const paymentButton = document.getElementById('paymentButton');
-            const paymentMethodModal = document.getElementById('paymentMethodModal');
-            const paymentCodeModal = document.getElementById('paymentCodeModal');
-            const whatsappModal = document.getElementById('whatsappModal');
-            const closeModal = document.getElementById('closeModal');
-            const paymentForm = document.getElementById('paymentForm');
-            const paymentCode = document.getElementById('paymentCode');
-            const whatsappButton = document.getElementById('whatsappButton');
-            const selectedSpesialisId = document.getElementById('selectedSpesialisId');
-            const closeModalButton = document.getElementById('closeModal');
-
-            // Fungsi untuk menyimpan ID spesialis yang dipilih
-            function setSelectedSpesialis(id) {
-                selectedSpesialisId.value = id;
-            }
-
-            // Event listener untuk tombol pembayaran
-            paymentButton.addEventListener('click', function() {
-                paymentMethodModal.classList.remove('hidden');
-            });
-
-            // Event listener untuk form pembayaran
-            // paymentForm.addEventListener('submit', function(e) {
-            //     e.preventDefault();
-            //     paymentMethodModal.classList.add('hidden');
-            //     paymentCodeModal.classList.remove('hidden');
-            //     paymentCode.textContent = generatePaymentCode();
-            // });
-
-            // Event listener untuk tombol tutup pada modal kode pembayaran
-            closeModal.addEventListener('click', function() {
-                paymentCodeModal.classList.add('hidden');
-                whatsappModal.classList.remove('hidden');
-            });
-
-            // Event listener untuk tombol tutup pada modal kode pembayaran
-            closeModalButton.addEventListener('click', function() {
-                closeModal('paymentCodeModal');
-                whatsappModal.classList.remove('hidden');
-            });
-
-            // Fungsi untuk mengambil nomor WhatsApp dari database
-            async function getWhatsAppNumber() {
-                const id_spesialis = selectedSpesialisId.value;
-                if (!id_spesialis) {
-                    console.error('ID Spesialis tidak ditemukan');
-                    return null;
-                }
-                try {
-                    const response = await fetch(`/spesialis/${id_spesialis}/whatsapp`);
-                    if (!response.ok) {
-                        throw new Error('Gagal mengambil nomor WhatsApp');
-                    }
-                    const data = await response.json();
-                    return data.whatsappNumber;
-                } catch (error) {
-                    console.error('Error:', error);
-                    return null;
-                }
-            }
-
-            // Event listener untuk tombol WhatsApp
-            whatsappButton.addEventListener('click', async function(e) {
-                e.preventDefault();
-                const phoneNumber =
-                    "{{ is_array($spesialis->noHP) ? implode(', ', $spesialis->noHP) : $spesialis->noHP }}";
-                if (phoneNumber) {
-                    const message = encodeURIComponent("Halo, saya ingin berkonsultasi dengan Anda.");
-                    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-                } else {
-                    alert('Maaf, nomor WhatsApp tidak tersedia saat ini.');
-                }
-            });
-
-            // Fungsi untuk generate kode pembayaran
-            function generatePaymentCode() {
-                return Math.random().toString(36).substr(2, 10).toUpperCase();
-            }
-
-            // Pastikan ID spesialis diset saat halaman dimuat
-            setSelectedSpesialis("{{ $spesialis->id_spesialis ?? '' }}");
-        });
+        // Pastikan ID spesialis diset saat halaman dimuat
+        setSelectedSpesialis("{{ $spesialis->id_spesialis ?? '' }}");
+    });
     </script>
 </x-app-layout>
