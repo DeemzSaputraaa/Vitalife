@@ -10,10 +10,10 @@
             <div class="relative z-10 text-start px-3">
                 <h2 class="text-4xl font-bold mb-4">Hello, Welcome</h2>
                 <p class="mb-8">Hello healthy traveller friends, register an account then continue travelling</p>
-                <a href="{{ route('register') }}"
+                <!-- <a href="{{ route('register') }}"
                     class="inline-block border border-white text-white py-2 px-8 rounded-full hover:bg-white hover:text-black transition duration-300">
                     SIGN UP
-                </a>
+                </a> -->
             </div>
         </div>
 
@@ -54,8 +54,8 @@
                     <!-- Password -->
                     <div class="mt-4 relative">
                         <x-input-label for="password" :value="__('Password')" />
-                        <x-text-inputPW id="password" class="block mt-1 w-full" type="password" name="password"
-                            required autocomplete="current-password" />
+                        <x-text-inputPW id="password" class="block mt-1 w-full" type="password" name="password" required
+                            autocomplete="current-password" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
@@ -68,9 +68,9 @@
                             <span class="ms-2 text-sm text-gray-900 dark:text-gray-600">{{ __('Remember me') }}</span>
                         </label>
                         @if (Route::has('password.request'))
-                            <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                                {{ __('Forgot password?') }}
-                            </a>
+                        <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
+                            {{ __('Forgot password?') }}
+                        </a>
                         @endif
                     </div>
 
@@ -151,23 +151,5 @@
                 }
             });
         });
-
-        // Tampilkan alert jika ada pesan status dari server
-        @if (session('status'))
-            Swal.fire({
-                icon: 'success',
-                title: 'Berhasil!',
-                text: "{{ session('status') }}",
-            });
-        @endif
-
-        // Tampilkan alert jika ada error dari server
-        @if ($errors->any())
-            Swal.fire({
-                icon: 'error',
-                title: 'Login Gagal',
-                text: 'Sorry, login failed. Please check your username and password again.',
-            });
-        @endif
     </script>
 </x-guest-layout>

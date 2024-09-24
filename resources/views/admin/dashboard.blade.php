@@ -101,10 +101,10 @@
 </div>
 
 <!-- Bagian grafik -->
-<div class="grid grid-cols-2 gap-4 mb-4">
+<div class="mb-4">
     <div class="bg-white p-4 rounded-lg shadow">
         <h3 class="font-bold mb-4">Website Usage</h3>
-        <div class="w-full max-w-2xl p-6 bg-white rounded-lg shadow-md">
+        <div class="w-full p-6 bg-white rounded-lg shadow-md">
             <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xl font-bold">Visits</h2>
                 <div class="flex space-x-2">
@@ -119,11 +119,11 @@
             </div>
 
             <div class="flex justify-between mt-2 text-sm text-gray-600">
-                <span>Jan</span>
-                <span>Feb</span>
-                <span>Mar</span>
-                <span>Apr</span>
-                <span>May</span>
+                <span>Jul</span>
+                <span>Aug</span>
+                <span>Sept</span>
+                <span>Okt</span>
+                <span>Nov</span>
             </div>
 
             <div class="flex items-center mt-4 space-x-4">
@@ -133,10 +133,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="bg-white p-4 rounded-lg shadow">
-        <h3 class="font-bold mb-4">Orders Summary</h3>
-        <!-- Add bar chart here -->
     </div>
 </div>
 
@@ -164,16 +160,16 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-// Fungsi untuk memuat dan menampilkan riwayat pembayaran
-function loadPaymentHistory() {
-    const tbody = document.getElementById('paymentHistoryBody');
-    const payments = JSON.parse(localStorage.getItem('payments') || '[]');
+    // Fungsi untuk memuat dan menampilkan riwayat pembayaran
+    function loadPaymentHistory() {
+        const tbody = document.getElementById('paymentHistoryBody');
+        const payments = JSON.parse(localStorage.getItem('payments') || '[]');
 
-    tbody.innerHTML = ''; // Bersihkan tabel terlebih dahulu
+        tbody.innerHTML = ''; // Bersihkan tabel terlebih dahulu
 
-    payments.forEach((payment, index) => {
-        const row = tbody.insertRow();
-        row.innerHTML = `
+        payments.forEach((payment, index) => {
+            const row = tbody.insertRow();
+            row.innerHTML = `
                     <td class="p-2">${index + 1}</td>
                     <td class="p-2">${payment.tanggal}</td>
                     <td class="p-2">${payment.nama}</td>
@@ -186,100 +182,100 @@ function loadPaymentHistory() {
                         </button>
                     </td>
                 `;
-    });
-}
-
-// Fungsi untuk mengupdate status pembayaran
-function updateStatus(kode) {
-    let payments = JSON.parse(localStorage.getItem('payments') || '[]');
-    const paymentIndex = payments.findIndex(p => p.kode === kode);
-
-    if (paymentIndex !== -1) {
-        payments[paymentIndex].status = 'Dikonfirmasi';
-        localStorage.setItem('payments', JSON.stringify(payments));
-        loadPaymentHistory(); // Muat ulang tabel
-    }
-}
-
-// Muat riwayat pembayaran saat halaman dimuat
-window.addEventListener('load', loadPaymentHistory);
-
-
-function fetchWeather() {
-    fetch('/api/weather')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            this.weather = data;
-        })
-        .catch(error => {
-            console.error('Error fetching weather:', error);
-            this.weather = {
-                temperature: 'N/A',
-                description: 'Unable to fetch weather data'
-            };
         });
-}
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-    fetch('/website-usage-data')
-        .then(response => response.json())
-        .then(data => {
-            const ctx = document.getElementById('websiteUsageChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: data.map(item => item.date),
-                    datasets: [{
-                        label: 'Website Visits',
-                        data: data.map(item => item.visits),
-                        borderColor: 'rgb(59, 130, 246)',
-                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                        tension: 0.4,
-                        fill: true
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            ticks: {
-                                display: false
+    // Fungsi untuk mengupdate status pembayaran
+    function updateStatus(kode) {
+        let payments = JSON.parse(localStorage.getItem('payments') || '[]');
+        const paymentIndex = payments.findIndex(p => p.kode === kode);
+
+        if (paymentIndex !== -1) {
+            payments[paymentIndex].status = 'Dikonfirmasi';
+            localStorage.setItem('payments', JSON.stringify(payments));
+            loadPaymentHistory(); // Muat ulang tabel
+        }
+    }
+
+    // Muat riwayat pembayaran saat halaman dimuat
+    window.addEventListener('load', loadPaymentHistory);
+
+
+    function fetchWeather() {
+        fetch('/api/weather')
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                this.weather = data;
+            })
+            .catch(error => {
+                console.error('Error fetching weather:', error);
+                this.weather = {
+                    temperature: 'N/A',
+                    description: 'Unable to fetch weather data'
+                };
+            });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/website-usage-data')
+            .then(response => response.json())
+            .then(data => {
+                const ctx = document.getElementById('websiteUsageChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: data.map(item => item.date),
+                        datasets: [{
+                            label: 'Website Visits',
+                            data: data.map(item => item.visits),
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            tension: 0.4,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    display: false
+                                },
+                                grid: {
+                                    display: false
+                                }
                             },
-                            grid: {
-                                display: false
+                            x: {
+                                ticks: {
+                                    display: false
+                                },
+                                grid: {
+                                    display: false
+                                }
                             }
                         },
-                        x: {
-                            ticks: {
-                                display: false
-                            },
-                            grid: {
+                        plugins: {
+                            legend: {
                                 display: false
                             }
                         }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        }
                     }
+                });
+
+                if (data.length > 1) {
+                    const firstValue = data[0].visits;
+                    const lastValue = data[data.length - 1].visits;
+                    const percentageIncrease = ((lastValue - firstValue) / firstValue * 100).toFixed(2);
+                    document.getElementById('visitsPercentage').textContent = percentageIncrease;
                 }
             });
-
-            if (data.length > 1) {
-                const firstValue = data[0].visits;
-                const lastValue = data[data.length - 1].visits;
-                const percentageIncrease = ((lastValue - firstValue) / firstValue * 100).toFixed(2);
-                document.getElementById('visitsPercentage').textContent = percentageIncrease;
-            }
-        });
-});
+    });
 </script>
 @endsection
