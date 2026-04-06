@@ -20,7 +20,7 @@
         <!-- Right Column - Create Account -->
         <div class="flex flex-col justify-center items-center p-6 bg-white">
             <div class="w-full max-w-md">
-                <h2 class="text-3xl font-bold mb-8 text-emerald-500">Create Account</h2>
+                <h2 class="text-3xl font-bold mb-8 text-blue-500">Create Account</h2>
 
                 <!-- Social Media Links -->
                 <div class="flex space-x-6 mb-6">
